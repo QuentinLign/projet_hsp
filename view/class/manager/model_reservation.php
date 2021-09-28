@@ -1,7 +1,7 @@
 <?php
 
 class reservation { //Déclaration de la classe reservation
-//Déclaration des attributs
+//Déclaration des attribsuts
   private $_nom;
   private $_prenom;
   private $_mail;

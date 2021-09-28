@@ -18,7 +18,7 @@
 
 	<div class="container-contact100">
 		<div class="wrap-contact100">
-			<form class="contact100-form validate-form" method="POST" action="manager_reservation.php">
+			<form class="contact100-form validate-form" method="POST" action="class/manager/manager_reservation.php">
 				<span class="contact100-form-title">
 					Inscription
 				</span>
