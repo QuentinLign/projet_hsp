@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-	<title>Réserver une table</title>
+	<title>Inscription</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -26,6 +26,11 @@
 				<div class="wrap-input100 validate-input bg1" data-validate="Merci d'entrer votre nom">
 					<span class="label-input100">Nom *</span>
 					<input class="input100" type="text" name="nom" placeholder="Entre votre nom">
+				</div>
+				
+				<div class="wrap-input100 validate-input bg1" data-validate="Merci d'entrer votre nom">
+					<span class="label-input100">Prénom *</span>
+					<input class="input100" type="text" name="prenom" placeholder="Entre votre nom">
 				</div>
 
 				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Entrer votre adresse email">
