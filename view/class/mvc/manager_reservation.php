@@ -34,7 +34,7 @@ public function reservation($inscrit){
       $mail->Password = "Admwb2000";
       $mail->SetFrom($inscrit->getEmail());
       $mail->Subject = "Ouverture de compte réussie";
-      $mail->Body = "<center><b>Lycée Robert Schuman</b><br><p>Bonjour ! Votre compte a été ouvert.</p></center></html>";
+      $mail->Body = "<center><b>Hopital Sud Paris</b><br><p>Bonjour ! Votre compte a été ouvert.</p></center></html>";
       $mail->AddAddress($inscrit->getEmail());
       if(!$mail->Send())
       {
@@ -45,8 +45,8 @@ public function reservation($inscrit){
       else
       {
          echo "Le message a été envoyé";
-         $req = $bdd->prepare('INSERT into utilisateurs (nom, prenom, email, mdp) value(?,?,?,?)');
-         $req -> execute(array($inscrit->getNom(), $inscrit->getPrenom(), $inscrit->getEmail(), SHA1($inscrit->getMdp())));
+         $req = $bdd->prepare('INSERT into utilisateurs (nom, prenom, mail, mdp) value(?,?,?,?)');
+         $req -> execute(array($inscrit->getNom(), $inscrit->getPrenom(), $inscrit->getMail(), SHA1($inscrit->getMdp())));
          header('Location: ../view/confirm_inscription.html');
       }
 
