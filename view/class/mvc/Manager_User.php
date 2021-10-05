@@ -87,7 +87,7 @@ class Manager_User
         header('Location: ../../../view/index.html');
         exit();
       }
-      header('Location: ../../../view/erreur.html');
+      header('Location: ../../../view/index.html');
     }
     else
     {
