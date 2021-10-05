@@ -82,17 +82,16 @@ class Manager_User
         header('Location: ../view/admin/parametres_admin.php');
         exit();
       }
-      if ($donnee['verif'] == 0)
+      if ($donnee['verif'] == 1)
       {
-        header('Location: ../../recup_mdp.php');
+        header('Location: ../../../view/index.html');
         exit();
       }
-      header('Location: ../../../view/index.html');
+      header('Location: ../../../view/erreur.html');
     }
     else
     {
       $_SESSION['erreur_co'] = true;
-      header('Location: ../view/connexion.php');
     }
   }
 
