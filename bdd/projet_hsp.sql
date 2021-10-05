@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 28 sep. 2021 à 07:30
+-- Généré le :  mar. 05 oct. 2021 à 09:42
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -158,38 +158,34 @@ CREATE TABLE IF NOT EXISTS `urgentiste` (
 
 DROP TABLE IF EXISTS `utilisateurs`;
 CREATE TABLE IF NOT EXISTS `utilisateurs` (
-  `id` int(20) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(40) COLLATE utf8_bin NOT NULL,
   `prenom` varchar(40) COLLATE utf8_bin NOT NULL,
   `email` varchar(40) COLLATE utf8_bin NOT NULL,
   `mdp` varchar(40) COLLATE utf8_bin NOT NULL,
-  `etat_compte` tinyint(1) NOT NULL,
-  `derniere_connexion` date NOT NULL,
+  `verif` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Déchargement des données de la table `utilisateurs`
+--
+
+INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `email`, `mdp`, `verif`) VALUES
+(13, 'qq', 'qffff', 'qlignani@gmail.com', '22ea1c649c82946aa6e479e1ffd321e4a318b1b0', 0),
+(14, 'quentin', 'lignnai', 'q@qq.com', '86f7e437faa5a7fce15d1ddcb9eaeaea377667b8', 0),
+(15, 'lig', 'q', 'q.q@gmail.com', '86f7e437faa5a7fce15d1ddcb9eaeaea377667b8', 0),
+(18, 'qq', 'q', 'q.lignani@lprs.fr', '8471a3b410c2a100d5b6285018955718f1c26368', 1);
 
 --
 -- Contraintes pour les tables déchargées
 --
 
 --
--- Contraintes pour la table `diagnostic`
---
-ALTER TABLE `diagnostic`
-  ADD CONSTRAINT `id_ut_diagnostic` FOREIGN KEY (`id_utilisateurs`) REFERENCES `utilisateurs` (`id`);
-
---
--- Contraintes pour la table `dossier_admission`
---
-ALTER TABLE `dossier_admission`
-  ADD CONSTRAINT `id_utilisateurs` FOREIGN KEY (`id_utilisateurs`) REFERENCES `utilisateurs` (`id`);
-
---
 -- Contraintes pour la table `rendez-vous`
 --
 ALTER TABLE `rendez-vous`
-  ADD CONSTRAINT `id_medecin` FOREIGN KEY (`id_medecins`) REFERENCES `medecin` (`id`),
-  ADD CONSTRAINT `id_ut` FOREIGN KEY (`id_utilisateurs`) REFERENCES `utilisateurs` (`id`);
+  ADD CONSTRAINT `id_medecin` FOREIGN KEY (`id_medecins`) REFERENCES `medecin` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
