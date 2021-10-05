@@ -1,7 +1,7 @@
 <?php
 //Manager
 require_once(__DIR__.'/User.php');
-require 'view/class/mvc/vendor/autoload.php';
+require 'vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -84,7 +84,7 @@ class Manager_User
       }
       if ($donnee['verif'] == 0)
       {
-        header('Location: ../view/recup_mdp.php');
+        header('Location: recup_mdp.php');
         exit();
       }
       header('Location: ../index.php');

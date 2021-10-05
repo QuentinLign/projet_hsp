@@ -82,7 +82,7 @@ session_start();
       <div class="container">
 
 
-        <p><img src="../images/copy-icon.png" alt="">Copyright 2020.</p>
+        <p><img src="../images/copy-icon.png" alt="">Copyright 2021.</p>
       </div>
     </div><!--footy-sec end-->
 
