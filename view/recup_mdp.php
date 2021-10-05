@@ -35,7 +35,7 @@
 								<span>Changement de mot de passe</span><br>
 								<br>
 
-								<form method="post" action="../traitement/traitement_recup_mdp.php">
+								<form method="post" action="class/mvc/traitement_recup_mdp.php">
 									<div class="row">
 										<div class="col-lg-12 no-pdd">
 											<div class="sn-field">

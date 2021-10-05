@@ -84,10 +84,10 @@ class Manager_User
       }
       if ($donnee['verif'] == 0)
       {
-        header('Location: recup_mdp.php');
+        header('Location: ../../recup_mdp.php');
         exit();
       }
-      header('Location: ../index.php');
+      header('Location: ../../../view/index.html');
     }
     else
     {
