@@ -12,3 +12,14 @@ $connexion = new Manager_User;
 $connexion->connexion($donnee);
 
 ?>
+ <?php
+                        if (isset($_SESSION['erreur_co']))
+                        {
+                          echo "<div style='color:#ff0000'>
+                          Mauvais Mail ou mot de passe</div>";
+
+                          unset($_SESSION['erreur_co']);
+                        }
+                        ?>
+<html>
+<a href="../../connexion.php">Retour</a>

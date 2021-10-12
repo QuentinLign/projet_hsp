@@ -55,22 +55,22 @@ class Manager_User
          echo "Le message a été envoyé";
          $req = $bdd->prepare('INSERT into utilisateurs (nom, prenom, email, mdp) value(?,?,?,?)');
          $req -> execute(array($inscrit->getNom(), $inscrit->getPrenom(), $inscrit->getEmail(), SHA1($inscrit->getMdp())));
-         header('Location: ../view/confirm_inscription.html');
+         header('Location: ../../confirm_inscription.html');
       }
 
     }
   }
 
   // Partie Connexion
-  public function connexion(User $connexion) //méthode de connexion de l'uttilisateur, entre parenthèse, il y a les informations saisies par l'uttilisateur
+  public function connexion(User $connexion) 
   {
-    $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp','root',''); //on uttilise PDO, pour faire le pont entre PDO et PHP, on y entre si on veut se connecter en local, en l'occurence oui, le nom de la base de donnée, ainsi que les identifiants avec lesquels on uttilise SQL
-    $req = $bdd->prepare('SELECT * from utilisateurs where email = ? AND mdp = ?'); // dans la variable req (alias requete), on prépare la requete SQL, littéralement, on demande dans la table 'uttilisateurs' si l'identifiant et le hash du mot de passe entré par l'uttilisateur existent dans la table au travers d'une même ligne
+    $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp','root','');
+    $req = $bdd->prepare('SELECT * from utilisateurs where email = ? AND mdp = ?'); 
     $req->execute(array($connexion->getEmail(), SHA1($connexion->getMdp())));
-    $donnee = $req->fetch();// on demande enfin d'executer la requet qui a été préalablement préparée. Dans la variable donnée, on trouve les informations de la ligne qui correspond à l'uttilisateur entré et le hash du mot de passe entré. Si tant est qu'ils existebt au sein d'une meme ligne. Sinon, la variable donnée n'a pas d'affectation
-    if ($donnee) //Si la variable donnee existe, en conséquence, cela signifie que les identifiants sont valides puisque l'identifiant et le hash du mot de passe existent au sein d'une meme ligne.
+    $donnee = $req->fetch();
+    if ($donnee)
     {
-      $_SESSION['email'] = $donnee['email']; //on insère dans la session l'addresse mail entrée par l'uttilisateur dans le formulaire
+      $_SESSION['email'] = $donnee['email']; 
       $_SESSION['nom'] = $donnee['nom']; //on insère dans la session le non de l'uttilisateur
       $_SESSION['prenom'] = $donnee['prenom'];
       $ref = $bdd->prepare('UPDATE utilisateurs SET derniere_connexion = NOW() WHERE email=?');

@@ -54,15 +54,7 @@ session_start();
                         <div class="col-lg-12 no-pdd">
                           <button type="submit" value="submit">Se connecter</button>
                         </div>
-                        <?php
-                        if (isset($_SESSION['erreur_co']))
-                        {
-                          echo "<div style='color:#ff0000'>
-                          Mauvais Mail ou mot de passe</div>";
-
-                          unset($_SESSION['erreur_co']);
-                        }
-                        ?>
+                       
                       </div>
                     </form>
 
