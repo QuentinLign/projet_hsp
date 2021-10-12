@@ -79,15 +79,15 @@ class Manager_User
       if ($donnee['role'] == "ADMIN")
       {
         $_SESSION['role'] = $donnee['role'];
-        header('Location: ../../index.html');
+        header('Location: ../../index.php');
         exit();
       }
       if ($donnee['verif'] == 1)
       {
-        header('Location: ../../../view/index.html');
+        header('Location: ../../../view/index.php');
         exit();
       }
-      header('Location: ../../../view/index.html');
+      header('Location: ../../../view/index.php');
     }
     else
     {
