@@ -60,7 +60,7 @@ function Genere_Password($size)
           $req = $bdd->prepare('UPDATE utilisateurs SET mdp = ? , verif = 0 WHERE email = ?');
           $req->execute(array($smdp, $email));
 
-          header('location:../view/reinit_mdp.php');
+          header('location:../../reinit_mdp.php');
           }
 
 

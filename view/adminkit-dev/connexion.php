@@ -53,7 +53,7 @@ session_start();
 											<label class="form-label">Mot de passe</label>
 											<input class="form-control form-control-lg" type="password" name="mdp" placeholder="Entrer votre mot de passe" />
 											<small>
-            <a href="index.html">Mot de passe oublié?</a>
+            <a href="mdp_oublie.php">Mot de passe oublié?</a>
           </small>
 										</div>
 										<div>
