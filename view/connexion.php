@@ -7,7 +7,7 @@ session_start();
 
 
 <body class="sign-in">
-
+<meta charset="utf-8"/>
 
   <div class="wrapper">
 

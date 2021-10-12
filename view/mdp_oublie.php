@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>UFA Robert Schuman | Connexion</title>
+	<title>Mot de passe oublié</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
@@ -31,7 +31,7 @@
 
 					<div style="float: left; width: 100%; background-color: #fff;border-radius: 4px;">
 						<div style="margin-top:25%;margin-bottom:25%; font-size:24px">
-							<center>
+							
 								<span>Mot de passe oublié</span><br>
 								<br>
 
@@ -61,7 +61,6 @@
 								</form>
 								<!--gestion d'erreur-->
 
-							</center>
 						</div>
 					</div>
 
@@ -75,7 +74,7 @@
 		<div class="container">
 
 
-			<p><img src="../images/copy-icon.png" alt="">Copyright 2020.</p>
+			<p><img src="../images/copy-icon.png" alt="">Copyright 2021.</p>
 		</div>
 	</div><!--footy-sec end-->
 
