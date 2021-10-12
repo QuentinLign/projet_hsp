@@ -84,10 +84,10 @@ class Manager_User
       }
       if ($donnee['verif'] == 1)
       {
-        header('Location: ../../../view/index.html');
+        header('Location: ../../index.php');
         exit();
       }
-      header('Location: ../../../view/index.html');
+      header('Location: ../../index.php');
     }
     else
     {
