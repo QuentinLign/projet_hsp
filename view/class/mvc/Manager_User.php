@@ -79,7 +79,7 @@ class Manager_User
       if ($donnee['role'] == "ADMIN")
       {
         $_SESSION['role'] = $donnee['role'];
-        header('Location: ../view/admin/parametres_admin.php');
+        header('Location: ../../index.html');
         exit();
       }
       if ($donnee['verif'] == 1)
@@ -95,6 +95,95 @@ class Manager_User
     }
   }
 
+//Update des données utilisateur dans la bdd
+  public function modification(User $modif, $email)
+  {
+    $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp','root','');
+    $req = $bdd->prepare('UPDATE utilisateurs SET nom = ?, prenom = ? WHERE email = ?');
+    $req->execute(array($modif->getNom(), $modif->getPrenom(), $email));
+    $_SESSION['succes_modif'] = 'Modification enregistré';
+    header('location: ../view/parametres_du_compte.php#nav-statue');
+    //actualisation du nom de l'utilisateur dans les pages
+    $req = $bdd->prepare('SELECT * from utilisateurs where email = ?');
+    $req->execute(array($email));
+    $donnee = $req->fetch();
+    $_SESSION['nom'] = $donnee['nom'];
+    $_SESSION['prenom'] = $donnee['prenom'];
+  }
+
+  //Update des données utilisateur dans la bdd
+  public function modif_mdp(User $verif, $mdp, $email)
+  {
+    $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp','root','');
+    $req = $bdd->prepare('SELECT * from utilisateurs where email = ? AND mdp = ?');
+    $req->execute(array($email, SHA1($verif->getMdp())));
+    $donnee = $req->fetch();
+    if ($donnee)
+    {
+      $req = $bdd->prepare('UPDATE utilisateurs SET mdp = ? WHERE email = ?');
+      $req->execute(array(SHA1($mdp), $email));
+      header('location: ../view/parametres_du_compte.php#nav-password');
+      $_SESSION['message_mdp'] = 'Modification enregistré';
+      echo '<scrip>$(document).ready(function()){
+        $("nav").toggleClass("active");
+        return false;
+      });</script>';
+    }
+    else
+    {
+      $_SESSION['message_mdp'] = 'Mauvais mot de passe';
+      header('location: ../view/parametres_du_compte.php#nav-password');
+      echo '<scrip>$(document).ready(function(){
+        console.log( "ready!" );
+      });</script>';
+    }
+
+
+  }
+
+  //Update des données utilisateur dans la bdd
+  public function recup_mdp(User $change, $email)
+  {
+    $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp','root','');
+    $req = $bdd->prepare('UPDATE utilisateurs SET mdp = ?, verif = 1 WHERE email = ?');
+    $req->execute(array(SHA1($change->getMdp()), $email));
+    header('location: ../index.php');
+  }
+
+
+  //inscription d'un compte admin
+  public function inscrip_admin(User $inscription)
+  {
+    $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp','root','');
+    $req = $bdd->prepare('SELECT * FROM utilisateurs WHERE email = :email');
+    $req->execute(array('email'=>$inscription->getEmail()));
+    $donnee = $req->fetch();
+    if($donnee)
+    {
+      $_SESSION['erreur_add_admin'] = "L'identifiant est déjà utilisé.";
+      header('Location: ../view/ajout_admin.php');
+    }
+    else
+    {
+      $req = $bdd->prepare('INSERT into utilisateurs (nom, prenom, email, mdp, role) value(?,?,?,?, "admin")');
+      $req -> execute(array($inscription->getNom(), $inscription->getPrenom(), $inscription->getEmail(), SHA1($inscription->getMdp())));
+
+      $_SESSION['add_admin'] = "Un compte administrateur a été ajouter avec succès.";
+      header('Location: ../view/ajout_admin.php');
+    }
+  }
+
+  //récupération des données utilisateur pour un affichage
+  public function recup_user()
+  {
+    $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp','root','');
+    $req = $bdd->query('SELECT * FROM utilisateurs');
+    $donnee = $req->fetchall();
+    return $donnee;
+  }
+
+}
+?>
 
 }
 ?>
