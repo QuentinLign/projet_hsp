@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+require_once 'bdd/bdd.php';
+?>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -67,9 +71,15 @@
 
 
             <?php
-            $connect = mysqli_connect("localhost", "root", "", "projet_hsp");
-            $query ="SELECT * FROM administrateur ORDER BY id DESC";
-            $result = mysqli_query($connect, $query);
+            require_once '../adminkit-dev/bdd/bdd.php';
+
+
+            $bdd = new bdd;
+            $req=$bdd->getStart()->prepare('SELECT * FROM administrateur ORDER BY id DESC');
+            $req->execute(array(
+            ));
+
+            $res=$req->fetchall();
             ?>
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
@@ -79,7 +89,7 @@
             <body>
             <br /><br />
             <div class="container">
-                <h3 align="center">Données des medecin</h3>
+                <h3 align="center">Données des administrateur</h3>
                 <br />
                 <div class="table-responsive">
                     <table id="employee_data" class="table table-striped table-bordered">
@@ -93,7 +103,7 @@
                         </tr>
                         </thead>
                         <?php
-                        while($row = mysqli_fetch_array($result))
+                        foreach($res as $row )
                         {
                             echo '  
                                <tr>

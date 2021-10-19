@@ -61,19 +61,23 @@
         <div class="container-fluid p-0">
 
             <div class="mb-3">
-                <h1 class="h3 d-inline align-middle">Utilisateur</h1>
+                <h1 class="h3 d-inline align-middle">Rendez_vous</h1>
                 </a>
             </div>
-
-
             <?php
-            $this->bdd = new PDO('mysql:host=localhost;dbname=projet_hsp;charset=utf8', 'root', '');
-            $req=$this->bdd->getStart()->prepare('SELECT * FROM rendez-vous ORDER BY id DESC');
+
+            require_once '../adminkit-dev/bdd/bdd.php';
+
+
+            $bdd = new bdd;
+            $req=$bdd->getStart()->prepare('SELECT * FROM rendez-vous ORDER BY id DESC');
         $req->execute(array(
         ));
 
+            $res=$req->fetchall();
+
+
             ?>
-                <title>DATA TABLE admin</title>
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
                 <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
@@ -96,7 +100,7 @@
                         </tr>
                         </thead>
                         <?php
-                        while($row = PDO($req))
+                        foreach($res as $row )
                         {
                             echo '  
                                <tr>

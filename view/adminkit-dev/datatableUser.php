@@ -68,9 +68,15 @@
 
 
                 <?php
-                $connect = mysqli_connect("localhost", "root", "", "projet_hsp");
-                $query ="SELECT * FROM utilisateurs ORDER BY id DESC";
-                $result = mysqli_query($connect, $query);
+                require_once '../adminkit-dev/bdd/bdd.php';
+
+
+                $bdd = new bdd;
+                $req=$bdd->getStart()->prepare('SELECT * FROM utilisateurs ORDER BY id DESC');
+                $req->execute(array(
+                ));
+
+                $res=$req->fetchall();
                 ?>
 
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
@@ -94,7 +100,7 @@
                             </tr>
                             </thead>
                             <?php
-                            while($row = mysqli_fetch_array($result))
+                            foreach($res as $row )
                             {
                                 echo '  
                                <tr>
