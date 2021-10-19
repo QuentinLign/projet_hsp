@@ -35,6 +35,15 @@ if(!isset($_SESSION['email']))
 <?php include 'top_navadmin.php';?>
 
 			<main class="content">
+         <div>
+     <?php if(isset($_SESSION['message_mdp']))
+                          {
+                            echo $_SESSION['message_mdp'];
+                            unset($_SESSION['message_mdp']);
+                          } 
+                          
+
+                          ?></div>
 				<div class="d-flex align-items-start">
   <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
     <button class="nav-link active" id="infos" data-bs-toggle="pill" data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Mes infos</button>
@@ -42,6 +51,7 @@ if(!isset($_SESSION['email']))
     <button class="nav-link" id="mdp" data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Mot de passe</button>
    
   </div>
+ 
   <div class="tab-content" id="v-pills-tabContent">
     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
     	<h1 class="h3 mb-3"><strong>Mes informations</strong>
@@ -119,14 +129,7 @@ if(!isset($_SESSION['email']))
                       <div class="save-stngs pd2">
                         <ul>
                           <li><button type="submit">Enregistrer</button></li>
-                          <?php if(isset($_SESSION['message_mdp']))
-                          {
-                            echo $_SESSION['message_mdp'];
-                            unset($_SESSION['message_mdp']);
-                          } 
-                          
-
-                          ?>
+                         
                         </ul>
                       </div><!--save-stngs end-->
                     </form>

@@ -104,7 +104,7 @@ class Manager_User
     $req = $bdd->prepare('UPDATE utilisateurs SET nom = ?, prenom = ? WHERE email = ?');
     $req->execute(array($modif->getNom(), $modif->getPrenom(), $email));
     $_SESSION['succes_modif'] = 'Modification enregistré';
-    header('location: ../view/parametres_du_compte.php#nav-statue');
+    header('location: ../../mon-compte.php');
     //actualisation du nom de l'utilisateur dans les pages
     $req = $bdd->prepare('SELECT * from utilisateurs where email = ?');
     $req->execute(array($email));
