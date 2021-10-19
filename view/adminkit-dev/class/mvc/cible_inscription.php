@@ -8,7 +8,9 @@ session_start();
 if($_POST['mdp'] != $_POST['confirmmdp'])
 {
   $_SESSION['erreur_inscr'] = "Erreur dans le mot de passe.";
-  header('Location: ../view/inscription.php');
+   echo "<div style='color:#ff0000'>
+   ".$_SESSION['erreur_inscr'];
+   unset($_SESSION['erreur_inscr']);
 }
 //ajout dans la bdd
 else

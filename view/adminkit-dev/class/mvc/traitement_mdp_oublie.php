@@ -67,7 +67,10 @@ function Genere_Password($size)
           }
           else //Gestion d'erreur, si le mail n'as pas été envoyé
           {
-            $_SESSION['erreur_mail'] = 1;
-            header('location:../view/mdp_oublie.php');
+             $_SESSION['erreur_mail'] = "L'adresse email n'est pas valide.";
+            
+           echo "<div style='color:#ff0000'>
+          ".$_SESSION['erreur_mail'];
+           unset($_SESSION['erreur_mail']);
             }
             ?>

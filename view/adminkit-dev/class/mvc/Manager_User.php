@@ -24,7 +24,9 @@ class Manager_User
     if($donnee)
     {
       $_SESSION['erreur_inscr'] = "L'adresse éléctronique est déjà associée à un compte.";
-      header('Location: ../view/inscription.php');
+      echo "<div style='color:#ff0000'>
+     ".$_SESSION['erreur_inscr'];
+     unset($_SESSION['erreur_inscr']);
     }
     else
     {
@@ -55,7 +57,7 @@ class Manager_User
          echo "Le message a été envoyé";
          $req = $bdd->prepare('INSERT into utilisateurs (nom, prenom, email, mdp) value(?,?,?,?)');
          $req -> execute(array($inscrit->getNom(), $inscrit->getPrenom(), $inscrit->getEmail(), SHA1($inscrit->getMdp())));
-         header('Location: ../view/confirm_inscription.html');
+         header('Location: ../../confirm_inscription.html');
       }
 
     }

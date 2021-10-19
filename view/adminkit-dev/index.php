@@ -46,8 +46,6 @@ session_start();
             if (isset($_SESSION['nom']))
             {
               echo '<div class="user-info">
-              <img src="http://via.placeholder.com/30x30" alt="">
-              <a href="#" title="">'.$_SESSION['nom'].'</a>
               <i class="la la-sort-down"></i>
               </div>
               <li>
@@ -60,7 +58,6 @@ session_start();
             else
             {
               echo '<div class="user-info">
-              <a href="#" title="">Connectez vous</a>
               <i class="la la-sort-down"></i>
               </div>
               <div class="user-account-settingss">
@@ -82,7 +79,13 @@ session_start();
 
 					<h1 class="h3 mb-3"><strong>Bienvenue</strong>
 					<?php 
+					if (isset($_SESSION['nom']))
+            		{
 					echo htmlspecialchars($_SESSION['nom']);
+					}
+					else {
+					echo '';
+					}
 					?>
 					</h1>
 
