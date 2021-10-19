@@ -133,10 +133,9 @@ class Manager_User
     }
     else
     {
-      $_SESSION['erreur_mdp'] = "Le mot de passe est incorrect.";
-      echo "<div style='color:#ff0000'>
-     ".$_SESSION['erreur_mdp'];
-     unset($_SESSION['erreur_mdp']);
+        echo "Mailer Error: " . $mail->ErrorInfo;
+         $_SESSION['erreur_inscr'] = 'Mot de passe invalide';
+         header('Location: ../../mon-compte.php');
 
 
   }

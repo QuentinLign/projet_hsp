@@ -11,7 +11,7 @@ if($_POST['mdp'] != $_POST['confirmmdp'])
 	exit();
 }
 
-$donnee = new User(['mdp'=>$_POST['mdp']]);
+$donnee = new User(['mdp'=>$_POST['amdp']]);
 
 $verif = new Manager_User;
 $verif->modif_mdp($donnee, $_POST['mdp'], $_SESSION['email']);

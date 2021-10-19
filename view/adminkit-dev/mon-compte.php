@@ -120,10 +120,7 @@ session_start();
                             echo $_SESSION['message_mdp'];
                             unset($_SESSION['message_mdp']);
                           } 
-                          else {
-                          	echo "<div style='color:#ff0000'>";
-                            unset($_SESSION['erreur_mdp']);
-                          }
+                          
 
                           ?>
                         </ul>
