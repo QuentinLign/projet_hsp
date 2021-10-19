@@ -124,7 +124,7 @@ class Manager_User
     {
       $req = $bdd->prepare('UPDATE utilisateurs SET mdp = ? WHERE email = ?');
       $req->execute(array(SHA1($mdp), $email));
-      header('location: ../view/parametres_du_compte.php#nav-password');
+      header('location: ../../mon-compte.php');
       $_SESSION['message_mdp'] = 'Modification enregistré';
       echo '<scrip>$(document).ready(function()){
         $("nav").toggleClass("active");
@@ -133,16 +133,14 @@ class Manager_User
     }
     else
     {
-      $_SESSION['message_mdp'] = 'Mauvais mot de passe';
-      header('location: ../view/parametres_du_compte.php#nav-password');
-      echo '<scrip>$(document).ready(function(){
-        console.log( "ready!" );
-      });</script>';
-    }
+      $_SESSION['erreur_mdp'] = "Le mot de passe est incorrect.";
+      echo "<div style='color:#ff0000'>
+     ".$_SESSION['erreur_mdp'];
+     unset($_SESSION['erreur_mdp']);
 
 
   }
-
+}
   //Update des données utilisateur dans la bdd
   public function recup_mdp(User $change, $email)
   {
