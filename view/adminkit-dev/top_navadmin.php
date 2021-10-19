@@ -21,7 +21,7 @@
               </div>
               <li>
               <div class="user-account-settingss">
-              <h5>Mon Compte</h5>
+              <h5><a href="mon-compte.php">Mon Compte</a></h5>
               
               <h5 class="tc"><a href="deconnexion.php" title="">Se déconnecter</a></h5>
               </div></li><!--fin des paramètres du compte utilisateur-->';
