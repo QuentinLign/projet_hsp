@@ -138,7 +138,7 @@ class Manager_User
 
       }
   }
-  public function modif_da(User $modif)
+  public function modif_da(User $modif,$email)
   {
     $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp','root','');
     $req = $bdd->prepare('UPDATE utilisateurs SET id_utilisateurs = ?, mutuelle = ?, date_naissance = ?,adresse_postale = ?,numero_secu = ?,option = ?, regime_specifique = ?, id_medecins = ?, WHERE email = ?');
