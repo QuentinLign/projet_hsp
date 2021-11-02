@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Doctor Patient</title>
+	<title>Connexion</title>
 	<link rel="stylesheet"  href="css/doctorpatient.css">
 
 	<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
@@ -12,9 +12,9 @@
 
 <body>
 	<div class="wrapper">
-		<div class="btn" > <a href="login3.php">
+		<div class="btn" > <a href="connexion_administrateur.php">
 
-<button type="button" class="buttonA" > Admin</button>
+<button type="button" class="buttonA" >Administrateur</button>
 
 </div>
 
@@ -22,7 +22,7 @@
 
 
 	<div class="wrapper" style="text-decoration: none;">
-	<div class="btn" > <a href="login.php"  >
+	<div class="btn" > <a href="connexion_patient.php"  >
 <button type="button" class="buttonP">Patient</button>
 </div>
 
@@ -30,8 +30,8 @@
 
 
 	<div class="wrapper" style="text-decoration: none;">
-	<div class="btn" > <a href="login2.php"  >
-<button type="button" class="buttonD">Doctor</button>
+	<div class="btn" > <a href="connexion_medecin.php"  >
+<button type="button" class="buttonD">Médecin</button>
         </a>
 </div>
 
