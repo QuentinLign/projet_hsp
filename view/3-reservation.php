@@ -25,8 +25,8 @@ session_start();
     if (isset($_POST['date'])) {
       require "2-reserve.php";
       if ($_RSV->save(
-        $_POST['date'], $_POST['slot'], $_POST['name'],
-        $_POST['email'], $_POST['tel'], $_POST['notes'])) {
+        $_POST['date'], $_POST['heure'], $_POST['nom'],
+        $_POST['email'], $_POST['id_medecins'])) {
         echo "<div class='ok'>Reservation saved.</div>";
       } else { echo "<div class='err'>".$_RSV->error."</div>"; }
     }
@@ -35,14 +35,12 @@ session_start();
     <!-- (B) RESERVATION FORM -->
     <h1>RESERVATION</h1>
     <form id="resForm" method="post" target="_self">
-      <label for="res_name">Name</label>
-      <input type="text" required name="name" value="<?php echo htmlspecialchars($_SESSION['nom']);?>"/>
+      <label for="res_name">Nom</label>
+      <input type="text" required name="nom" value="<?php echo htmlspecialchars($_SESSION['id_utilisateurs']);?>"/>
 
       <label for="res_email">Email</label>
       <input type="email" required name="email" value="<?php echo htmlspecialchars($_SESSION['email']);?>"/>
 
-      <label for="res_tel">Numéro de téléphone</label>
-      <input type="text" required name="tel"/>
 
 
       <?php
@@ -50,15 +48,16 @@ session_start();
       // $mindate = date("Y-m-d", strtotime("+2 days"));
       $mindate = date("d-m-Y");
       ?>
-      <label>Reservation Date</label>
+      <label>Date</label>
       <input type="date" required id="res_date" name="date"
              min="<?=$mindate?>">
 
-      <label>Reservation Heure</label>
-      <input type="time" required id="time" name="date"
+      <label>Heure</label>
+      <input type="time" required id="time" name="heure"
              min="<?=$mindate?>">
 
-      <input type="submit" value="Submit"/>
+      <input type="submit" value="Ajouter"/>
     </form>
+
   </body>
 </html>

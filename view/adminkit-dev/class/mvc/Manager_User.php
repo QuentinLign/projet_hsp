@@ -97,6 +97,8 @@ class Manager_User
     }
   }
 
+  
+
 //Update des données utilisateur dans la bdd
   public function modification(User $modif, $email)
   {
@@ -171,6 +173,9 @@ class Manager_User
       header('Location: ../view/ajout_admin.php');
     }
   }
+
+   //inscription d'un compte admin
+ 
 
   //récupération des données utilisateur pour un affichage
   public function recup_user()
