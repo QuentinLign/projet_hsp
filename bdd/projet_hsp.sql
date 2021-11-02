@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 05 oct. 2021 à 09:42
--- Version du serveur :  5.7.26
--- Version de PHP :  7.2.18
+-- Généré le : mar. 02 nov. 2021 à 12:25
+-- Version du serveur :  5.7.31
+-- Version de PHP : 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,33 +18,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `projet_hsp`
+-- Base de données : `projet_hsp`
 --
-
--- --------------------------------------------------------
-
---
--- Structure de la table `administrateur`
---
-
-DROP TABLE IF EXISTS `administrateur`;
-CREATE TABLE IF NOT EXISTS `administrateur` (
-  `id` int(11) NOT NULL,
-  `nom` varchar(40) NOT NULL,
-  `prenom` varchar(40) NOT NULL,
-  `mail` varchar(30) NOT NULL,
-  `mdp` varchar(30) NOT NULL,
-  `etat_compte` int(1) NOT NULL,
-  `derniere_connexion` date NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `administrateur`
---
-
-INSERT INTO `administrateur` (`id`, `nom`, `prenom`, `mail`, `mdp`, `etat_compte`, `derniere_connexion`) VALUES
-(1, 'LIGNANI', 'Quentin', 'qlignani@gmail.com', '1234', 1, '2021-09-21');
 
 -- --------------------------------------------------------
 
@@ -85,32 +59,6 @@ CREATE TABLE IF NOT EXISTS `dossier_admission` (
   PRIMARY KEY (`id`),
   KEY `id_utilisateurs` (`id_utilisateurs`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `medecin`
---
-
-DROP TABLE IF EXISTS `medecin`;
-CREATE TABLE IF NOT EXISTS `medecin` (
-  `id` int(11) NOT NULL,
-  `nom` varchar(40) NOT NULL,
-  `prenom` varchar(40) NOT NULL,
-  `mail` varchar(30) NOT NULL,
-  `mdp` varchar(30) NOT NULL,
-  `specialite` varchar(30) NOT NULL,
-  `etat_compte` int(1) NOT NULL,
-  `derniere_connexion` date NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `medecin`
---
-
-INSERT INTO `medecin` (`id`, `nom`, `prenom`, `mail`, `mdp`, `specialite`, `etat_compte`, `derniere_connexion`) VALUES
-(1, 'LIGNANI', 'Quentin', 'q.lignani@lprs.fr', '1234', 'Medecin generaliste', 1, '2021-09-21');
 
 -- --------------------------------------------------------
 
@@ -163,19 +111,27 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `prenom` varchar(40) COLLATE utf8_bin NOT NULL,
   `email` varchar(40) COLLATE utf8_bin NOT NULL,
   `mdp` varchar(40) COLLATE utf8_bin NOT NULL,
+  `specialite` varchar(20) COLLATE utf8_bin DEFAULT NULL,
+  `date_connexion` date DEFAULT NULL,
+  `role` varchar(10) COLLATE utf8_bin DEFAULT NULL,
   `verif` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Déchargement des données de la table `utilisateurs`
 --
 
-INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `email`, `mdp`, `verif`) VALUES
-(13, 'qq', 'qffff', 'qlignani@gmail.com', '22ea1c649c82946aa6e479e1ffd321e4a318b1b0', 0),
-(14, 'quentin', 'lignnai', 'q@qq.com', '86f7e437faa5a7fce15d1ddcb9eaeaea377667b8', 0),
-(15, 'lig', 'q', 'q.q@gmail.com', '86f7e437faa5a7fce15d1ddcb9eaeaea377667b8', 0),
-(18, 'qq', 'q', 'q.lignani@lprs.fr', '8471a3b410c2a100d5b6285018955718f1c26368', 1);
+INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `email`, `mdp`, `specialite`, `date_connexion`, `role`, `verif`) VALUES
+(19, 'lignani', 'quentin', 'qlignani@gmail.com', '9b183a6a84378eafd2d748a179a7d5db0198f407', NULL, NULL, NULL, 0),
+(21, 'lignani', 'quentin', 'q.l@lprs.fr', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, NULL, NULL, 1),
+(22, 'qq', 'qqqqqq', 'qqqqq@qq.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, NULL, NULL, 1),
+(23, 'qq', 'qq', 'qll@gmail.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, NULL, NULL, 1),
+(24, 'qq', 'qq', 'qqqqqq@qq.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, NULL, NULL, 1),
+(25, 'qq', 'qq', 'qqql@gg.coom', '7b52009b64fd0a2a49e6d8a939753077792b0554', NULL, NULL, NULL, 1),
+(26, 'qqq', 'qq', 'qqqqp@qq.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, NULL, NULL, 1),
+(30, 'qq', 'qqq', 'qq@qq.com', '7110eda4d09e062aa5e4a390b0a572ac0d2c0220', NULL, NULL, NULL, 1),
+(31, 'LIGNANI', 'Quentin', 'q.lignani@lprs.fr', '7de5598d66ec38e16a93845a47e8dec369fd42bc', NULL, NULL, 'ADMIN', 0);
 
 --
 -- Contraintes pour les tables déchargées

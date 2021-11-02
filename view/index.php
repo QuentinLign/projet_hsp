@@ -85,14 +85,14 @@ session_start();
             if (isset($_SESSION['nom']))
             {
               echo '<div class="user-info">
-              <img src="http://via.placeholder.com/30x30" alt="">
-              <a href="#" title="">'.$_SESSION['nom'].'</a>
+    
+              <a href="adminkit-dev/index.php" title="">'.$_SESSION['nom'].'</a>
               <i class="la la-sort-down"></i>
               </div>
               <div class="user-account-settingss">
               <h3>Mon Compte</h3>
               <ul class="us-links">
-              <li><a href="view/parametres_du_compte.php" title="">Paramètre du compte</a></li>
+              <li><a href="adminkit-dev/index.php" title="">Paramètre du compte</a></li>
               </ul>
               <h3 class="tc"><a href="deconnexion.php" title="">Se déconnecter</a></h3>
               </div><!--fin des paramètres du compte utilisateur-->';
