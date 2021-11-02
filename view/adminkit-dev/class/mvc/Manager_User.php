@@ -149,34 +149,32 @@ class Manager_User
   //Update des données utilisateur dans la bdd
   public function modif_mdp(User $verif, $mdp, $email)
   {
-    $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp','root','');
-    $req = $bdd->prepare('SELECT * from utilisateurs where email = ? AND mdp = ?');
-    $req->execute(array($email, SHA1($verif->getMdp())));
-    $donnee = $req->fetch();
-    if ($donnee)
-    {
-      $req = $bdd->prepare('UPDATE utilisateurs SET mdp = ? WHERE email = ?');
-      $req->execute(array(SHA1($mdp), $email));
-      header('location: ../../mon-compte.php');
-      $_SESSION['message_mdp'] = 'Modification enregistré';
-      echo '<scrip>$(document).ready(function()){
+      $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp', 'root', '');
+      $req = $bdd->prepare('SELECT * from utilisateurs where email = ? AND mdp = ?');
+      $req->execute(array($email, SHA1($verif->getMdp())));
+      $donnee = $req->fetch();
+      if ($donnee) {
+          $req = $bdd->prepare('UPDATE utilisateurs SET mdp = ? WHERE email = ?');
+          $req->execute(array(SHA1($mdp), $email));
+          header('location: ../../mon-compte.php');
+          $_SESSION['message_mdp'] = 'Modification enregistré';
+          echo '<scrip>$(document).ready(function()){
         $("nav").toggleClass("active");
         return false;
       });</script>';
-    }
-    else
-    {
-        echo "Mailer Error: " . $mail->ErrorInfo;
-         $_SESSION['erreur_inscr'] = 'Mot de passe invalide';
-         header('Location: ../../mon-compte.php');
+      } else {
+          echo "Mailer Error: " . $email->ErrorInfo;
+          $_SESSION['erreur_inscr'] = 'Mot de passe invalide';
+          header('Location: ../../mon-compte.php');
 
 
+      }
   }
   public function modif_da(User $modif)
   {
     $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp','root','');
     $req = $bdd->prepare('UPDATE utilisateurs SET id_utilisateurs = ?, mutuelle = ?, date_naissance = ?,adresse_postale = ?,numero_secu = ?,option = ?, regime_specifique = ?, id_medecins = ?, WHERE email = ?');
-    $req->execute(array($modif->getid_utilisateurs(), $modif->getmutuelle(),$modif->getdate_naissance(),$modif->getadresse_postale(),$modif->getnumero_secu(),$modif->getoption(),$modif->getregime_specifique(),$modif->getid_medecins(), $email));
+    $req->execute(array($modif->getid_utilisateurs(), $modif->getmutuelle(),$modif->getdate_naissance(),$modif->getadresse_postale(),$modif->getnumero_secu(),$modif->getoption(),$modif->getregime_specifique(),$modif->getid_medecins(),$email));
     $_SESSION['succes_modif'] = 'Modification enregistré';
     header('location: ../../mon-compte.php');
     //actualisation du nom de l'utilisateur dans les pages
@@ -193,27 +191,6 @@ class Manager_User
     $_SESSION['id_medecins'] = $donnee['id_medecins'];
   }
 
-  //Update des données utilisateur dans la bdd
-  public function modif_mdp(User $verif, $mdp, $email)
-  {
-    $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp','root','');
-    $req = $bdd->prepare('SELECT * from utilisateurs where email = ? AND mdp = ?');
-    $req->execute(array($email, SHA1($verif->getMdp())));
-    $donnee = $req->fetch();
-    if ($donnee)
-    {
-      $req = $bdd->prepare('UPDATE utilisateurs SET mdp = ? WHERE email = ?');
-      $req->execute(array(SHA1($mdp), $email));
-      header('location: ../../mon-compte.php');
-      $_SESSION['message_mdp'] = 'Modification enregistré';
-      echo '<scrip>$(document).ready(function()){
-        $("nav").toggleClass("active");
-        return false;
-      });</script>';
-    }
-
-
-}
   //Update des données utilisateur dans la bdd
   public function recup_mdp(User $change, $email)
   {

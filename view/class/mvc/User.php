@@ -5,7 +5,6 @@ class User
   private $id;
   private $nom;
   private $prenom;
-  private $mail;
   private $email;
   private $mdp;
   private $etat_compte;
@@ -65,11 +64,6 @@ class User
     return $this->prenom;
   }
 
-  public function getMail()
-  {
-    return $this->mail;
-  }
-
   public function getEmail()
   {
     return $this->email;
@@ -111,15 +105,6 @@ class User
     // On vérifie qu'il s'agit bien d'une chaîne de caractères.
     if (is_string($prenom)) {
       $this->prenom = $prenom;
-    }
-  }
-
-
-  public function setMail($mail)
-  {
-    // On vérifie qu'il s'agit bien d'une chaîne de caractères.
-    if (is_string($mail)) {
-      $this->mail = $mail;
     }
   }
 
