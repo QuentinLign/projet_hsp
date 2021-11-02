@@ -64,7 +64,7 @@ session_start();
 
 
             $bdd = new bdd;
-            $req=$bdd->getStart()->prepare('SELECT * FROM medecin INNER JOIN rendez-vous on medecin.id = rendez-vous.id_medecins   ');
+            $req=$bdd->getStart()->prepare('SELECT * FROM rendezvous INNER JOIN utilisateurs ON rendezvous.id_utilisateurs = utilisateurs.id');
             $req->execute(array(
             ));
 
