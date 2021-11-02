@@ -44,7 +44,7 @@ session_start();
 									<div class="text-center">
 										<img src="img/avatars/avatar.jpg" alt="Charles Hall" class="img-fluid rounded-circle" width="132" height="132" />
 									</div>
-									<form action="class/mvc/cible_co_med.php" method="POST">
+									<form action="class/mvc/cible_connexion.php" method="POST">
 										<div class="mb-3">
 											<label class="form-label">Email</label>
 											<input class="form-control form-control-lg" type="email" name="email" placeholder="Entrer votre Email" />
