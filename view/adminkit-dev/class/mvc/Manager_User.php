@@ -97,6 +97,7 @@ class Manager_User
     }
   }
 
+  
     public function medecin(User $connexion) //méthode de connexion de l'uttilisateur, entre parenthèse, il y a les informations saisies par l'uttilisateur
     {
         $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp','root',''); //on uttilise PDO, pour faire le pont entre PDO et PHP, on y entre si on veut se connecter en local, en l'occurence oui, le nom de la base de donnée, ainsi que les identifiants avec lesquels on uttilise SQL
@@ -129,6 +130,7 @@ class Manager_User
             $_SESSION['erreur_co'] = true;
         }
     }
+
 
 //Update des données utilisateur dans la bdd
   public function modification(User $modif, $email)
@@ -222,6 +224,9 @@ class Manager_User
       header('Location: ../view/ajout_admin.php');
     }
   }
+
+   //inscription d'un compte admin
+ 
 
   //récupération des données utilisateur pour un affichage
   public function recup_user()

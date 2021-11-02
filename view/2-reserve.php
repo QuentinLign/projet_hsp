@@ -32,7 +32,7 @@ class Reservation {
     // (D2) DATABASE ENTRY
     try {
       $this->stmt = $this->pdo->prepare(
-        "INSERT INTO `reservations` (`res_date`, `res_slot`, `res_name`, `res_email`, `res_tel`, `res_notes`) VALUES (?,?,?,?,?,?)"
+        "INSERT INTO `rendez-vous` (`id_utilisateurs`, `res_slot`, `res_name`, `res_email`, `res_tel`, `res_notes`) VALUES (?,?,?,?,?,?)"
       );
       $this->stmt->execute([$date, $slot, $name, $email, $tel, $notes]);
     } catch (Exception $ex) {
