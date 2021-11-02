@@ -22,6 +22,7 @@
 
 <body>
 <?php include 'navadmin.php';?>
+<?php include 'top_navadmin.php';?>
 
 
 <div class="main">
@@ -70,19 +71,19 @@
 
 
             $bdd = new bdd;
-            $req=$bdd->getStart()->prepare('SELECT * FROM rendez-vous WHERE id DESC');
-        $req->execute(array(
-        ));
+            $req=$bdd->getStart()->prepare('SELECT * FROM medecin INNER JOIN rendez-vous on medecin.id = rendez-vous.id_medecins   ');
+            $req->execute(array(
+            ));
 
             $res=$req->fetchall();
 
 
             ?>
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-                <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-                <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
-                <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+            <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+            <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
             <body>
             <br /><br />
             <div class="container">
@@ -117,43 +118,43 @@
                 </div>
             </div>
             </body>
-            </html>
-            <script>
-                $(document).ready(function(){
-                    $('#employee_data').DataTable();
-                });
-            </script>
+</html>
+<script>
+    $(document).ready(function(){
+        $('#employee_data').DataTable();
+    });
+</script>
 
-        </div>
-    </main>
+</div>
+</main>
 
-    <footer class="footer">
-        <div class="container-fluid">
-            <div class="row text-muted">
-                <div class="col-6 text-start">
-                    <p class="mb-0">
-                        <a class="text-muted" href="https://adminkit.io/" target="_blank"><strong>AdminKit Demo</strong></a> &copy;
-                    </p>
-                </div>
-                <div class="col-6 text-end">
-                    <ul class="list-inline">
-                        <li class="list-inline-item">
-                            <a class="text-muted" href="https://adminkit.io/" target="_blank">Support</a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="text-muted" href="https://adminkit.io/" target="_blank">Help Center</a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="text-muted" href="https://adminkit.io/" target="_blank">Privacy</a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a class="text-muted" href="https://adminkit.io/" target="_blank">Terms</a>
-                        </li>
-                    </ul>
-                </div>
+<footer class="footer">
+    <div class="container-fluid">
+        <div class="row text-muted">
+            <div class="col-6 text-start">
+                <p class="mb-0">
+                    <a class="text-muted" href="https://adminkit.io/" target="_blank"><strong>AdminKit Demo</strong></a> &copy;
+                </p>
+            </div>
+            <div class="col-6 text-end">
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <a class="text-muted" href="https://adminkit.io/" target="_blank">Support</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="text-muted" href="https://adminkit.io/" target="_blank">Help Center</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="text-muted" href="https://adminkit.io/" target="_blank">Privacy</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="text-muted" href="https://adminkit.io/" target="_blank">Terms</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
 </div>
 </div>
 
