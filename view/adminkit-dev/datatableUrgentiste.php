@@ -121,6 +121,7 @@ if(!isset($_SESSION['email']))
 
 <div class="collapse" id="c">
   <div class="card card-body">
+    <h3>Ajouter un patient</h3>
     <div class="card">
               <div class="card-body">
                 <div class="m-sm-4">
@@ -173,7 +174,7 @@ if(!isset($_SESSION['email']))
 </div>
 <div class="collapse" id="d">
   <div class="card card-body">
-    
+      <h3>Ajouter un dossier d'admission</h3>
       <div class="card">
               <div class="card-body">
                 <div class="m-sm-4">
