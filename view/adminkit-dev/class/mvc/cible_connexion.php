@@ -9,7 +9,7 @@ $donnee = new User(['email'=>$_POST['email'],
                     'mdp'=>$_POST['mdp']]);
 
 $connexion = new Manager_User;
-$connexion->medecin($donnee);
+$connexion->connexion($donnee);
 
 ?>
  <?php
