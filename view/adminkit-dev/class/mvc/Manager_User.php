@@ -190,7 +190,28 @@ class Manager_User
     }
   }
 
-   //inscription d'un compte admin
+  public function rdv(User $rdv)
+  {
+    $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp','root','');
+    $req = $bdd->prepare('SELECT * FROM rendez-vous WHERE email = :email');
+    $req->execute(array('email'=>$rdv->getEmail()));
+    $donnee = $req->fetch();
+    if($donnee)
+    {
+      $_SESSION['erreur_add_admin'] = "L'identifiant est déjà utilisé.";
+      header('Location: ../view/ajout_admin.php');
+    }
+    else
+    {
+      $req = $bdd->prepare('INSERT into rendez-vous (medecin, salle, date, heure) value(?,?,?,?)');
+      $req -> execute(array($rdv->getMedecin(), $rdv->getSalle(), $rdv->getDate(), $rdv->getHeure()));
+
+      $_SESSION['add_admin'] = "Un compte administrateur a été ajouter avec succès.";
+      header('Location: ../view/ajout_admin.php');
+    }
+  }
+
+
  
 
   //récupération des données utilisateur pour un affichage

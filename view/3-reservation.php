@@ -20,28 +20,24 @@ session_start();
     </script>
   </head>
   <body>
-    <?php
-    // (A) PROCESS RESERVATION
-    if (isset($_POST['date'])) {
-      require "2-reserve.php";
-      if ($_RSV->save(
-        $_POST['date'], $_POST['heure'], $_POST['nom'],
-        $_POST['email'], $_POST['id_medecins'])) {
-        echo "<div class='ok'>Reservation saved.</div>";
-      } else { echo "<div class='err'>".$_RSV->error."</div>"; }
-    }
-    ?>
+
 
     <!-- (B) RESERVATION FORM -->
     <h1>RESERVATION</h1>
-    <form id="resForm" method="post" target="_self">
-      <label for="res_name">Nom</label>
-      <input type="text" required name="nom" value="<?php echo htmlspecialchars($_SESSION['id_utilisateurs']);?>"/>
+    <form id="resForm" action="adminkit-dev/class/mvc/cible_rdv.php" method="post" target="_self">
+     
 
-      <label for="res_email">Email</label>
-      <input type="email" required name="email" value="<?php echo htmlspecialchars($_SESSION['email']);?>"/>
+      <label for="res_tel">Médecin</label>
+      <select name="medecin" id="pet-select">
+          <option value="">test</option>
+        
+      </select>
 
-
+      <label for="res_tel">Salle</label>
+      <select name="salle" id="pet-select">
+          <option value="">test</option>
+        
+      </select>
 
       <?php
       // @TODO - MINIMUM DATE (TODAY)
@@ -53,10 +49,10 @@ session_start();
              min="<?=$mindate?>">
 
       <label>Heure</label>
-      <input type="time" required id="time" name="heure"
+      <input type="time" required id="time" name="date"
              min="<?=$mindate?>">
 
-      <input type="submit" value="Ajouter"/>
+      <input type="submit" value="Submit"/>
     </form>
 
   </body>
