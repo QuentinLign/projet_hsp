@@ -33,13 +33,24 @@ if(!isset($_SESSION['email']))
 <body>
 <?php include 'navadmin.php';?>
 <?php include 'top_navadmin.php';?>
+ <?php if(isset($_SESSION['message_mdp']))
+                          {
+                            echo $_SESSION['message_mdp'];
+                            unset($_SESSION['message_mdp']);
+                          } 
+                          
 
+                          ?>
            <p>
-  <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-    Link with href
-  </a>
-  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-    Button with data-bs-target
+
+  <button class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    Les patients
+  </button>
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#c" aria-expanded="false" aria-controls="c">
+    Créer un compte patient
+  </button>
+  <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#d" aria-expanded="false" aria-controls="d">
+    Dossiers admissions
   </button>
 </p>
 <div class="collapse" id="collapseExample">
@@ -47,19 +58,12 @@ if(!isset($_SESSION['email']))
     
 
  <div class="container-fluid p-0">
-
-                <div class="mb-3">
-                    <h1 class="h3 d-inline align-middle">Utilisateur</h1>
-                    </a>
-                </div>
-
-
                 <?php
                 require_once '../adminkit-dev/bdd/bdd.php';
 
 
                 $bdd = new bdd;
-                $req=$bdd->getStart()->prepare('SELECT * FROM utilisateurs WHERE role="MED" ORDER BY id DESC');
+                $req=$bdd->getStart()->prepare('SELECT * FROM utilisateurs WHERE role="PAT" ORDER BY id DESC');
                 $req->execute(array(
                 ));
 
@@ -83,7 +87,6 @@ if(!isset($_SESSION['email']))
                                 <td>Nom</td>
                                 <td>Prenom</td>
                                 <td>E-mail</td>
-                                <td>Verification</td>
                             </tr>
                             </thead>
                             <?php
@@ -94,7 +97,6 @@ if(!isset($_SESSION['email']))
                 <td>'.$row["nom"].'</td>
                 <td>'.$row["prenom"].'</td>
                 <td>'.$row["email"].'</td>
-                <td>'.$row["verif"].'</td>
                 </tr>
                 ';
                             }
@@ -117,35 +119,130 @@ if(!isset($_SESSION['email']))
   </div>
 </div>
 
-
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row text-muted">
-                        <div class="col-6 text-start">
-                            <p class="mb-0">
-                                <a class="text-muted" href="https://adminkit.io/" target="_blank"><strong>AdminKit Demo</strong></a> &copy;
-                            </p>
-                        </div>
-                        <div class="col-6 text-end">
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">Support</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">Help Center</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">Privacy</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">Terms</a>
-                                </li>
-                            </ul>
-                        </div>
+<div class="collapse" id="c">
+  <div class="card card-body">
+    <div class="card">
+              <div class="card-body">
+                <div class="m-sm-4">
+                  <form action="class/mvc/cible_patient.php" method="post">
+                    <div class="mb-3">
+                      <label class="form-label">Nom</label>
+                      <input class="form-control form-control-lg" type="text" name="nom" placeholder="Entrer votre nom" />
                     </div>
+                    <div class="mb-3">
+                      <label class="form-label">Prenom</label>
+                      <input class="form-control form-control-lg" type="text" name="prenom" placeholder="Entrer votre prenom" />
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">Email</label>
+                      <input class="form-control form-control-lg" type="email" name="email" placeholder="Entrer votre email" />
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label">Mot de passe</label>
+                      <input class="form-control form-control-lg" type="password" name="mdp" placeholder="Entrer votre mot de passe" />
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">Mot de passe</label>
+                      <input class="form-control form-control-lg" type="password" name="confirmmdp" placeholder="Entrer votre mot de passe" />
+                    </div>
+                    <div class="mb-3">
+                   <input type="checkbox" name="role"
+                           checked disabled>
+                    <label for="PAT">Patient</label>
+                  </div>
+                    <div class="col-lg-12 no-pdd">
+                            <button type="submit" class="btn btn-lg btn-primary" value="submit">Créer le compte</button>
+                          </div>
+                    
+              <?php
+                          if (isset($_SESSION['erreur_inscr']))
+                          {
+                            echo "<div style='color:#ff0000'>
+                            ".$_SESSION['erreur_inscr'];
+                            unset($_SESSION['erreur_inscr']);
+                          }
+                          ?>
                 </div>
-            </footer>
+                  </form>
+                </div>
+              </div>
+
+            </div>
+
+</div>
+<div class="collapse" id="d">
+  <div class="card card-body">
+    
+      <div class="card">
+              <div class="card-body">
+                <div class="m-sm-4">
+                    <form action="class/mvc/cible_patient.php" method="post">
+ <div class="mb-3">
+                      <label class="form-label">Nom</label>
+                     <select id="select-state"  placeholder="Nom prénom" name="id_utilisateurs">
+                              <option value="">Nom prénom</option>
+                             
+                            </select>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">Date de naissance</label>
+                      <input class="form-control form-control-lg" type="date" name="date_naissance" placeholder="Entrer votre date de naissance" />
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">Adresse postale</label>
+                      <input class="form-control form-control-lg" type="text" name="adresse_postale" placeholder="Entrer votre adresse postale" />
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label">Mutuelle</label>
+                      <input class="form-control form-control-lg" type="int" name="mutuelle" placeholder="Entrer votre numéro de Mutuelle" />
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">Numéro de sécurité social</label>
+                      <input class="form-control form-control-lg" type="int" name="numero_secu" placeholder="Entrer votre numéro de sécurité social" />
+                    </div>
+                     <div class="mb-3">
+                      <label class="form-label">Option</label>
+                      <input class="form-control form-control-lg" type="int" name="" placeholder="" />
+                    </div>
+                     <div class="mb-3">
+                      <label class="form-label">Régime spécifique</label>
+                      <input class="form-control form-control-lg" type="text" name="regime_specifique" placeholder="Entrer si vous avez un Régime spécifique" />
+                    </div>
+                    <div class="mb-3">
+                   <input type="checkbox" name="role"
+                           checked disabled>
+                    <label for="PAT">Patient</label>
+                  </div>
+                    <div class="col-lg-12 no-pdd">
+                            <button type="submit" class="btn btn-lg btn-primary" value="submit">Créer le compte</button>
+                          </div>
+                    
+              <?php
+                          if (isset($_SESSION['erreur_inscr']))
+                          {
+                            echo "<div style='color:#ff0000'>
+                            ".$_SESSION['erreur_inscr'];
+                            unset($_SESSION['erreur_inscr']);
+                          }
+                          ?>
+                </div>
+                  </form>
+
+                </div>
+              </div>
+
+
+  </div>
+
+</div>
+
+
+</div>
+         
         </div>
+
     </div>
 
     <script src="js/app.js"></script>

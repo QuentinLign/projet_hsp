@@ -142,7 +142,7 @@ class Manager_User
 
       }
   }
-  public function modif_da(User $modif)
+  public function modif_da(User $modif,$email)
   {
     $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp','root','');
     $req = $bdd->prepare('UPDATE utilisateurs SET id_utilisateurs = ?, mutuelle = ?, date_naissance = ?,adresse_postale = ?,numero_secu = ?,option = ?, regime_specifique = ?, id_medecins = ?, WHERE email = ?');
@@ -174,7 +174,7 @@ class Manager_User
 
 
   //inscription d'un compte admin
-  public function inscrip_admin(User $inscription)
+  public function inscrip_patient(User $inscription)
   {
     $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp','root','');
     $req = $bdd->prepare('SELECT * FROM utilisateurs WHERE email = :email');
@@ -187,32 +187,11 @@ class Manager_User
     }
     else
     {
-      $req = $bdd->prepare('INSERT into utilisateurs (nom, prenom, email, mdp, role) value(?,?,?,?, "admin")');
+      $req = $bdd->prepare('INSERT into utilisateurs (nom, prenom, email, mdp, role) value(?,?,?,?, "PAT")');
       $req -> execute(array($inscription->getNom(), $inscription->getPrenom(), $inscription->getEmail(), SHA1($inscription->getMdp())));
 
-      $_SESSION['add_admin'] = "Un compte administrateur a été ajouter avec succès.";
-      header('Location: ../view/ajout_admin.php');
-    }
-  }
-
-  public function rdv(User $rdv)
-  {
-    $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp','root','');
-    $req = $bdd->prepare('SELECT * FROM rendez-vous WHERE email = :email');
-    $req->execute(array('email'=>$rdv->getEmail()));
-    $donnee = $req->fetch();
-    if($donnee)
-    {
-      $_SESSION['erreur_add_admin'] = "L'identifiant est déjà utilisé.";
-      header('Location: ../view/ajout_admin.php');
-    }
-    else
-    {
-      $req = $bdd->prepare('INSERT into rendez-vous (medecin, salle, date, heure) value(?,?,?,?)');
-      $req -> execute(array($rdv->getMedecin(), $rdv->getSalle(), $rdv->getDate(), $rdv->getHeure()));
-
-      $_SESSION['add_admin'] = "Un compte administrateur a été ajouter avec succès.";
-      header('Location: ../view/ajout_admin.php');
+    header('location: ../../datatableUrgentiste.php');
+          $_SESSION['message_mdp'] = 'Modification enregistré';
     }
   }
 
