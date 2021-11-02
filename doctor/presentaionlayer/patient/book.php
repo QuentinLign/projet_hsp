@@ -8,42 +8,6 @@
 	<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
 
-<header>
-	<h1>Doctor<span>Patient</span></h1>
-		<nav>
-		
-
-
-		
-		<ul> 
-			
-		
-			<li><a href=" index.php">MyInfo</a></li>
-			<li><a href=" book.php">Book Appointment</a></li>
-			<li><a href="view.php">View Appointment</a></li>
-			<li><a href="cancel.php">Cancel Booking</a></li>
-			<li><a href="searchdoctor.php ">Search Doctor</a></li>
-			<li><a href="donate.php">Donate Organ</a></li>
-			<li><a href="searchdonor.php">Search Donar</a></li>
-			<li><a href="../../applicationlayer/Doctorpatient.php">Logout</a></li>
-			
-
-
-
-	
-			
-
-		</ul>
-		
-
-
-
-	</nav>
-
-
-
-
-</header>
 
 <body>
 
@@ -69,13 +33,13 @@
 
 
 			<div class="input-group">
-		<label>Categery</label>
+		<label>Categorie</label>
 	   	<select name="categorey" class="xd">
-	   		<option value="bone" >bone</option>
-	   		<option value="heart">heart</option>
-	   		<option value="Dentistry">Dentistry</option>
-	   		<option value="MentalHealth">Mental Health</option>
-	   		<option value="Surgery">Surgery</option>
+	   		<option value="bone" >Cancérologue</option>
+	   		<option value="heart">Médecin généraliste</option>
+	   		<option value="Dentistry">Neurologue</option>
+	   		<option value="MentalHealth">Sexologue</option>
+	   		<option value="Surgery">Toxicologue</option>
 
 	   	</select>
 
@@ -87,7 +51,7 @@
 
 
 	<div class="input-group">
-		<button type="submit" name="Search" class="btn">Search</button>
+		<button type="submit" name="Search" class="btn">Chercher</button>
 	</div>
 
 
@@ -112,7 +76,7 @@
 	
 		<div class="input-group"> 
 
-			<label>Doctor ID</label>
+			<label>Docteur</label>
 			
 
 		<select class="input-group2" name="docID">
