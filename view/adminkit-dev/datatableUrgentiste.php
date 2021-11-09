@@ -178,8 +178,8 @@ if(!isset($_SESSION['email']))
       <div class="card">
               <div class="card-body">
                 <div class="m-sm-4">
-                    <form action="class/mvc/cible_patient.php" method="post">
- <div class="mb-3">
+                    <form action="class/mvc/cible_admission.php" method="post">
+                      <div class="mb-3">
                       <label class="form-label">Nom</label>
                      <select id="select-state"  placeholder="Nom prénom" name="id_utilisateurs">
                               <option value="<?php echo $_SESSION['nom']; ?>" /></option>
@@ -205,7 +205,11 @@ if(!isset($_SESSION['email']))
                     </div>
                      <div class="mb-3">
                       <label class="form-label">Option</label>
-                      <input class="form-control form-control-lg" type="int" name="" placeholder="" />
+                        <select id="select-state"  placeholder="" name="option">
+                              <option value="television">Télévision</option>
+                              <option value="wifi">Wifi</option>
+                             
+                            </select>
                     </div>
                      <div class="mb-3">
                       <label class="form-label">Régime spécifique</label>

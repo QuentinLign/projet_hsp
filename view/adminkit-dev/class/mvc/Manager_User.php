@@ -202,6 +202,28 @@ class Manager_User
     }
   }
 
+    //Ajout dossier_admission
+  public function dossier_admi(User $dossier_admission)
+  {
+    $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp','root','');
+    $req = $bdd->prepare('SELECT * FROM dossier_admission WHERE email = :email');
+    $req->execute(array('email'=>$dossier_admission->getEmail()));
+    $donnee = $req->fetch();
+    if($donnee)
+    {
+      $_SESSION['erreur_add_admin'] = "L'identifiant est déjà utilisé.";
+      header('Location: ../view/ajout_admin.php');
+    }
+    else
+    {
+      $req = $bdd->prepare('INSERT into dossier_admission (nom, date_naissance, adresse_postale, mutuelle, numero_secu, option, regime_specifique) value(?,?,?,?,?,?,?)');
+      $req -> execute(array($dossier_admission->getNom(), $dossier_admission->getDate_naissance(), $dossier_admission->getAdresse_postale(), $dossier_admission->getMutuelle(), $dossier_admission->getNumero_secu(), $dossier_admission->getOption(), $dossier_admission->getRegime_specifique()));
+
+    header('location: ../../datatableUrgentiste.php');
+          $_SESSION['message_mdp'] = 'Modification enregistré';
+    }
+  }
+
 
  
 
