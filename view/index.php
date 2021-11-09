@@ -502,7 +502,7 @@ session_start();
                 <h4>Amanda Jepson</h4>
                 <span>Neurologiste</span>
                 <p></p>
-              
+
               </div>
             </div>
           </div>
