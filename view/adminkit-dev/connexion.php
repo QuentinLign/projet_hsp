@@ -32,7 +32,7 @@ session_start();
 					<div class="d-table-cell align-middle">
 
 						<div class="text-center mt-4">
-							<h1 class="h2">Vous révoila !</h1>
+							<h1 class="h2"> Connexion</h1>
 							<p class="lead">
 								Connecter vous à votre compte pour continuer.
 							</p>
@@ -66,7 +66,7 @@ session_start();
 										</div>
 										<div class="text-center mt-3">
 		<button class="btn btn-lg btn-primary" type="submit" value="submit"> Se connecter</button>
-											
+
 										</div>
 									</form>
 								</div>
