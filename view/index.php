@@ -73,7 +73,7 @@ session_start();
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="#about">aaaaa</a></li>
+          <li><a href="#about">Explications</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#departments">Departements</a></li>
           <li><a href="#doctors">Docteurs</a></li>
@@ -85,7 +85,7 @@ session_start();
             if (isset($_SESSION['nom']))
             {
               echo '<div class="user-info">
-    
+
               <a href="adminkit-dev/index.php" title="">'.$_SESSION['nom'].'</a>
               <i class="la la-sort-down"></i>
               </div>
@@ -234,25 +234,10 @@ session_start();
 
           <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
             <h3>L'AP-HP est le CHU Robert Schuman. Son hôpital accueille chaque année 8,3 millions de patients.</h3>
-            <p>Esse voluptas cumque vel exercitationem. Reiciendis est hic accusamus. Non ipsam et sed minima temporibus laudantium. Soluta voluptate sed facere corporis dolores excepturi. Libero laboriosam sint et id nulla tenetur. Suscipit aut voluptate.</p>
+            <p></p>
 
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-fingerprint"></i></div>
-              <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-            </div>
 
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-gift"></i></div>
-              <h4 class="title"><a href="">Nemo Enim</a></h4>
-              <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-            </div>
 
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-atom"></i></div>
-              <h4 class="title"><a href="">Dine Pad</a></h4>
-              <p class="description">Explicabo est voluptatum asperiores consequatur magnam. Et veritatis odit. Sunt aut deserunt minus aut eligendi omnis</p>
-            </div>
 
           </div>
         </div>
@@ -294,7 +279,7 @@ session_start();
             <div class="count-box">
               <i class="icofont-award"></i>
               <span data-toggle="counter-up">150</span>
-              <p>Awards</p>
+              <p>Diplômes</p>
             </div>
           </div>
 
@@ -309,23 +294,23 @@ session_start();
 
         <div class="section-title">
           <h2>Services</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>CHU de ROBERT SCHUMAN vous présente ses pôles médico-techniques et services dans la chirurgie, les urgences, l'aide médicale, les soins dentaires...</p>
         </div>
 
         <div class="row">
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="icon-box">
               <div class="icon"><i class="icofont-heart-beat"></i></div>
-              <h4><a href="">Lorem Ipsum</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+              <h4><a href="">Services cardiologie</a></h4>
+              <p>Le service de cardiologie prend en charge toutes les pathologies cardiovasculaires à différentes étapes : dépistage,; diagnostic,; décompensations aigues, ...</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
             <div class="icon-box">
               <div class="icon"><i class="icofont-drug"></i></div>
-              <h4><a href="">Sed ut perspiciatis</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+              <h4><a href="">Services Dentaires</a></h4>
+              <p>Urgences dentaires disponibles lundi, mardi, mercredi de 9h à 18h</p>
             </div>
           </div>
 
@@ -340,24 +325,24 @@ session_start();
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
             <div class="icon-box">
               <div class="icon"><i class="icofont-heartbeat"></i></div>
-              <h4><a href="">Nemo Enim</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+              <h4><a href="">Analyse médicale</a></h4>
+              <p>Le Centre de Prélèvements, intégré au Laboratoire de Biologie Médicale est le laboratoire d'analyses médicales du CHU.</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
             <div class="icon-box">
               <div class="icon"><i class="icofont-disabled"></i></div>
-              <h4><a href="">Dele cardo</a></h4>
-              <p>Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur</p>
+              <h4><a href="">Service en ligne des patients</a></h4>
+              <p>Des volontaires en service civique sont à votre disposition pour faciliter vos déplacements dans l'hôpital</p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
             <div class="icon-box">
               <div class="icon"><i class="icofont-autism"></i></div>
-              <h4><a href="">Divera don</a></h4>
-              <p>Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur</p>
+              <h4><a href="">Services neurologiques</a></h4>
+              <p>Le service de neurologie est un service de neurologie générale et experte qui prend en charge l'ensemble des pathologies du système nerveux central et périphérique.</p>
             </div>
           </div>
 
