@@ -68,31 +68,38 @@ class Manager_User
             $_SESSION['email'] = $donnee['email']; //on insère dans la session l'addresse mail entrée par l'uttilisateur dans le formulaire
             $_SESSION['nom'] = $donnee['nom']; //on insère dans la session le non de l'uttilisateur
             $_SESSION['prenom'] = $donnee['prenom'];
-            $ref = $bdd->prepare('UPDATE utilisateurs SET derniere_connexion = NOW() WHERE email=?');
+            $ref = $bdd->prepare('UPDATE utilisateurs SET date_connexion = NOW() WHERE email=?');
             $ref->execute(array($connexion->getEmail()));
             $donny = $ref->fetchall();
 
-            if ($donnee['role'] == "ADMIN") {
+            if ($donnee['role'] == "MED") {
                 $_SESSION['role'] = $donnee['role'];
-                header('Location: ../../index.php');
+                header('Location: ../../datatableMedecin.php');
                 exit();
             }
-            if ($donnee['verif'] == 1) {
+             if ($donnee['role'] == "PAT") {
+                $_SESSION['role'] = $donnee['role'];
+                header('Location: ../../datatableRDV.php');
+                exit();
+            }
+             if ($donnee['role'] == "ADMIN") {
+                $_SESSION['role'] = $donnee['role'];
+                header('Location: ../../datatableAdmin.php');
+                exit();
+            }
+             if ($donnee['role'] == "URG") {
+                $_SESSION['role'] = $donnee['role'];
+                header('Location: ../../datatableUrgentiste.php');
+                exit();
+            }
+            if ($donnee['role'] == 0) {
                 header('Location: ../../index.php');
                 exit();
             }
             header('Location: ../../index.php');
 
-            if ($donnee['role'] == "MEDECIN") {
-                $_SESSION['role'] = $donnee['role'];
-                header('Location: ../../esp_med.php');
-                exit();
-            }
-            if ($donnee['verif'] == 1) {
-                header('Location: ../../esp_med.php');
-                exit();
-            }
-            header('Location: ../../esp_med.php');
+      
+           
         }
 
         else {
