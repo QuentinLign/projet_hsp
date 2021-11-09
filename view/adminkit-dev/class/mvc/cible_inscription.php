@@ -15,7 +15,7 @@ if($_POST['mdp'] != $_POST['confirmmdp'])
 //ajout dans la bdd
 else
 {
-  $inscrip_patient = new User(['nom'=>$_POST['nom'],
+  $inscription = new User(['nom'=>$_POST['nom'],
   'prenom'=>$_POST['prenom'],
   'email'=>$_POST['email'],
   'mdp'=>$_POST['mdp']]);
