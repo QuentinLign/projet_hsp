@@ -3,7 +3,7 @@
     <nav id="sidebar" class="sidebar js-sidebar">
         <div class="sidebar-content js-simplebar">
             <a class="sidebar-brand" href="index.html">
-                <span class="align-middle">AdminKit</span>
+                <span class="align-middle">Hôpital</span>
             </a>
 
             <ul class="sidebar-nav">
@@ -52,7 +52,7 @@
                 </li>
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="datatableUser.php">
+                    <a class="sidebar-link" href="datatableRDV.php">
                         <i class="align-middle" data-feather="square"></i> <span class="align-middle">Patient</span>
                     </a>
                 </li>

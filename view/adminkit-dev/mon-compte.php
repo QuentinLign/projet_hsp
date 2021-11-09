@@ -31,8 +31,8 @@ if(!isset($_SESSION['email']))
 </head>
 
 <body>
-<?php include 'navadmin.php';?>
-<?php include 'top_navadmin.php';?>
+<?php include 'src/nav/navadmin.php';?>
+<?php include 'src/nav/top_navadmin.php';?>
 
 			<main class="content">
          <div>
