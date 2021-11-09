@@ -56,34 +56,78 @@
                              </li>';
                     }
                     else {
-                    echo "rien";
+                    echo "";
+                    }
+
+                    ?>
+             </li>
+
+               <li class="sidebar-item">
+                    <?php
+                    if ($_SESSION['role'] == "PAT") {
+
+                        echo'<li class="sidebar-item">
+                                <a class="sidebar-link" href="datatableRDV.php">
+                                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Patient</span>
+                                </a>
+                             </li>';
+                    }
+                    else {
+                    echo "";
+                    }
+
+                    ?>
+             </li>
+
+               <li class="sidebar-item">
+                    <?php
+                    if ($_SESSION['role'] == "MED") {
+
+                        echo'<li class="sidebar-item">
+                                <a class="sidebar-link" href="datatableMedecin.php">
+                                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Médecin</span>
+                                </a>
+                             </li>';
+                    }
+                    else {
+                    echo "";
+                    }
+
+                    ?>
+             </li>
+
+                 <li class="sidebar-item">
+                    <?php
+                    if ($_SESSION['role'] == "URG") {
+
+                        echo'<li class="sidebar-item">
+                                <a class="sidebar-link" href="datatableUrgentiste.php">
+                                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Urgentiste</span>
+                                </a>
+                             </li>';
+                    }
+                    else {
+                    echo "";
                     }
 
                     ?>
              </li>
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="datatableRDV.php">
-                        <i class="align-middle" data-feather="square"></i> <span class="align-middle">Patient</span>
-                    </a>
-                </li>
+                    <?php
+                    if ($_SESSION['role'] == "PAT") {
 
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="datatableMedecin.php">
-                        <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Medecin</span>
-                    </a>
-                </li>
+                        echo'<li class="sidebar-item">
+                                <a class="sidebar-link" href="datatableRDV.php">
+                                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Mes rendez-vous</span>
+                                </a>
+                             </li>';
+                    }
+                    else {
+                    echo "";
+                    }
 
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="datatableUrgentiste.php">
-                        <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Urgentiste</span>
-                    </a>
-                </li>
-
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="datatableRDV.php">
-                        <i class="align-middle" data-feather="align-left"></i> <span class="align-middle">Rendez-vous</span>
-                    </a>
-                </li>
+                    ?>
+             </li>
         </div>
     </nav>

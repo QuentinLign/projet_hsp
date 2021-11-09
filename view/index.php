@@ -682,7 +682,7 @@ session_start();
       </div>
 
       <div>
-        <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/place/H%C3%B4pital+Robert+Debr%C3%A9/@48.8797028,2.4000975,17z/data=!4m9!1m2!2m1!1shopital+robert+debr%C3%A9!3m5!1s0x47e66dbc97d5a691:0xf7d562c65bddd225!8m2!3d48.8794483!4d2.4013382!15sChVob3BpdGFsIHJvYmVydCBkZWJyw6mSAQl0cmFtX3N0b3A" frameborder="0" allowfullscreen></iframe>
+     <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2623.872724667805!2d2.4000975!3d48.8797028!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66dbc97d5a691%3A0xf7d562c65bddd225!2sH%C3%B4pital%20Robert%20Debr%C3%A9!5e0!3m2!1sfr!2sfr!4v1636454367977!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
 
       <div class="container">
