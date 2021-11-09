@@ -454,7 +454,7 @@ session_start();
 
         <div class="section-title">
           <h2>Médecins</h2>
-          <p>Voici l'uns de nos nombreux médecins qui ont différentes spécilités.</p>
+          <p>Voici certains nos nombreux médecins qui ont différentes spécilités.</p>
         </div>
 
         <div class="row">
