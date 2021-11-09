@@ -182,7 +182,7 @@ if(!isset($_SESSION['email']))
  <div class="mb-3">
                       <label class="form-label">Nom</label>
                      <select id="select-state"  placeholder="Nom prénom" name="id_utilisateurs">
-                              <option value="">Nom prénom</option>
+                              <option value="<?php echo $_SESSION['nom']; ?>" /></option>
                              
                             </select>
                     </div>
