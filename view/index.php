@@ -466,12 +466,7 @@ session_start();
                 <h4>Walter White</h4>
                 <span>Ched de service Medical</span>
                 <p></p>
-                <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
+
               </div>
             </div>
           </div>
@@ -483,12 +478,7 @@ session_start();
                 <h4>Sarah Jhonson</h4>
                 <span>Anesthesiste</span>
                 <p></p>
-                <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
+
               </div>
             </div>
           </div>
@@ -500,12 +490,7 @@ session_start();
                 <h4>William Anderson</h4>
                 <span>Cardiologue</span>
                 <p></p>
-                <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
+
               </div>
             </div>
           </div>
@@ -517,12 +502,7 @@ session_start();
                 <h4>Amanda Jepson</h4>
                 <span>Neurologiste</span>
                 <p></p>
-                <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
-                </div>
+              
               </div>
             </div>
           </div>
