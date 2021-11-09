@@ -44,7 +44,22 @@
                 <li class="sidebar-header">
                     Utilisateur
                 </li>
+                    <?php
+                    require '../class/mvc/Manager_User.php';
+                    if ($donnee['role'] == "PAT") {
+                        $_SESSION['role'] = $donnee['role'];
 
+                        echo'<li class="sidebar-item">
+                                <a class="sidebar-link" href="datatableAdmin.php">
+                                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Administrateur</span>
+                                </a>
+                             </li>';
+                    }
+                    else {
+                    echo "rien";
+                    }
+
+                    ?>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="datatableAdmin.php">
                         <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Administrateur</span>
