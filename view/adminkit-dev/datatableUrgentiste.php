@@ -228,7 +228,9 @@ if(!isset($_SESSION['email']))
                     <form action="class/mvc/cible_admission.php" method="post">
                       <div class="mb-3">
                       <label class="form-label">Nom</label>
-                       <input class="form-control form-control-lg" type="text" name="nom" placeholder="Entrer votre adresse postale" />
+                      <select name="nom">
+                     <option value="">Nom du patient</option>
+                   </select>
                     </div>
                     <div class="mb-3">
                       <label class="form-label">Date de naissance</label>
@@ -292,7 +294,61 @@ if(!isset($_SESSION['email']))
     
 
  <div class="container-fluid p-0">
-<p>tt</p>
+ <div class="m-sm-4">
+                    <form action="class/mvc/cible_admission.php" method="post">
+                      <div class="mb-3">
+                      <label class="form-label">Nom</label>
+                        <select name="nom">
+                     <option value="">Nom du patient</option>
+                   </select>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">Symptomes</label>
+                      <textarea class="form-control" name="symptomes" placeholder="Indiquez les symptomes du patient">
+                  </textarea>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label">Date du diagnostic</label>
+                      <input class="form-control form-control-lg" type="date" name="date" placeholder="Entrer votre adresse postale" required/>
+                    </div>
+
+                    <div class="mb-3">
+                      <label class="form-label">Niveau</label>
+                     
+  <input class="form-check-input" type="radio" name="niveau_urgence" id="inlineRadio1" value="vert">
+  <img for="inlineRadio1" src="img/icons/green.png">
+  <input class="form-check-input" type="radio" name="niveau_urgence" id="inlineRadio1" value="orange">
+  <img for="inlineRadio1" src="img/icons/orange.png">
+   <input class="form-check-input" type="radio" name="niveau_urgence" id="inlineRadio1" value="rouge">
+  <img for="inlineRadio1" src="img/icons/red.png">
+</div>
+
+                      <div class="mb-3">
+                      <label class="form-label">Date du rendez-vous (facultatif)</label>
+                      <input class="form-control form-control-lg" type="date" name="date" placeholder="Entrer votre adresse postale"/><input class="form-control form-control-lg" type="time" name="heure" min="09:00" max="18:00" placeholder="Entrer votre adresse postale"/>
+                    </div>
+                     
+                    <div class="mb-3">
+                   <input type="checkbox" name="role" checked disabled>
+                    <label value="PAT" for="PAT">Patient</label>
+                  </div>
+                    <div class="col-lg-12 no-pdd">
+                            <button type="submit" class="btn btn-lg btn-primary" value="submit">Créer le compte</button>
+                          </div>
+
+                    
+              <?php
+                          if (isset($_SESSION['erreur_inscr']))
+                          {
+                            echo "<div style='color:#ff0000'>
+                            ".$_SESSION['erreur_inscr'];
+                            unset($_SESSION['erreur_inscr']);
+                          }
+                          ?>
+                </div>
+
+                  </form>
+                </div>
 </div>
          
         </div>
