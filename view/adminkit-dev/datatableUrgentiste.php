@@ -6,6 +6,7 @@ if(!isset($_SESSION['email']))
     header('location: connexion.php');
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -51,6 +52,9 @@ if(!isset($_SESSION['email']))
   </button>
   <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#d" aria-expanded="false" aria-controls="d">
     Dossiers admissions
+  </button>
+   <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#urgence" aria-expanded="false" aria-controls="urgence">
+    Urgence
   </button>
 </p>
 <div class="collapse" id="collapseExample">
@@ -128,24 +132,24 @@ if(!isset($_SESSION['email']))
                   <form action="class/mvc/cible_patient.php" method="post">
                     <div class="mb-3">
                       <label class="form-label">Nom</label>
-                      <input class="form-control form-control-lg" type="text" name="nom" placeholder="Entrer votre nom" />
+                      <input class="form-control form-control-lg" type="text" name="nom" placeholder="Entrer votre nom" required/>
                     </div>
                     <div class="mb-3">
                       <label class="form-label">Prenom</label>
-                      <input class="form-control form-control-lg" type="text" name="prenom" placeholder="Entrer votre prenom" />
+                      <input class="form-control form-control-lg" type="text" name="prenom" placeholder="Entrer votre prenom" required/>
                     </div>
                     <div class="mb-3">
                       <label class="form-label">Email</label>
-                      <input class="form-control form-control-lg" type="email" name="email" placeholder="Entrer votre email" />
+                      <input class="form-control form-control-lg" type="email" name="email" placeholder="Entrer votre email" required/>
                     </div>
 
                     <div class="mb-3">
                       <label class="form-label">Mot de passe</label>
-                      <input class="form-control form-control-lg" type="password" name="mdp" placeholder="Entrer votre mot de passe" />
+                      <input class="form-control form-control-lg" type="password" name="mdp" placeholder="Entrer votre mot de passe" required />
                     </div>
                     <div class="mb-3">
                       <label class="form-label">Mot de passe</label>
-                      <input class="form-control form-control-lg" type="password" name="confirmmdp" placeholder="Entrer votre mot de passe" />
+                      <input class="form-control form-control-lg" type="password" name="confirmmdp" placeholder="Entrer votre mot de passe" required/>
                     </div>
                     <div class="mb-3">
                    <input type="checkbox" name="role"
@@ -177,31 +181,71 @@ if(!isset($_SESSION['email']))
       <h3>Ajouter un dossier d'admission</h3>
       <div class="card">
               <div class="card-body">
+                 <?php
+                require_once '../adminkit-dev/bdd/bdd.php';
+
+
+                $bdd = new bdd;
+                $req=$bdd->getStart()->prepare('SELECT * FROM dossier_admission  ORDER BY id DESC');
+                $req->execute(array(
+                ));
+
+                $res=$req->fetchall();
+                ?>
+
+         <table id="employee_data" class="table table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <td>Nom</td>
+                                 <td>Date de naissance</td>
+                                  <td>Mutuelle</td>
+                                   <td>Numéro de sécurité social</td>
+                                    <td>Option</td>
+                                     <td>Régime spécifique</td>
+
+                                
+                            </tr>
+                            </thead>
+                            <?php
+                            foreach($res as $row )
+                            {
+                                echo '  
+                               <tr>
+                <td>'.$row["nom"].'</td>
+                 <td>'.$row["date_naissance"].'</td>
+                  <td>'.$row["mutuelle"].'</td>
+                   <td>'.$row["numero_secu"].'</td>
+                    <td>'.$row["option"].'</td>
+                     <td>'.$row["regime_specifique"].'</td>
+                   
+              
+                </tr>
+                ';
+                            }
+                            ?>
+                        </table>
                 <div class="m-sm-4">
                     <form action="class/mvc/cible_admission.php" method="post">
                       <div class="mb-3">
                       <label class="form-label">Nom</label>
-                     <select id="select-state"  placeholder="Nom prénom" name="id_utilisateurs">
-                              <option value="<?php echo $_SESSION['nom']; ?>" /></option>
-                             
-                            </select>
+                       <input class="form-control form-control-lg" type="text" name="nom" placeholder="Entrer votre adresse postale" />
                     </div>
                     <div class="mb-3">
                       <label class="form-label">Date de naissance</label>
-                      <input class="form-control form-control-lg" type="date" name="date_naissance" placeholder="Entrer votre date de naissance" />
+                      <input class="form-control form-control-lg" type="date" name="date_naissance" placeholder="Entrer votre date de naissance" required/>
                     </div>
                     <div class="mb-3">
                       <label class="form-label">Adresse postale</label>
-                      <input class="form-control form-control-lg" type="text" name="adresse_postale" placeholder="Entrer votre adresse postale" />
+                      <input class="form-control form-control-lg" type="text" name="adresse_postale" placeholder="Entrer votre adresse postale" required/>
                     </div>
 
                     <div class="mb-3">
                       <label class="form-label">Mutuelle</label>
-                      <input class="form-control form-control-lg" type="int" name="mutuelle" placeholder="Entrer votre numéro de Mutuelle" />
+                      <input class="form-control form-control-lg" type="int" name="mutuelle" placeholder="Entrer votre numéro de Mutuelle" required/>
                     </div>
                     <div class="mb-3">
                       <label class="form-label">Numéro de sécurité social</label>
-                      <input class="form-control form-control-lg" type="int" name="numero_secu" placeholder="Entrer votre numéro de sécurité social" />
+                      <input class="form-control form-control-lg" type="int" name="numero_secu" placeholder="Entrer votre numéro de sécurité social" required/>
                     </div>
                      <div class="mb-3">
                       <label class="form-label">Option</label>
@@ -213,12 +257,12 @@ if(!isset($_SESSION['email']))
                     </div>
                      <div class="mb-3">
                       <label class="form-label">Régime spécifique</label>
-                      <input class="form-control form-control-lg" type="text" name="regime_specifique" placeholder="Entrer si vous avez un Régime spécifique" />
+                      <input class="form-control form-control-lg" type="text" name="regime_specifique" placeholder="Entrer si vous avez un Régime spécifique" required/>
                     </div>
                     <div class="mb-3">
                    <input type="checkbox" name="role"
                            checked disabled>
-                    <label for="PAT">Patient</label>
+                    <label value="PAT" for="PAT">Patient</label>
                   </div>
                     <div class="col-lg-12 no-pdd">
                             <button type="submit" class="btn btn-lg btn-primary" value="submit">Créer le compte</button>
@@ -234,22 +278,26 @@ if(!isset($_SESSION['email']))
                           ?>
                 </div>
                   </form>
-
                 </div>
               </div>
+
 
 
   </div>
 
 </div>
 
+                <div class="collapse" id="urgence">
+  <div class="card card-body">
+    
 
+ <div class="container-fluid p-0">
+<p>tt</p>
 </div>
          
         </div>
 
     </div>
-
     <script src="js/app.js"></script>
  <script type="text/javascript" src="../js/jquery.min.js"></script>
   <script type="text/javascript" src="../js/popper.js"></script>
