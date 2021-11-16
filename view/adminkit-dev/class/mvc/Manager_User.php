@@ -48,7 +48,7 @@ class Manager_User
                 header('Location: ../../inscription.php');
             } else {
                 echo "Le message a été envoyé";
-                $req = $bdd->prepare('INSERT into utilisateurs (nom, prenom, email, mdp) value(?,?,?,?)');
+                $req = $bdd->prepare('INSERT into utilisateurs (nom, prenom, email, mdp, role) value(?,?,?,?,"PAT")');
                 $req->execute(array($inscrit->getNom(), $inscrit->getPrenom(), $inscrit->getEmail(), SHA1($inscrit->getMdp())));
                 header('Location: ../../confirm_inscription.html');
             }
@@ -203,11 +203,11 @@ class Manager_User
   }
 
     //Ajout dossier_admission
-  public function dossier_admi(User $dossier_admission)
+  public function dossier_admission(User $dossier)
   {
     $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp','root','');
-    $req = $bdd->prepare('SELECT * FROM dossier_admission WHERE email = :email');
-    $req->execute(array('email'=>$dossier_admission->getEmail()));
+    $req = $bdd->prepare('SELECT * FROM dossier_admission WHERE nom = :nom');
+    $req->execute(array('nom'=>$dossier->getNom()));
     $donnee = $req->fetch();
     if($donnee)
     {
@@ -216,14 +216,35 @@ class Manager_User
     }
     else
     {
-      $req = $bdd->prepare('INSERT into dossier_admission (nom, date_naissance, adresse_postale, mutuelle, numero_secu, option, regime_specifique) value(?,?,?,?,?,?,?)');
-      $req -> execute(array($dossier_admission->getNom(), $dossier_admission->getDate_naissance(), $dossier_admission->getAdresse_postale(), $dossier_admission->getMutuelle(), $dossier_admission->getNumero_secu(), $dossier_admission->getOption(), $dossier_admission->getRegime_specifique()));
+      $req = $bdd->prepare('INSERT into dossier_admission (nom, date_naissance, adresse_postale, mutuelle, numero_secu, option, regime_specifique, patient, role) value(?,?,?,?,?,?,?,"PAT")');
+      $req -> execute(array($dossier->getNom(), $dossier->getDate_naissance(), $dossier->getAdresse_postale(), $dossier->getMutuelle(), $dossier->getNumero_secu(), $dossier->getOption(), $dossier->getRegime_specifique()));
 
     header('location: ../../datatableUrgentiste.php');
           $_SESSION['message_mdp'] = 'Modification enregistré';
     }
   }
 
+
+public function diag(User $diagnostic)
+  {
+    $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp','root','');
+    $req = $bdd->prepare('SELECT * FROM diagnostic');
+    $req->execute(array('nom'=>$diagnostic->getNom()));
+    $donnee = $req->fetch();
+    if($donnee)
+    {
+      $_SESSION['erreur_add_admin'] = "L'identifiant est déjà utilisé.";
+      header('Location: ../view/ajout_admin.php');
+    }
+    else
+    {
+      $req = $bdd->prepare('INSERT into diagnostic (nom, symptomes, date, niveau_urgence, date_rdv, heure) value(?,?,?,?,?,?)');
+      $req -> execute(array($diagnostic->getNom(), $diagnostic->getSymptomes(), $diagnostic->getDate(), $diagnostic->getNiveau_urgence(), $diagnostic->getdate_rdv(),  $diagnostic->getheure()));
+
+    header('location: ../../datatableUrgentiste.php');
+          $_SESSION['message_mdp'] = 'Modification enregistré';
+    }
+  }
 
  
 

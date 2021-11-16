@@ -100,7 +100,6 @@ session_start();
             else
             {
               echo '<div class="user-info">
-              <a href="#" title="">Connectez vous</a>
               <i class="la la-sort-down"></i>
               </div>
               <div class="user-account-settingss">

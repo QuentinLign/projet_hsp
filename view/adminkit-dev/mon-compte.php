@@ -65,6 +65,7 @@ if(!isset($_SESSION['email']))
 					<p>Mon nom : <b><?php echo htmlspecialchars($_SESSION['nom']); ?></b></p>
 					<p>Mon prénom : <b><?php echo htmlspecialchars($_SESSION['prenom']); ?></b></p>
 					<p>Mon adresse email : <b><?php echo htmlspecialchars($_SESSION['email']); ?></b></p>
+            <p>Mon role : <b><?php echo htmlspecialchars($_SESSION['role']); ?></b></p>
 
 
     </div>
@@ -82,6 +83,12 @@ if(!isset($_SESSION['email']))
                         <h5>Prénom</h5>
                         <div class="cpp-fiel">
                           <input type="text" name="prenom" placeholder="Prénom" value="<?php echo $_SESSION['prenom']; ?>" required>
+                        </div>
+                      </div>
+                      <div class="cp-field">
+                        <h5>Prénom</h5>
+                        <div class="cpp-fiel">
+                          <input type="mail" name="email" placeholder="Email" value="<?php echo $_SESSION['email']; ?>" required>
                         </div>
                       </div>
                       <div class="save-stngs pd2">
