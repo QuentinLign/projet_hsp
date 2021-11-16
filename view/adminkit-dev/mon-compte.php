@@ -85,6 +85,12 @@ if(!isset($_SESSION['email']))
                           <input type="text" name="prenom" placeholder="Prénom" value="<?php echo $_SESSION['prenom']; ?>" required>
                         </div>
                       </div>
+                      <div class="cp-field">
+                        <h5>Prénom</h5>
+                        <div class="cpp-fiel">
+                          <input type="mail" name="email" placeholder="Email" value="<?php echo $_SESSION['email']; ?>" required>
+                        </div>
+                      </div>
                       <div class="save-stngs pd2">
                         <ul>
                           <li><button type="submit">Sauvegarder</button></li>
