@@ -25,7 +25,7 @@ session_start();
 </head>
 
 <body>
-<?php include '../src/nav/navadmin.php';?>
+<?php include '/../src/nav/navadmin.php';?>
 <?php include '../src/nav/top_navadmin.php';?>
     
 

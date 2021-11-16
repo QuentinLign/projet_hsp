@@ -88,6 +88,12 @@
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Médecin</span>
                                 </a>
                              </li>';
+
+                        echo'<li class="sidebar-item">
+                                <a class="sidebar-link" href="prise_rdv.php">
+                                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Rendez-vous</span>
+                                </a>
+                             </li>';
                     }
                     else {
                     echo "";

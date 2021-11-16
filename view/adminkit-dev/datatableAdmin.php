@@ -58,6 +58,7 @@ require_once 'bdd/bdd.php';
             $req->execute(array(
             ));
 
+
             $res=$req->fetchall();
             ?>
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>

@@ -5,7 +5,6 @@ class User
   private $id;
   private $nom;
   private $prenom;
-  private $mail;
   private $email;
   private $mdp;
   private $etat_compte;

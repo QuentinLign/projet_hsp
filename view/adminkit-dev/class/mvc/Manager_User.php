@@ -45,7 +45,7 @@ class Manager_User
             if (!$mail->Send()) {
                 echo "Mailer Error: " . $mail->ErrorInfo;
                 $_SESSION['erreur_inscr'] = 'Addrese mail invalide';
-                header('Location: ../view/inscription.php');
+                header('Location: ../../inscription.php');
             } else {
                 echo "Le message a été envoyé";
                 $req = $bdd->prepare('INSERT into utilisateurs (nom, prenom, email, mdp) value(?,?,?,?)');
