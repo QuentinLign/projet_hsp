@@ -65,6 +65,7 @@ if(!isset($_SESSION['email']))
 					<p>Mon nom : <b><?php echo htmlspecialchars($_SESSION['nom']); ?></b></p>
 					<p>Mon prénom : <b><?php echo htmlspecialchars($_SESSION['prenom']); ?></b></p>
 					<p>Mon adresse email : <b><?php echo htmlspecialchars($_SESSION['email']); ?></b></p>
+            <p>Mon role : <b><?php echo htmlspecialchars($_SESSION['role']); ?></b></p>
 
 
     </div>

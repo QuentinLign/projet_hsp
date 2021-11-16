@@ -24,6 +24,7 @@ class User
   private $regime_specifique;
   private $specialite;
   private $heure;
+  private $date_rdv;
   private $salle;
 
   public function __construct(array $donnees)
@@ -73,6 +74,11 @@ class User
     public function getMail()
     {
         return $this->mail;
+    }
+
+        public function getDate_rdv()
+    {
+        return $this->date_rdv;
     }
 
   public function getRole()
@@ -136,6 +142,14 @@ class User
     // On vérifie qu'il s'agit bien d'une chaîne de caractères.
     if (is_string($mdp)) {
       $this->mdp = $mdp;
+    }
+  }
+
+    public function setDate_rdv($date_rdv)
+  {
+    // On vérifie qu'il s'agit bien d'une chaîne de caractères.
+    if (is_string($date_rdv)) {
+      $this->date_rdv = $date_rdv;
     }
   }
 

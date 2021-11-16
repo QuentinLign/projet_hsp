@@ -295,12 +295,10 @@ if(!isset($_SESSION['email']))
 
  <div class="container-fluid p-0">
  <div class="m-sm-4">
-                    <form action="class/mvc/cible_admission.php" method="post">
+                    <form action="class/mvc/cible_diagnostic.php" method="post">
                       <div class="mb-3">
                       <label class="form-label">Nom</label>
-                        <select name="nom">
-                     <option value="">Nom du patient</option>
-                   </select>
+                        <input class="form-control form-control-lg" type="text" name="nom" placeholder="Entrer votre adresse postale" required/>
                     </div>
                     <div class="mb-3">
                       <label class="form-label">Symptomes</label>
@@ -317,26 +315,30 @@ if(!isset($_SESSION['email']))
                      
   <input class="form-check-input" type="radio" name="niveau_urgence" id="inlineRadio1" value="vert">
   <img for="inlineRadio1" src="img/icons/green.png">
-  <input class="form-check-input" type="radio" name="niveau_urgence" id="inlineRadio1" value="orange">
-  <img for="inlineRadio1" src="img/icons/orange.png">
-   <input class="form-check-input" type="radio" name="niveau_urgence" id="inlineRadio1" value="rouge">
-  <img for="inlineRadio1" src="img/icons/red.png">
+  <input class="form-check-input" type="radio" name="niveau_urgence" id="inlineRadio2" value="orange">
+  <img for="inlineRadio2" src="img/icons/orange.png">
+   <input class="form-check-input" type="radio" name="niveau_urgence" id="inlineRadio3" value="rouge">
+  <img for="inlineRadio3" src="img/icons/red.png">
 </div>
 
                       <div class="mb-3">
                       <label class="form-label">Date du rendez-vous (facultatif)</label>
-                      <input class="form-control form-control-lg" type="date" name="date" placeholder="Entrer votre adresse postale"/><input class="form-control form-control-lg" type="time" name="heure" min="09:00" max="18:00" placeholder="Entrer votre adresse postale"/>
+                      <input class="form-control form-control-lg" type="date" name="date_rdv" placeholder="Entrer votre adresse postale"/><input class="form-control form-control-lg" type="time" name="heure" min="09:00" max="18:00" placeholder="Entrer votre adresse postale"/>
                     </div>
-                     
-                    <div class="mb-3">
-                   <input type="checkbox" name="role" checked disabled>
-                    <label value="PAT" for="PAT">Patient</label>
-                  </div>
-                    <div class="col-lg-12 no-pdd">
-                            <button type="submit" class="btn btn-lg btn-primary" value="submit">Créer le compte</button>
-                          </div>
 
-                    
+              
+
+</div>
+
+                    <div class="col-lg-12 no-pdd">
+                            <button type="submit" class="btn btn-lg btn-primary" value="submit">Valider</button>
+                          </div>
+                           <div class="mb-3">
+                      <label class="form-label">Mettre le patient en hospitalisation ?</label>
+<button type="submit" class="btn btn-primary" >
+  Valider et Lancer la procédure
+</button>
+                                      
               <?php
                           if (isset($_SESSION['erreur_inscr']))
                           {
@@ -354,6 +356,7 @@ if(!isset($_SESSION['email']))
         </div>
 
     </div>
+
     <script src="js/app.js"></script>
  <script type="text/javascript" src="../js/jquery.min.js"></script>
   <script type="text/javascript" src="../js/popper.js"></script>
@@ -361,6 +364,7 @@ if(!isset($_SESSION['email']))
   <script type="text/javascript" src="../js/jquery.mCustomScrollbar.js"></script>
   <script type="text/javascript" src="../lib/slick/slick.min.js"></script>
   <script type="text/javascript" src="../js/script.js"></script>
+  
 </body>
 
 </html>
