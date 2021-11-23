@@ -12,7 +12,7 @@
                 $req->execute(array(
                 ));
 
-                $res=$req->fetchall();
+                $res=$req->fetchall()
                 ?>
 
          <table id="employee_data" class="table table-striped table-bordered">
