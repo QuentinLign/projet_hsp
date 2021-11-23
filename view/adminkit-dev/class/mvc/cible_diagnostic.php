@@ -12,12 +12,8 @@ session_start();
   'niveau_urgence'=>$_POST['niveau_urgence'],
   'date_rdv'=>$_POST['date_rdv'],
   'heure'=>$_POST['heure'],
-<<<<<<< Updated upstream
   'enregistrement'=>$_POST['enregistrement'],
   'id_cabinet'=>$_POST['id_cabinet']]);
-=======
-  'enregistrement'=>$_POST['enregistrement']]);
->>>>>>> Stashed changes
   $diag = new Manager_User;
   $diag->diag($diagnostic);
 

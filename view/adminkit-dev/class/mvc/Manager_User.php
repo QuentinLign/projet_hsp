@@ -238,13 +238,10 @@ public function diag(User $diagnostic)
     }
     else
     {
-<<<<<<< Updated upstream
-      $req = $bdd->prepare('INSERT into diagnostic (nom, symptomes, date, niveau_urgence, date_rdv, heure, enregistrement, id_cabinet) value(?,?,?,?,?,?,"EN ATTENTE", ?)');
-      $req -> execute(array($diagnostic->getNom(), $diagnostic->getSymptomes(), $diagnostic->getDate(), $diagnostic->getNiveau_urgence(), $diagnostic->getDate_rdv(),  $diagnostic->getHeure(), $diagnostic->getEnregistrement(), $diagnostic->getId_cabinet()));
-=======
-      $req = $bdd->prepare('INSERT into diagnostic (nom, symptomes, date, niveau_urgence, date_rdv, heure, enregistrement) value(?,?,?,?,?,? "ATTENTE")');
-      $req -> execute(array($diagnostic->getNom(), $diagnostic->getSymptomes(), $diagnostic->getDate(), $diagnostic->getNiveau_urgence(),$diagnostic->getDate_rdv(),$diagnostic->getHeure(),$diagnostic->getEnregistrement()));
->>>>>>> Stashed changes
+
+      $req = $bdd->prepare('INSERT into diagnostic (nom, symptomes, date, niveau_urgence, date_rdv, heure, enregistrement, id_cabinet) value(?,?,?,?,?,? "ATTENTE", ?)');
+      $req -> execute(array($diagnostic->getNom(), $diagnostic->getSymptomes(), $diagnostic->getDate(), $diagnostic->getNiveau_urgence(),$diagnostic->getDate_rdv(),$diagnostic->getHeure(),$diagnostic->getEnregistrement(), $diagnostic->getId_cabinet()));
+
 
     header('location: ../../hospitalisation.php');
           $_SESSION['message_mdp'] = 'Modification enregistré';
