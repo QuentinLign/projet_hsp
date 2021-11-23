@@ -13,7 +13,7 @@
                 </li>
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="pages-profile.html">
+                    <a class="sidebar-link" href="rdvpatient.php">
                         <i class="align-middle" data-feather="user"></i> <span class="align-middle">Consulter dossier d'admission</span>
                     </a>
                 </li>
