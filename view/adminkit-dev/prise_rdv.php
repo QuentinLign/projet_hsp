@@ -22,7 +22,7 @@ if(isset($_POST['submit']))
     $userstatus=1;
     $docstatus=1;
     $bdd = new bdd;
-    $req=$bdd->getStart()->prepare("insert into appointement(doctorspecialization,doctorId,userId,consultancyFees,appointmentDate,appointmentTime,userStatus,doctorStatus) values('$specilization','$doctorid','$userid','$appdate','$time','$userstatus','$docstatus'");
+    $req=$bdd->getStart()->prepare("insert into rendezvous(doctorSpecialization,docteurID,userID,RDVdate,RDVheure,userStatus,doctorStatus) values('$specilization','$doctorid','$userid','$appdate','$time','$userstatus','$docstatus'");
     $req->execute(array(
     ));
 
@@ -105,7 +105,7 @@ if(isset($_POST['submit']))
                                                 <label for="DoctorSpecialization">
                                                     Doctor Specialization
                                                 </label>
-                                                <select name="Doctorspecialization" class="form-control" onChange="getdoctor(this.value);" required="required">
+                                                <select name="Doctorspecialization" class="form-control"  required="required">
                                                     <option value="">Selectionner la spécialité</option>
 
 
@@ -136,7 +136,7 @@ if(isset($_POST['submit']))
                                                 <label for="doctor">
                                                     Doctors
                                                 </label>
-                                                <select name="doctor" class="form-control" id="doctor" onChange="getfee(this.value);" required="required">
+                                                <select name="doctor" class="form-control" id="doctor" required="required">
                                                     <option value="">Select Doctor</option>
 
                                                     <?php
@@ -171,10 +171,10 @@ if(isset($_POST['submit']))
                                             <div class="form-group">
                                                 <label for="Appointmenttime">
 
-                                                    Time
+                                                    Heure
 
                                                 </label>
-                                                <input class="form-control" name="apptime" id="timepicker1" required="required">A partir de 8h.
+                                                <input class="form-control" name="apptime" id="timepicker1" required="required" placeholder="8:00" >A partir de 8h.
                                             </div>
 
                                             <button type="submit" name="submit" class="btn btn-o btn-primary">
