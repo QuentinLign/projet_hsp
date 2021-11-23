@@ -25,6 +25,8 @@ class User
   private $heure;
   private $date_rdv;
   private $salle;
+  private $enregistrement;
+  private $id_cabinet;
   private $specilization;
 
 
@@ -92,6 +94,15 @@ class User
     return $this->role;
   }
 
+    public function getEnregistrement()
+  {
+    return $this->enregistrement;
+  }
+
+  public function getId_cabinet()
+  {
+    return $this->id_cabinet;
+  }
 
   // Liste des setters
 
@@ -119,6 +130,14 @@ class User
   }
 
   public function setPrenom($prenom)
+  {
+    // On vérifie qu'il s'agit bien d'une chaîne de caractères.
+    if (is_string($prenom)) {
+      $this->prenom = $prenom;
+    }
+  }
+
+    public function setEnregistrement($enregistrement)
   {
     // On vérifie qu'il s'agit bien d'une chaîne de caractères.
     if (is_string($prenom)) {
@@ -254,6 +273,10 @@ class User
 
   public function setMutuelle($mutuelle){
     $this->mutuelle = $mutuelle;
+  }
+
+   public function setId_cabinet($id_cabinet){
+    $this->id_cabinet = $id_cabinet;
   }
 
   public function getNumero_secu(){

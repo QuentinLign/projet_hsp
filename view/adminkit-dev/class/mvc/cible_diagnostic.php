@@ -20,7 +20,9 @@ else
   'date'=>$_POST['date'],
   'niveau_urgence'=>$_POST['niveau_urgence'],
   'date_rdv'=>$_POST['date_rdv'],
-  'heure'=>$_POST['heure']]);
+  'heure'=>$_POST['heure'],
+  'enregistrement'=>$_POST['enregistrement'],
+  'id_cabinet'=>$_POST['id_cabinet']]);
   $diag = new Manager_User;
   $diag->diag($diagnostic);
 }

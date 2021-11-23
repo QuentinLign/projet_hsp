@@ -311,11 +311,56 @@ if(!isset($_SESSION['email']))
 
 </div>
 
-                                  <div class="collapse" id="urgence">
+                   <div class="collapse" id="urgence">
                     <div class="card card-body">
                       
+ <div class="card">
+              <div class="card-body">
+                 <?php
+                require_once '../adminkit-dev/bdd/bdd.php';
 
-                   <div class="container-fluid p-0">
+
+                $bdd = new bdd;
+                $req=$bdd->getStart()->prepare('SELECT * FROM diagnostic ORDER BY niveau_urgence');
+                $req->execute(array(
+                ));
+
+                $res=$req->fetchall();
+                ?>
+
+         <table id="employee_data" class="table table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <td>Nom</td>
+                                 <td>Symptomes</td>
+                                  <td>Date</td>
+                                   <td>Niveau d'urgence</td>
+                                    <td>Date RDV</td>
+                                     <td>Heure RDV</td>
+                                     <td>Enregistrement</td>
+
+                                
+                            </tr>
+                            </thead>
+                            <?php
+                            foreach($res as $row )
+                            {
+                                echo '  
+                               <tr>
+                <td>'.$row["nom"].'</td>
+                 <td>'.$row["symptomes"].'</td>
+                  <td>'.$row["date"].'</td>
+                   <td>'.$row["niveau_urgence"].'</td>
+                    <td>'.$row["date_rdv"].'</td>
+                     <td>'.$row["heure"].'</td>
+                     <td>'.$row["enregistrement"].'</td>
+                   
+              
+                </tr>
+                ';
+                            }
+                            ?>
+                        </table>
                    <div class="m-sm-4">
                     <form action="class/mvc/cible_diagnostic.php" method="post">
                       <div class="mb-3">
@@ -390,7 +435,7 @@ if(!isset($_SESSION['email']))
   <div class="collapse" id="Hospitaliser">
     <div class="mb-3">
                       <label class="form-label">Cabinet</label>
-                         <select name="nom" class="form-control" required="required">
+                         <select name="id_cabinet" class="form-control" required="required">
                                                     <option value="">Selectionner un cabinet</option>
 
 

@@ -238,8 +238,8 @@ public function diag(User $diagnostic)
     }
     else
     {
-      $req = $bdd->prepare('INSERT into diagnostic (nom, symptomes, date, niveau_urgence, date_rdv, heure) value(?,?,?,?,?,?)');
-      $req -> execute(array($diagnostic->getNom(), $diagnostic->getSymptomes(), $diagnostic->getDate(), $diagnostic->getNiveau_urgence(), $diagnostic->getdate_rdv(),  $diagnostic->getheure()));
+      $req = $bdd->prepare('INSERT into diagnostic (nom, symptomes, date, niveau_urgence, date_rdv, heure, enregistrement, id_cabinet) value(?,?,?,?,?,?,"EN ATTENTE", ?)');
+      $req -> execute(array($diagnostic->getNom(), $diagnostic->getSymptomes(), $diagnostic->getDate(), $diagnostic->getNiveau_urgence(), $diagnostic->getDate_rdv(),  $diagnostic->getHeure(), $enregistrement->getEnregistrement(), $diagnostic->getId_cabinet()));
 
     header('location: ../../hospitalisation.php');
           $_SESSION['message_mdp'] = 'Modification enregistré';
