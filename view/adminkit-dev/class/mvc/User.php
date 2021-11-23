@@ -25,8 +25,11 @@ class User
   private $heure;
   private $date_rdv;
   private $salle;
+  private $specilization;
 
-  public function __construct(array $donnees)
+
+
+    public function __construct(array $donnees)
   {
     $this->hydrate($donnees);
   }
@@ -49,6 +52,10 @@ class User
   {
     return $this->id;
   }
+  public function getSpecilization()
+    {
+        return $this->specilization;
+    }
 
   public function getMdp()
   {
@@ -133,6 +140,14 @@ class User
         // On vérifie qu'il s'agit bien d'une chaîne de caractères.
         if (is_string($mail)) {
             $this->mail = $mail;
+        }
+    }
+
+    public function setSpecilization($specilization)
+    {
+        // On vérifie qu'il s'agit bien d'une chaîne de caractères.
+        if (is_string($specilization)) {
+            $this->specilization = $specilization;
         }
     }
 

@@ -14,7 +14,7 @@ require_once '../adminkit-dev/bdd/bdd.php';
 
 if(isset($_POST['submit']))
 {
-    $specilization=$_POST['Doctorspecialization'];
+    $specilization=$_POST['doctorspecilization'];
     $doctorid=$_POST['doctor'];
     $userid=$_SESSION['id'];
     $appdate=$_POST['appdate'];
@@ -36,16 +36,16 @@ if(isset($_POST['submit']))
 
 <!DOCTYPE html>
 <html lang="fr">
-    <title>User  | Book Appointment</title>
+    <title>Patient  | Prise de rendez-vous</title>
 
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="css/bootstrap/css/bootstrap-theme.min.css">
 
-    <link href="vendor/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" media="screen">
-    <link href="vendor/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" media="screen">
+    <link href="css/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" media="screen">
+    <link href="css/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" media="screen">
 
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="assets/css/plugins.css">
+    <link rel="stylesheet" href="css/plugins.css">
     <script>
         function getdoctor(val) {
             $.ajax({
@@ -81,14 +81,6 @@ if(isset($_POST['submit']))
                     <div class="col-sm-8">
                         <h1 class="mainTitle">Utilisateur | Prise de RDV</h1>
                     </div>
-                    <ol class="breadcrumb">
-                        <li>
-                            <span>User</span>
-                        </li>
-                        <li class="active">
-                            <span>Prise de RDV</span>
-                        </li>
-                    </ol>
             </section>
             <!-- end: PAGE TITLE -->
             <!-- start: BASIC EXAMPLE -->
@@ -100,11 +92,11 @@ if(isset($_POST['submit']))
                             <div class="col-lg-8 col-md-12">
                                 <div class="panel panel-white">
                                     <div class="panel-heading">
-                                        <h5 class="panel-title">Prise de RDV</h5>
+                                        <h2 class="panel-title">Prise de RDV</h2>
                                     </div>
                                     <div class="panel-body">
-                                        <p style="color:red;"><?php echo htmlentities($_SESSION['msg1']);?>
-                                            <?php echo htmlentities($_SESSION['msg1']="");?></p>
+                                        <p style="color:red;"><?php echo ($_SESSION['msg1']);?>
+                                            <?php echo ($_SESSION['msg1']="");?></p>
                                         <form role="form" name="book" method="post" >
 
 
@@ -114,30 +106,31 @@ if(isset($_POST['submit']))
                                                     Doctor Specialization
                                                 </label>
                                                 <select name="Doctorspecialization" class="form-control" onChange="getdoctor(this.value);" required="required">
-                                                    <option value="">Select Specialization</option>
+                                                    <option value="">Selectionner la spécialité</option>
 
 
 
                                                     <?php
 
+                                                    require_once '../adminkit-dev/bdd/bdd.php';
+
+
                                                     $bdd = new bdd;
-                                                    $req=$bdd->getStart()->prepare("select * from doctorspecialization");
+                                                    $req=$bdd->getStart()->prepare("select * from doctorspecilization");
                                                     $req->execute(array(
                                                     ));
 
-                                                    while($row= $req)
+                                                    $res=$req->fetchall();
+                                                    foreach ($res as $req)
                                                     {
                                                         ?>
-                                                        <option value="<?php echo htmlentities($row['specilization']);?>">
-                                                            <?php echo htmlentities($row['specilization']);?>
+                                                        <option value="<?php echo ($req['specilization']);?>">
+                                                            <?php echo ($req['specilization']);?>
                                                         </option>
                                                     <?php } ?>
 
                                                 </select>
                                             </div>
-
-
-
 
                                             <div class="form-group">
                                                 <label for="doctor">
@@ -145,29 +138,33 @@ if(isset($_POST['submit']))
                                                 </label>
                                                 <select name="doctor" class="form-control" id="doctor" onChange="getfee(this.value);" required="required">
                                                     <option value="">Select Doctor</option>
+
+                                                    <?php
+
+                                                    require_once '../adminkit-dev/bdd/bdd.php';
+
+
+                                                    $bdd = new bdd;
+                                                    $req=$bdd->getStart()->prepare('SELECT * FROM utilisateurs WHERE role="MED"');
+                                                    $req->execute(array(
+                                                    ));
+
+                                                    $res=$req->fetchall();
+                                                    foreach ($res as $req)
+                                                    {
+                                                        ?>
+                                                        <option value="<?php echo ($req['nom']);?>">
+                                                            <?php echo ($req['nom']);?>
+                                                        </option>
+                                                    <?php } ?>
+
                                                 </select>
                                             </div>
 
-
-
-
-
                                             <div class="form-group">
-                                                <label for="consultancyfees">
-                                                    Consultancy Fees
-                                                </label>
-                                                <select name="fees" class="form-control" id="fees"  readonly>
-
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="AppointmentDate">
-                                                    Date
-                                                </label>
                                                 <div class="mb-3">
-                                                    <label class="form-label">Date de naissance</label>
-                                                    <input class="form-control form-control-lg" type="date" name="date_naissance" placeholder="Entrer votre date de naissance" />
+                                                    <label class="form-label">Date de rendez-vous</label>
+                                                    <input class="form-control form-control-lg" type="date" name="date_rendezvous" placeholder="Entrer votre date de rendez-vous" />
                                                 </div>
                                             </div>
 
@@ -177,11 +174,11 @@ if(isset($_POST['submit']))
                                                     Time
 
                                                 </label>
-                                                <input class="form-control" name="apptime" id="timepicker1" required="required">eg : 10:00 PM
+                                                <input class="form-control" name="apptime" id="timepicker1" required="required">A partir de 8h.
                                             </div>
 
                                             <button type="submit" name="submit" class="btn btn-o btn-primary">
-                                                Submit
+                                                Valider
                                             </button>
                                         </form>
                                     </div>
