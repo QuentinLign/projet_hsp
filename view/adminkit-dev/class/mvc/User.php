@@ -26,11 +26,8 @@ class User
   private $date_rdv;
   private $salle;
   private $enregistrement;
-<<<<<<< Updated upstream
   private $id_cabinet;
   private $specilization;
-=======
->>>>>>> Stashed changes
 
 
 
@@ -97,23 +94,16 @@ class User
     return $this->role;
   }
 
-<<<<<<< Updated upstream
-    public function getEnregistrement()
-=======
    public function getEnregistrement()
->>>>>>> Stashed changes
   {
     return $this->enregistrement;
   }
 
-<<<<<<< Updated upstream
   public function getId_cabinet()
   {
     return $this->id_cabinet;
   }
-=======
 
->>>>>>> Stashed changes
 
   // Liste des setters
 
@@ -205,13 +195,6 @@ class User
     }
   }
 
-   public function setEnregistrement($enregistrement)
-  {
-    // On vérifie qu'il s'agit bien d'une chaîne de caractères.
-    if (is_string($enregistrement)) {
-      $this->enregistrement = $enregistrement;
-    }
-  }
 
 
   public function getEtat_compte(){

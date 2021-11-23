@@ -337,6 +337,7 @@ if(!isset($_SESSION['email']))
                                     <td>Date RDV</td>
                                      <td>Heure RDV</td>
                                      <td>Enregistrement</td>
+                                     <td>Hospitalisation</td>
 
                                 
                             </tr>
@@ -353,6 +354,7 @@ if(!isset($_SESSION['email']))
                     <td>'.$row["date_rdv"].'</td>
                      <td>'.$row["heure"].'</td>
                      <td>'.$row["enregistrement"].'</td>
+                     <td>'.$row["id_cabinet"].'</td>
                    
               
                 </tr>
