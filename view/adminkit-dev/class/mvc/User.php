@@ -337,5 +337,76 @@ class User
     $this->salle = $salle;
   }
 
-}
+class User
+{
 
+  private $id;
+  private $nom;
+  private $symptomes;
+  private $date;
+  private $niveau_urgence;
+  private $date_rdv;
+  private $heure;
+  private $enregistrement;
+  private $id_cabinet;
+
+
+    public function __construct(array $donnees)
+  {
+    $this->hydrate($donnees);
+  }
+
+  public function hydrate(array $donnees)
+  {
+    foreach ($donnees as $key => $value) {
+      $method = 'set' . ucfirst($key);
+
+      if (method_exists($this, $method)) {
+        // On appelle le setter.
+        $this->$method($value);
+      }
+    }
+  }
+
+
+   public function getNom()
+  {
+    return $this->nom;
+  }
+
+
+   public function getSymptomes(){
+    return $this->symptomes;
+  }
+
+    public function getDate(){
+    return $this->date;
+  }
+
+    public function getNiveau_urgence(){
+    return $this->niveau_urgence;
+  }
+
+
+  public function getDate_rdv()
+    {
+        
+    return $this->date_rdv;
+    }
+
+   public function getHeure(){
+    return $this->heure;
+  }
+
+     public function getEnregistrement()
+  {
+    return $this->enregistrement;
+  }
+
+    public function getId_cabinet()
+  {
+    return $this->id_cabinet;
+  }
+
+}
+}

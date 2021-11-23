@@ -6,7 +6,7 @@ session_start();
 //Vérification du mdp
 
 
-  $diagnostic = new User(['nom'=>$_POST['nom'],
+  $diagnostic = new Diagnostic(['nom'=>$_POST['nom'],
   'symptomes'=>$_POST['symptomes'],
   'date'=>$_POST['date'],
   'niveau_urgence'=>$_POST['niveau_urgence'],

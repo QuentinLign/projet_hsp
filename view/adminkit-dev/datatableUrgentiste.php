@@ -437,7 +437,7 @@ if(!isset($_SESSION['email']))
   <div class="collapse" id="Hospitaliser">
     <div class="mb-3">
                       <label class="form-label">Cabinet</label>
-                         <select name="id_cabinet" class="form-control" required="required">
+                         <select name="id_cabinet" class="form-control">
                                                     <option value="">Selectionner un cabinet</option>
 
 
