@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 if(!isset($_SESSION['email']))
 {
     header('location: connexion.php');
@@ -311,11 +310,56 @@ if(!isset($_SESSION['email']))
 
 </div>
 
-                                  <div class="collapse" id="urgence">
+                   <div class="collapse" id="urgence">
                     <div class="card card-body">
                       
+ <div class="card">
+              <div class="card-body">
+                 <?php
+                require_once '../adminkit-dev/bdd/bdd.php';
 
-                   <div class="container-fluid p-0">
+
+                $bdd = new bdd;
+                $req=$bdd->getStart()->prepare('SELECT * FROM diagnostic ORDER BY niveau_urgence');
+                $req->execute(array(
+                ));
+
+                $res=$req->fetchall();
+                ?>
+
+         <table id="employee_data" class="table table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <td>Nom</td>
+                                 <td>Symptomes</td>
+                                  <td>Date</td>
+                                   <td>Niveau d'urgence</td>
+                                    <td>Date RDV</td>
+                                     <td>Heure RDV</td>
+                                     <td>Enregistrement</td>
+
+                                
+                            </tr>
+                            </thead>
+                            <?php
+                            foreach($res as $row )
+                            {
+                                echo '  
+                               <tr>
+                <td>'.$row["nom"].'</td>
+                 <td>'.$row["symptomes"].'</td>
+                  <td>'.$row["date"].'</td>
+                   <td>'.$row["niveau_urgence"].'</td>
+                    <td>'.$row["date_rdv"].'</td>
+                     <td>'.$row["heure"].'</td>
+                     <td>'.$row["enregistrement"].'</td>
+                   
+              
+                </tr>
+                ';
+                            }
+                            ?>
+                        </table>
                    <div class="m-sm-4">
                     <form action="class/mvc/cible_diagnostic.php" method="post">
                       <div class="mb-3">
@@ -353,23 +397,24 @@ if(!isset($_SESSION['email']))
                     </div>
                     <div class="mb-3">
                       <label class="form-label">Date du diagnostic</label>
-                      <input class="form-control form-control-lg" type="date" name="date" placeholder="Entrer votre adresse postale" required/>
+                      <input class="form-control form-control-lg" type="date" name="date" value="2018-07-22"placeholder="Entrer votre adresse postale" required/>
                     </div>
 
                     <div class="mb-3">
                       <label class="form-label">Niveau</label>
                      
-  <input class="form-check-input" type="radio" name="niveau_urgence" id="inlineRadio1" value="vert">
-  <img for="inlineRadio1" src="img/icons/green.png">
-  <input class="form-check-input" type="radio" name="niveau_urgence" id="inlineRadio2" value="orange">
-  <img for="inlineRadio2" src="img/icons/orange.png">
-   <input class="form-check-input" type="radio" name="niveau_urgence" id="inlineRadio3" value="rouge">
-  <img for="inlineRadio3" src="img/icons/red.png">
-</div>
+                        <input class="form-check-input" type="radio" name="niveau_urgence" id="inlineRadio1" value="vert">
+                        <img for="inlineRadio1" src="img/icons/green.png">
+                        <input class="form-check-input" type="radio" name="niveau_urgence" id="inlineRadio2" value="orange">
+                        <img for="inlineRadio2" src="img/icons/orange.png">
+                         <input class="form-check-input" type="radio" name="niveau_urgence" id="inlineRadio3" value="rouge">
+                        <img for="inlineRadio3" src="img/icons/red.png">
+                      </div>
 
                       <div class="mb-3">
                       <label class="form-label">Date du rendez-vous (facultatif)</label>
-                      <input class="form-control form-control-lg" type="date" name="date_rdv" placeholder="Entrer votre adresse postale"/><input class="form-control form-control-lg" type="time" name="heure" min="09:00" max="18:00" placeholder="Entrer votre adresse postale"/>
+                      <input class="form-control form-control-lg" type="date" name="date_rdv" value="2018-07-22" placeholder="Entrer votre adresse postale"/>
+                      <input class="form-control form-control-lg" type="time" name="heure" min="09:00" max="18:00" placeholder="Entrer votre adresse postale"/>
                     </div>
 <style>
    .image-clignote  {
@@ -390,7 +435,7 @@ if(!isset($_SESSION['email']))
   <div class="collapse" id="Hospitaliser">
     <div class="mb-3">
                       <label class="form-label">Cabinet</label>
-                         <select name="nom" class="form-control" required="required">
+                         <select name="id_cabinet" class="form-control" required="required">
                                                     <option value="">Selectionner un cabinet</option>
 
 

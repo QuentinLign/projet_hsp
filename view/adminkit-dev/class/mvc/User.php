@@ -25,7 +25,12 @@ class User
   private $heure;
   private $date_rdv;
   private $salle;
+  private $enregistrement;
+<<<<<<< Updated upstream
+  private $id_cabinet;
   private $specilization;
+=======
+>>>>>>> Stashed changes
 
 
 
@@ -92,6 +97,23 @@ class User
     return $this->role;
   }
 
+<<<<<<< Updated upstream
+    public function getEnregistrement()
+=======
+   public function getEnregistrement()
+>>>>>>> Stashed changes
+  {
+    return $this->enregistrement;
+  }
+
+<<<<<<< Updated upstream
+  public function getId_cabinet()
+  {
+    return $this->id_cabinet;
+  }
+=======
+
+>>>>>>> Stashed changes
 
   // Liste des setters
 
@@ -119,6 +141,14 @@ class User
   }
 
   public function setPrenom($prenom)
+  {
+    // On vérifie qu'il s'agit bien d'une chaîne de caractères.
+    if (is_string($prenom)) {
+      $this->prenom = $prenom;
+    }
+  }
+
+    public function setEnregistrement($enregistrement)
   {
     // On vérifie qu'il s'agit bien d'une chaîne de caractères.
     if (is_string($prenom)) {
@@ -172,6 +202,14 @@ class User
     // On vérifie qu'il s'agit bien d'une chaîne de caractères.
     if (is_string($role)) {
       $this->role = $role;
+    }
+  }
+
+   public function setEnregistrement($enregistrement)
+  {
+    // On vérifie qu'il s'agit bien d'une chaîne de caractères.
+    if (is_string($enregistrement)) {
+      $this->enregistrement = $enregistrement;
     }
   }
 
@@ -254,6 +292,10 @@ class User
 
   public function setMutuelle($mutuelle){
     $this->mutuelle = $mutuelle;
+  }
+
+   public function setId_cabinet($id_cabinet){
+    $this->id_cabinet = $id_cabinet;
   }
 
   public function getNumero_secu(){

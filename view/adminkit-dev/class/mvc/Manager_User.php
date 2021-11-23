@@ -226,7 +226,7 @@ class Manager_User
 
 
 public function diag(User $diagnostic)
-  {
+{
     $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp','root','');
     $req = $bdd->prepare('SELECT * FROM diagnostic');
     $req->execute(array('nom'=>$diagnostic->getNom()));
@@ -234,12 +234,17 @@ public function diag(User $diagnostic)
     if($donnee)
     {
       $_SESSION['erreur_add_admin'] = "L'identifiant est déjà utilisé.";
-      header('Location: ../view/ajout_admin.php');
+      header('Location: ../view/erreur.php');
     }
     else
     {
-      $req = $bdd->prepare('INSERT into diagnostic (nom, symptomes, date, niveau_urgence, date_rdv, heure) value(?,?,?,?,?,?)');
-      $req -> execute(array($diagnostic->getNom(), $diagnostic->getSymptomes(), $diagnostic->getDate(), $diagnostic->getNiveau_urgence(), $diagnostic->getdate_rdv(),  $diagnostic->getheure()));
+<<<<<<< Updated upstream
+      $req = $bdd->prepare('INSERT into diagnostic (nom, symptomes, date, niveau_urgence, date_rdv, heure, enregistrement, id_cabinet) value(?,?,?,?,?,?,"EN ATTENTE", ?)');
+      $req -> execute(array($diagnostic->getNom(), $diagnostic->getSymptomes(), $diagnostic->getDate(), $diagnostic->getNiveau_urgence(), $diagnostic->getDate_rdv(),  $diagnostic->getHeure(), $diagnostic->getEnregistrement(), $diagnostic->getId_cabinet()));
+=======
+      $req = $bdd->prepare('INSERT into diagnostic (nom, symptomes, date, niveau_urgence, date_rdv, heure, enregistrement) value(?,?,?,?,?,? "ATTENTE")');
+      $req -> execute(array($diagnostic->getNom(), $diagnostic->getSymptomes(), $diagnostic->getDate(), $diagnostic->getNiveau_urgence(),$diagnostic->getDate_rdv(),$diagnostic->getHeure(),$diagnostic->getEnregistrement()));
+>>>>>>> Stashed changes
 
     header('location: ../../hospitalisation.php');
           $_SESSION['message_mdp'] = 'Modification enregistré';
