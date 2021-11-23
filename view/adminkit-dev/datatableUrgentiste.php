@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 if(!isset($_SESSION['email']))
 {
     header('location: connexion.php');
@@ -398,23 +397,24 @@ if(!isset($_SESSION['email']))
                     </div>
                     <div class="mb-3">
                       <label class="form-label">Date du diagnostic</label>
-                      <input class="form-control form-control-lg" type="date" name="date" placeholder="Entrer votre adresse postale" required/>
+                      <input class="form-control form-control-lg" type="date" name="date" value="2018-07-22"placeholder="Entrer votre adresse postale" required/>
                     </div>
 
                     <div class="mb-3">
                       <label class="form-label">Niveau</label>
                      
-  <input class="form-check-input" type="radio" name="niveau_urgence" id="inlineRadio1" value="vert">
-  <img for="inlineRadio1" src="img/icons/green.png">
-  <input class="form-check-input" type="radio" name="niveau_urgence" id="inlineRadio2" value="orange">
-  <img for="inlineRadio2" src="img/icons/orange.png">
-   <input class="form-check-input" type="radio" name="niveau_urgence" id="inlineRadio3" value="rouge">
-  <img for="inlineRadio3" src="img/icons/red.png">
-</div>
+                        <input class="form-check-input" type="radio" name="niveau_urgence" id="inlineRadio1" value="vert">
+                        <img for="inlineRadio1" src="img/icons/green.png">
+                        <input class="form-check-input" type="radio" name="niveau_urgence" id="inlineRadio2" value="orange">
+                        <img for="inlineRadio2" src="img/icons/orange.png">
+                         <input class="form-check-input" type="radio" name="niveau_urgence" id="inlineRadio3" value="rouge">
+                        <img for="inlineRadio3" src="img/icons/red.png">
+                      </div>
 
                       <div class="mb-3">
                       <label class="form-label">Date du rendez-vous (facultatif)</label>
-                      <input class="form-control form-control-lg" type="date" name="date_rdv" placeholder="Entrer votre adresse postale"/><input class="form-control form-control-lg" type="time" name="heure" min="09:00" max="18:00" placeholder="Entrer votre adresse postale"/>
+                      <input class="form-control form-control-lg" type="date" name="date_rdv" value="2018-07-22" placeholder="Entrer votre adresse postale"/>
+                      <input class="form-control form-control-lg" type="time" name="heure" min="09:00" max="18:00" placeholder="Entrer votre adresse postale"/>
                     </div>
 <style>
    .image-clignote  {
