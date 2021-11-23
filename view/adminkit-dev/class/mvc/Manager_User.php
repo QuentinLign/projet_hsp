@@ -241,7 +241,7 @@ public function diag(User $diagnostic)
       $req = $bdd->prepare('INSERT into diagnostic (nom, symptomes, date, niveau_urgence, date_rdv, heure) value(?,?,?,?,?,?)');
       $req -> execute(array($diagnostic->getNom(), $diagnostic->getSymptomes(), $diagnostic->getDate(), $diagnostic->getNiveau_urgence(), $diagnostic->getdate_rdv(),  $diagnostic->getheure()));
 
-    header('location: ../../datatableUrgentiste.php');
+    header('location: ../../hospitalisation.php');
           $_SESSION['message_mdp'] = 'Modification enregistré';
     }
   }

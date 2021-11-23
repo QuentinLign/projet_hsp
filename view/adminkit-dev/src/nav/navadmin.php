@@ -128,7 +128,13 @@
                                 <a class="sidebar-link" href="datatableRDV.php">
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Mes rendez-vous</span>
                                 </a>
-                             </li>';
+                             </li>
+                                <li class="sidebar-item">
+                                <a class="sidebar-link" href="prise_rdv.php">
+                                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Prise de RDV</span>
+                                </a>
+                             </li>
+                             ';
                     }
                     else {
                     echo "";

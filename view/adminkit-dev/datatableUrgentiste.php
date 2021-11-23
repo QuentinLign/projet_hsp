@@ -228,9 +228,31 @@ if(!isset($_SESSION['email']))
                     <form action="class/mvc/cible_admission.php" method="post">
                       <div class="mb-3">
                       <label class="form-label">Nom</label>
-                      <select name="nom">
-                     <option value="">Nom du patient</option>
-                   </select>
+                      <select name="nom" class="form-control" required="required">
+                                                    <option value="">Selectionner le patient</option>
+
+
+
+                                                    <?php
+
+                                                    require_once '../adminkit-dev/bdd/bdd.php';
+
+
+                                                    $bdd = new bdd;
+                                                    $req=$bdd->getStart()->prepare("select nom from utilisateurs WHERE role='PAT'");
+                                                    $req->execute(array(
+                                                    ));
+
+                                                    $res=$req->fetchall();
+                                                    foreach ($res as $req)
+                                                    {
+                                                        ?>
+                                                        <option value="<?php echo ($req['nom']);?>">
+                                                            <?php echo ($req['nom']);?>
+                                                        </option>
+                                                    <?php } ?>
+
+                                                </select>
                     </div>
                     <div class="mb-3">
                       <label class="form-label">Date de naissance</label>
@@ -289,16 +311,40 @@ if(!isset($_SESSION['email']))
 
 </div>
 
-                <div class="collapse" id="urgence">
-  <div class="card card-body">
-    
+                                  <div class="collapse" id="urgence">
+                    <div class="card card-body">
+                      
 
- <div class="container-fluid p-0">
- <div class="m-sm-4">
+                   <div class="container-fluid p-0">
+                   <div class="m-sm-4">
                     <form action="class/mvc/cible_diagnostic.php" method="post">
                       <div class="mb-3">
                       <label class="form-label">Nom</label>
-                        <input class="form-control form-control-lg" type="text" name="nom" placeholder="Entrer votre adresse postale" required/>
+                         <select name="nom" class="form-control" required="required">
+                                                    <option value="">Selectionner le patient</option>
+
+
+
+                                                    <?php
+
+                                                    require_once '../adminkit-dev/bdd/bdd.php';
+
+
+                                                    $bdd = new bdd;
+                                                    $req=$bdd->getStart()->prepare("select nom from utilisateurs WHERE role='PAT'");
+                                                    $req->execute(array(
+                                                    ));
+
+                                                    $res=$req->fetchall();
+                                                    foreach ($res as $req)
+                                                    {
+                                                        ?>
+                                                        <option value="<?php echo ($req['nom']);?>">
+                                                            <?php echo ($req['nom']);?>
+                                                        </option>
+                                                    <?php } ?>
+
+                                                </select>
                     </div>
                     <div class="mb-3">
                       <label class="form-label">Symptomes</label>
@@ -325,19 +371,60 @@ if(!isset($_SESSION['email']))
                       <label class="form-label">Date du rendez-vous (facultatif)</label>
                       <input class="form-control form-control-lg" type="date" name="date_rdv" placeholder="Entrer votre adresse postale"/><input class="form-control form-control-lg" type="time" name="heure" min="09:00" max="18:00" placeholder="Entrer votre adresse postale"/>
                     </div>
+<style>
+   .image-clignote  {
+   animation-duration: .8s;
+   animation-name: clignoter;
+   animation-iteration-count: infinite;
+   transition: none;
+}
+@keyframes clignoter {
+  0%   { opacity:1; }
+  40%   {opacity:0; }
+  100% { opacity:1; }
+}
+</style>
+                <button class="btn btn-danger image-clignote" type="button" data-bs-toggle="collapse" data-bs-target="#Hospitaliser" aria-expanded="false" aria-controls="Hospitaliser">
+    Hospitaliser le patient
+  </button>
+  <div class="collapse" id="Hospitaliser">
+    <div class="mb-3">
+                      <label class="form-label">Cabinet</label>
+                         <select name="nom" class="form-control" required="required">
+                                                    <option value="">Selectionner un cabinet</option>
 
-              
+
+
+                                                    <?php
+
+                                                    require_once '../adminkit-dev/bdd/bdd.php';
+
+
+                                                    $bdd = new bdd;
+                                                    $req=$bdd->getStart()->prepare("select libelle from cabinets WHERE disponibilite='1'");
+                                                    $req->execute(array(
+                                                    ));
+
+                                                    $res=$req->fetchall();
+                                                    foreach ($res as $req)
+                                                    {
+                                                        ?>
+                                                        <option value="<?php echo ($req['libelle']);?>">
+                                                            <?php echo ($req['libelle']);?>
+                                                        </option>
+                                                    <?php } ?>
+
+                                                </select>
+                    </div>
+  </div>
 
 </div>
 
                     <div class="col-lg-12 no-pdd">
-                            <button type="submit" class="btn btn-lg btn-primary" value="submit">Valider</button>
+                            <button type="submit" class="btn btn-lg btn-primary" value="submit">Suivant</button>
                           </div>
                            <div class="mb-3">
-                      <label class="form-label">Mettre le patient en hospitalisation ?</label>
-<button type="submit" class="btn btn-primary" >
-  Valider et Lancer la procédure
-</button>
+                      
                                       
               <?php
                           if (isset($_SESSION['erreur_inscr']))
