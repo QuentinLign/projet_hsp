@@ -1,6 +1,7 @@
 <?php
 //Manager
 require_once(__DIR__.'/User.php');
+require_once(__DIR__.'/model_diagnostic.php');
 require 'vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -225,13 +226,13 @@ class Manager_User
   }
 
 
-public function diag(User $diagnostic)
+public function diag(Diagnostic $diagnostic)
 {
     $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp','root','');
     $req = $bdd->prepare('SELECT * FROM diagnostic');
     $req->execute(array('nom'=>$diagnostic->getNom()));
-    $donnee = $req->fetch();
-    if($donnee)
+    $donnees = $req->fetch();
+    if($donnees)
     {
       $_SESSION['erreur_add_admin'] = "L'identifiant est déjà utilisé.";
       header('Location: ../view/erreur.php');
