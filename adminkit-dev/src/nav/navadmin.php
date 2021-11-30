@@ -47,7 +47,7 @@
                 </li>
                  <li class="sidebar-item">
                     <?php
-                    include'../class/mvc/Manager_User.php';
+                    include'class/mvc/Manager_User.php';
                     if ($_SESSION['role'] == "ADM") {
 
                         echo '<li class="sidebar-item">
