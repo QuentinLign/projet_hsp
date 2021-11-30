@@ -22,8 +22,7 @@ class Manager_User
         $donnee = $req->fetch();
         if ($donnee) {
             $_SESSION['erreur_inscr'] = "L'adresse éléctronique est déjà associée à un compte.";
-            echo "<div style='color:#ff0000'>
-     " . $_SESSION['erreur_inscr'];
+            echo "<div style='color:#ff0000'>" . $_SESSION['erreur_inscr'];
             unset($_SESSION['erreur_inscr']);
         } else {
 
@@ -180,12 +179,19 @@ class Manager_User
     header('location: ../index.php');
   }
 
-    public function activ(Etat $activ)
+ public function modif_etat(Etat $activation)
   {
     $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp','root','');
-    $req = $bdd->prepare('UPDATE utilisateurs SET verif = ? WHERE email = ?');
-    $req->execute(array('verif'=>$activation->getVerif()));
-    header('location: ../index.php');
+    $req = $bdd->prepare('UPDATE utilisateurs SET verif = ? WHERE nom = ?');
+    $req->execute(array($activation->getVerif()));
+    $_SESSION['succes_modif'] = 'Modification enregistré';
+    header('location: ../../mon-compte.php');
+    //actualisation du nom de l'utilisateur dans les pages
+    $req = $bdd->prepare('SELECT * from utilisateurs where email = ?');
+    $req->execute(array($verif));
+    $donnee = $req->fetch();
+    $_SESSION['verif'] = $donnee['verif'];
+  
   }
 
 

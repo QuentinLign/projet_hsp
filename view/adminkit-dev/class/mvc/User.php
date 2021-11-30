@@ -13,7 +13,6 @@ class User
   private $adresse_postale;
   private $salle;
   private $specilization;
-  private $activ;
 
 
 
@@ -523,4 +522,42 @@ class Diagnostic
     public function setId_cabinet($id_cabinet){
     $this->id_cabinet = $id_cabinet;
   }
+}
+
+class Etat
+{
+   private $nom;
+  private $verif;
+
+public function __construct(array $donnees)
+  {
+    $this->hydrate($donnees);
+  }
+
+    public function hydrate(array $donnees)
+  {
+    foreach ($donnees as $key => $value) {
+      $method = 'set' . ucfirst($key);
+
+      if (method_exists($this, $method)) {
+        // On appelle le setter.
+        $this->$method($value);
+      }
+    }
+  }
+  public function getNom()
+  {
+    return $this->nom;
+  }
+  public function getVerif()
+  {
+    return $this->verif;
+  }
+      public function setNom($nom){
+    $this->nom = $nom;
+  }
+      public function setVerif($verif){
+    $this->verif = $verif;
+  }
+
 }

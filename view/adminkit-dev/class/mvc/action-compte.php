@@ -3,13 +3,9 @@
 require 'User.php';
 require 'Manager_User.php';
 session_start();
-//Vérification du mdp
 
 
-  $activ = new Etat([
-  'nom'=>$_POST['nom'],
-  'verif'=>$_POST['verif']]);
-  $activation = new Manager_User();
-  $activation->Etat($activ);
-
+$user = new Etat(['verif'=>$_POST['verif']]);
+$modif = new Manager_User;
+$modif->modification($user, $_SESSION['email']);
 ?>

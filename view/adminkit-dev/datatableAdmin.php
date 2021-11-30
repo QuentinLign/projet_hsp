@@ -50,13 +50,13 @@ require_once 'bdd/bdd.php';
 
 
                 $bdd = new bdd;
-                $req=$bdd->getStart()->prepare('SELECT * FROM utilisateurs  ORDER BY id DESC');
+                $req=$bdd->getStart()->prepare('SELECT nom, verif FROM utilisateurs');
                 $req->execute(array(
                 ));
 
                 $res=$req->fetchall();
                 ?>
-                 <form action="class/mvc/activation-desactivation.php" method="post">
+                 <form action="class/mvc/action-compte.php" method="post">
                  <label class="form-label">Nom</label>
                       <select name="nom" class="form-control" required="required">
                             <option value="">Selectionner le patient</option>
@@ -69,7 +69,7 @@ require_once 'bdd/bdd.php';
 
 
                             $bdd = new bdd;
-                            $req=$bdd->getStart()->prepare("select nom from utilisateurs WHERE role='PAT'");
+                            $req=$bdd->getStart()->prepare("select nom, verif from utilisateurs");
                             $req->execute(array(
                             ));
 
@@ -100,9 +100,10 @@ require_once 'bdd/bdd.php';
                           } ?>
 
                         </ul>
+                         </form>
                       </div><!--save-stngs end-->
 
-                    </form>
+                   
 <div class="main">
 
 

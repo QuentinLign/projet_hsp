@@ -295,8 +295,8 @@ if(!isset($_SESSION['email']))
                             unset($_SESSION['erreur_inscr']);
                           }
                           ?>
-                </form>
                 </div>
+                  </form>
                 </div>
               </div>
 
@@ -354,7 +354,7 @@ if(!isset($_SESSION['email']))
                                      
                                 
                                  </tr>
-                                ';
+                            ';
                             }
                             ?>
           </table>
