@@ -22,8 +22,7 @@ class Manager_User
         $donnee = $req->fetch();
         if ($donnee) {
             $_SESSION['erreur_inscr'] = "L'adresse éléctronique est déjà associée à un compte.";
-            echo "<div style='color:#ff0000'>
-     " . $_SESSION['erreur_inscr'];
+            echo "<div style='color:#ff0000'>" . $_SESSION['erreur_inscr'];
             unset($_SESSION['erreur_inscr']);
         } else {
 
@@ -71,6 +70,12 @@ class Manager_User
             $ref = $bdd->prepare('UPDATE utilisateurs SET date_connexion = NOW() WHERE email=?');
             $ref->execute(array($connexion->getEmail()));
             $donny = $ref->fetchall();
+            if ($donnee['verif'] == 0)
+              {
+                header('Location: ../view/recup_mdp.php');
+                exit();
+              }
+            header('Location: ../../aurevoir.php');
 
             if ($donnee['role'] == "MED") {
                 $_SESSION['role'] = $donnee['role'];
@@ -92,11 +97,6 @@ class Manager_User
                 header('Location: ../../datatableUrgentiste.php');
                 exit();
             }
-            if ($donnee['role'] == 0) {
-                header('Location: ../../index.php');
-                exit();
-            }
-            header('Location: ../../index.php');
 
       
            
@@ -177,6 +177,21 @@ class Manager_User
     $req = $bdd->prepare('UPDATE utilisateurs SET mdp = ?, verif = 1 WHERE email = ?');
     $req->execute(array(SHA1($change->getMdp()), $email));
     header('location: ../index.php');
+  }
+
+ public function modif_etat(Etat $activation)
+  {
+    $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp','root','');
+    $req = $bdd->prepare('UPDATE utilisateurs SET verif = ? WHERE nom = ?');
+    $req->execute(array($activation->getVerif()));
+    $_SESSION['succes_modif'] = 'Modification enregistré';
+    header('location: ../../mon-compte.php');
+    //actualisation du nom de l'utilisateur dans les pages
+    $req = $bdd->prepare('SELECT * from utilisateurs where email = ?');
+    $req->execute(array($verif));
+    $donnee = $req->fetch();
+    $_SESSION['verif'] = $donnee['verif'];
+  
   }
 
 
