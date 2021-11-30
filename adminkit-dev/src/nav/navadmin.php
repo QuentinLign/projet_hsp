@@ -51,7 +51,7 @@
                     if ($_SESSION['role'] == "ADM") {
 
                         echo '<li class="sidebar-item">
-                                <a class="sidebar-link" href="../../datatableAdmin.php">
+                                <a class="sidebar-link" href="../adminkit-dev/datatableAdmin.php">
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Administrateur</span>
                                 </a>
                              </li>';
@@ -68,7 +68,7 @@
                     if ($_SESSION['role'] == "PAT") {
 
                         echo '<li class="sidebar-item">
-                                <a class="sidebar-link" href="../../datatableRDV.php">
+                                <a class="sidebar-link" href="../adminkit-dev/datatableRDV.php">
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Patient</span>
                                 </a>
                              </li>';
@@ -85,13 +85,13 @@
                     if ($_SESSION['role'] == "MED") {
 
                         echo '<li class="sidebar-item">
-                                <a class="sidebar-link" href="../../datatableMedecin.php">
+                                <a class="sidebar-link" href="../adminkit-dev/datatableMedecin.php">
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Médecin</span>
                                 </a>
                              </li>';
 
                         echo '<li class="sidebar-item">
-                                <a class="sidebar-link" href="../../prise_rdv.php">
+                                <a class="sidebar-link" href="../adminkit-dev/prise_rdv.php">
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Rendez-vous</span>
                                 </a>
                              </li>';
@@ -108,7 +108,7 @@
                     if ($_SESSION['role'] == "URG") {
 
                         echo '<li class="sidebar-item">
-                                <a class="sidebar-link" href="../../datatableUrgentiste.php">
+                                <a class="sidebar-link" href="../adminkit-dev/datatableUrgentiste.php">
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Urgentiste</span>
                                 </a>
                              </li>';
@@ -125,12 +125,12 @@
                     if ($_SESSION['role'] == "PAT") {
 
                         echo '<li class="sidebar-item">
-                                <a class="sidebar-link" href="../../datatableRDV.php">
+                                <a class="sidebar-link" href="../adminkit-dev/datatableRDV.php">
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Mes rendez-vous</span>
                                 </a>
                              </li>
                                 <li class="sidebar-item">
-                                <a class="sidebar-link" href="../../prise_rdv.php">
+                                <a class="sidebar-link" href="../adminkit-dev/prise_rdv.php">
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Prise de RDV</span>
                                 </a>
                              </li>
