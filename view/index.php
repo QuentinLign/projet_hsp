@@ -86,13 +86,13 @@ session_start();
             {
               echo '<div class="user-info">
 
-              <a href="adminkit-dev/index.php" title="">'.$_SESSION['nom'].'</a>
+              <a href="../adminkit-dev/index.php" title="">' .$_SESSION['nom']. '</a>
               <i class="la la-sort-down"></i>
               </div>
               <div class="user-account-settingss">
               <h3>Mon Compte</h3>
               <ul class="us-links">
-              <li><a href="adminkit-dev/index.php" title="">Paramètre du compte</a></li>
+              <li><a href="../adminkit-dev/index.php" title="">Paramètre du compte</a></li>
               </ul>
               <h3 class="tc"><a href="deconnexion.php" title="">Se déconnecter</a></h3>
               </div><!--fin des paramètres du compte utilisateur-->';
@@ -103,8 +103,8 @@ session_start();
               <i class="la la-sort-down"></i>
               </div>
               <div class="user-account-settingss">
-              <h3><a href="adminkit-dev/connexion.php" title="">Connexion</a></h3>
-              <h3><a href="adminkit-dev/inscription.php" title="">Inscription</a></h3>
+              <h3><a href="../adminkit-dev/connexion.php" title="">Connexion</a></h3>
+              <h3><a href="../adminkit-dev/inscription.php" title="">Inscription</a></h3>
               </div><!--fin des paramètres du compte utilisateur-->';
             }
             ?>
