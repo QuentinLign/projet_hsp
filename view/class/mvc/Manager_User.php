@@ -61,6 +61,26 @@ class Manager_User
     }
   }
 
+    public function rendezvous(User $rdv)
+    {
+        $bdd = new bdd;
+        $req = $bdd->prepare('SELECT * FROM rendezvous');
+            $req->execute(array('nom'=>$rdv->getNom()));
+            $donnees = $req->fetch();
+            if($donnees)
+            {
+              $_SESSION['erreur_add_admin'] = "L'identifiant est déjà utilisé.";
+              header('Location: ../view/erreur.php');
+         }
+            else{
+                $req=$bdd->getStart()->prepare("insert into rendezvous(nom,prenom,doctorSpecilization,docteur,userID,RDVdate,RDVheure) values(?,?,?,?,".$_SESSION['id'].',?,?)');
+                $req -> execute(array($rdv->getNom(), $rdv->getPrenom(), $rdv->getDoctorspecilization(), $rdv->getDocteur(), $rdv->getRDVdate(), ($rdv->getRDVheure())));
+            }
+        header('location: ../../hospitalisation.php');
+           $_SESSION['message_mdp'] = 'Modification enregistré';
+        }
+
+
   // Partie Connexion
   public function connexion(User $connexion) 
   {
@@ -181,9 +201,6 @@ class Manager_User
     $donnee = $req->fetchall();
     return $donnee;
   }
-
-}
-?>
 
 }
 ?>

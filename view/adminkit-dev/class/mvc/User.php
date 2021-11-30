@@ -12,7 +12,7 @@ class User
   private $derniere_connexion;
   private $adresse_postale;
   private $salle;
-  private $specilization;
+  private $doctorspecilization;
 
 
 
@@ -39,20 +39,12 @@ class User
   {
     return $this->id;
   }
-  public function getSpecilization()
-    {
-        return $this->specilization;
-    }
 
   public function getMdp()
   {
     return $this->mdp;
   }
 
-  public function getNom()
-  {
-    return $this->nom;
-  }
 
   public function getPrenom()
   {
@@ -298,12 +290,12 @@ class User
     $this->regime_specifique = $regime_specifique;
   }
 
-  public function getSpecialite(){
-    return $this->specialite;
+  public function getDoctorspecilization(){
+    return $this->doctorspecilization;
   }
 
-  public function setSpecialite($specialite){
-    $this->specialite = $specialite;
+  public function setDoctorspecilization($doctorspecilization){
+    $this->doctorspecilization = $doctorspecilization;
   }
 
   public function getHeure(){
@@ -321,6 +313,24 @@ class User
   public function setSalle($salle){
     $this->salle = $salle;
   }
+
+    public function getRDVheure(){
+        return $this->RDVheure;
+    }
+
+    public function setRDVheure($RDVheure){
+        $this->RDVheure = $RDVheure;
+    }
+
+    public function getRDVdate(){
+        return $this->RDVdate;
+    }
+
+    public function setRDVdate($RDVdate){
+        $this->RDVdate = $RDVdate;
+    }
+
+
 }
 
 class Dossier_admission

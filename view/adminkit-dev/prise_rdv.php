@@ -5,238 +5,435 @@ if(!isset($_SESSION['email']))
 {
     header('location: connexion.php');
 }
-
-
-require_once 'bdd/bdd.php';
-
-require_once '../adminkit-dev/bdd/bdd.php';
-
-
-if(isset($_POST['submit']))
-{
-    $specilization=$_POST['doctorspecilization'];
-    $doctorid=$_POST['doctor'];
-    $userid=$_SESSION['id'];
-    $appdate=$_POST['appdate'];
-    $time=$_POST['apptime'];
-    $userstatus=1;
-    $docstatus=1;
-    $bdd = new bdd;
-    $req=$bdd->getStart()->prepare("insert into rendezvous(doctorSpecialization,docteurID,userID,RDVdate,RDVheure,userStatus,doctorStatus) values('$specilization','$doctorid','$userid','$appdate','$time','$userstatus','$docstatus'");
-    $req->execute(array(
-    ));
-
-    if($req)
-    {
-        echo "<script>alert('Your appointment successfully booked');</script>";
-    }
-
-}
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
-    <title>Patient  | Prise de rendez-vous</title>
 
-    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="css/bootstrap/css/bootstrap-theme.min.css">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
+    <meta name="author" content="AdminKit">
+    <meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
-    <link href="css/bootstrap-datepicker/bootstrap-datepicker3.standalone.min.css" rel="stylesheet" media="screen">
-    <link href="css/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" media="screen">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
 
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/plugins.css">
-    <script>
-        function getdoctor(val) {
-            $.ajax({
-                type: "POST",
-                url: "get_doctor.php",
-                data:'specilizationid='+val,
-                success: function(data){
-                    $("#doctor").html(data);
-                }
-            });
-        }
-    </script>
+    <link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
+    <title>AdminKit Demo - Bootstrap 5 Admin Template</title>
 
-    <script>
-        function getfee(val) {
-            $.ajax({
-                type: "POST",
-                url: "get_doctor.php",
-                data:'doctor='+val,
-                success: function(data){
-                    $("#fees").html(data);
-                }
-            });
-        }
-    </script>
+    <link href="css/app.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 
-    <div class="main-content" >
-        <div class="wrap-content container" id="container">
-            <!-- start: PAGE TITLE -->
-            <section id="page-title">
-                <div class="row">
-                    <div class="col-sm-8">
-                        <h1 class="mainTitle">Utilisateur | Prise de RDV</h1>
-                    </div>
-            </section>
-            <!-- end: PAGE TITLE -->
-            <!-- start: BASIC EXAMPLE -->
-            <div class="container-fluid container-fullw bg-white">
-                <div class="row">
-                    <div class="col-md-12">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
 
-                        <div class="row margin-top-30">
-                            <div class="col-lg-8 col-md-12">
-                                <div class="panel panel-white">
-                                    <div class="panel-heading">
-                                        <h2 class="panel-title">Prise de RDV</h2>
-                                    </div>
-                                    <div class="panel-body">
-                                        <p style="color:red;"><?php echo ($_SESSION['msg1']);?>
-                                            <?php echo ($_SESSION['msg1']="");?></p>
-                                        <form role="form" name="book" method="post" >
+<body>
+<?php include 'src/nav/navadmin.php';?>
+<?php include 'src/nav/top_navadmin.php';?>
+<?php if(isset($_SESSION['message_mdp']))
+{
+    echo $_SESSION['message_mdp'];
+    unset($_SESSION['message_mdp']);
+}
 
 
+?>
+<p>
 
-                                            <div class="form-group">
-                                                <label for="DoctorSpecialization">
-                                                    Doctor Specialization
-                                                </label>
-                                                <select name="Doctorspecialization" class="form-control"  required="required">
-                                                    <option value="">Selectionner la spécialité</option>
-
-
-
-                                                    <?php
-
-                                                    require_once '../adminkit-dev/bdd/bdd.php';
-
-
-                                                    $bdd = new bdd;
-                                                    $req=$bdd->getStart()->prepare("select * from doctorspecilization");
-                                                    $req->execute(array(
-                                                    ));
-
-                                                    $res=$req->fetchall();
-                                                    foreach ($res as $req)
-                                                    {
-                                                        ?>
-                                                        <option value="<?php echo ($req['specilization']);?>">
-                                                            <?php echo ($req['specilization']);?>
-                                                        </option>
-                                                    <?php } ?>
-
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="doctor">
-                                                    Doctors
-                                                </label>
-                                                <select name="doctor" class="form-control" id="doctor" required="required">
-                                                    <option value="">Select Doctor</option>
-
-                                                    <?php
-
-                                                    require_once '../adminkit-dev/bdd/bdd.php';
+    <button class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        Les patients
+    </button>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#c" aria-expanded="false" aria-controls="c">
+        Créer un compte patient
+    </button>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#d" aria-expanded="false" aria-controls="d">
+        Dossiers admissions
+    </button>
+    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#urgence" aria-expanded="false" aria-controls="urgence">
+        Rendez-vous
+    </button>
+</p>
+<div class="collapse" id="collapseExample">
+    <div class="card card-body">
 
 
-                                                    $bdd = new bdd;
-                                                    $req=$bdd->getStart()->prepare('SELECT * FROM utilisateurs WHERE role="MED"');
-                                                    $req->execute(array(
-                                                    ));
+        <div class="container-fluid p-0">
+            <?php
+            require_once '../adminkit-dev/bdd/bdd.php';
 
-                                                    $res=$req->fetchall();
-                                                    foreach ($res as $req)
-                                                    {
-                                                        ?>
-                                                        <option value="<?php echo ($req['nom']);?>">
-                                                            <?php echo ($req['nom']);?>
-                                                        </option>
-                                                    <?php } ?>
 
-                                                </select>
-                                            </div>
+            $bdd = new bdd;
+            $req=$bdd->getStart()->prepare('SELECT * FROM utilisateurs WHERE role="PAT" ORDER BY id DESC');
+            $req->execute(array(
+            ));
 
-                                            <div class="form-group">
-                                                <div class="mb-3">
-                                                    <label class="form-label">Date de rendez-vous</label>
-                                                    <input class="form-control form-control-lg" type="date" name="date_rendezvous" placeholder="Entrer votre date de rendez-vous" />
-                                                </div>
-                                            </div>
+            $res=$req->fetchall();
+            ?>
 
-                                            <div class="form-group">
-                                                <label for="Appointmenttime">
-
-                                                    Heure
-
-                                                </label>
-                                                <input class="form-control" name="apptime" id="timepicker1" required="required" placeholder="8:00" >A partir de 8h.
-                                            </div>
-
-                                            <button type="submit" name="submit" class="btn btn-o btn-primary">
-                                                Valider
-                                            </button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+            <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+            <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+            <body>
+            <br /><br />
+            <div class="container">
+                <h3 align="center">Données des utilisateurs</h3>
+                <br />
+                <div class="table-responsive">
+                    <table id="employee_data" class="table table-striped table-bordered">
+                        <thead>
+                        <tr>
+                            <td>Nom</td>
+                            <td>Prenom</td>
+                            <td>E-mail</td>
+                        </tr>
+                        </thead>
+                        <?php
+                        foreach($res as $row )
+                        {
+                            echo '  
+                               <tr>
+                <td>'.$row["nom"].'</td>
+                <td>'.$row["prenom"].'</td>
+                <td>'.$row["email"].'</td>
+                </tr>
+                ';
+                        }
+                        ?>
+                    </table>
                 </div>
             </div>
+            </body>
+</html>
+<script>
+    $(document).ready(function(){
+        $('#employee_data').DataTable();
+    });
+</script>
 
-            <!-- end: BASIC EXAMPLE -->
+</div>
 
 
 
+</div>
+</div>
+
+<div class="collapse" id="c">
+    <div class="card card-body">
+        <h3>Ajouter un patient</h3>
+        <div class="card">
+            <div class="card-body">
+                <div class="m-sm-4">
+                    <form action="class/mvc/cible_patient.php" method="post">
+                        <div class="mb-3">
+                            <label class="form-label">Nom</label>
+                            <input class="form-control form-control-lg" type="text" name="nom" placeholder="Entrer votre nom" required/>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Prenom</label>
+                            <input class="form-control form-control-lg" type="text" name="prenom" placeholder="Entrer votre prenom" required/>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input class="form-control form-control-lg" type="email" name="email" placeholder="Entrer votre email" required/>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Mot de passe</label>
+                            <input class="form-control form-control-lg" type="password" name="mdp" placeholder="Entrer votre mot de passe" required />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Mot de passe</label>
+                            <input class="form-control form-control-lg" type="password" name="confirmmdp" placeholder="Entrer votre mot de passe" required/>
+                        </div>
+                        <div class="mb-3">
+                            <input type="checkbox" name="role"
+                                   checked disabled>
+                            <label for="PAT">Patient</label>
+                        </div>
+                        <div class="col-lg-12 no-pdd">
+                            <button type="submit" class="btn btn-lg btn-primary" value="submit">Créer le compte</button>
+                        </div>
+
+                        <?php
+                        if (isset($_SESSION['erreur_inscr']))
+                        {
+                            echo "<div style='color:#ff0000'>
+                            ".$_SESSION['erreur_inscr'];
+                            unset($_SESSION['erreur_inscr']);
+                        }
+                        ?>
+                </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<div class="collapse" id="d">
+    <div class="card card-body">
+        <h3>Ajouter un dossier d'admission</h3>
+        <div class="card">
+            <div class="card-body">
+                <?php
+                require_once '../adminkit-dev/bdd/bdd.php';
+
+
+                $bdd = new bdd;
+                $req=$bdd->getStart()->prepare('SELECT * FROM dossier_admission  ORDER BY id DESC');
+                $req->execute(array(
+                ));
+
+                $res=$req->fetchall();
+                ?>
+
+                <table id="employee_data" class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                        <td>Nom</td>
+                        <td>Date de naissance</td>
+                        <td>Mutuelle</td>
+                        <td>Numéro de sécurité social</td>
+                        <td>Option</td>
+                        <td>Régime spécifique</td>
+
+
+                    </tr>
+                    </thead>
+                    <?php
+                    foreach($res as $row )
+                    {
+                        echo '  
+                               <tr>
+                <td>'.$row["nom"].'</td>
+                 <td>'.$row["date_naissance"].'</td>
+                  <td>'.$row["mutuelle"].'</td>
+                   <td>'.$row["numero_secu"].'</td>
+                    <td>'.$row["option"].'</td>
+                     <td>'.$row["regime_specifique"].'</td>
+                   
+              
+                </tr>
+                ';
+                    }
+                    ?>
+                </table>
+                <div class="m-sm-4">
+                    <form action="class/mvc/cible_admission.php" method="post">
+                        <div class="mb-3">
+                            <label class="form-label">Nom</label>
+                            <select name="nom" class="form-control" required="required">
+                                <option value="">Selectionner le patient</option>
 
 
 
-            <!-- end: SELECT BOXES -->
+                                <?php
 
+                                require_once '../adminkit-dev/bdd/bdd.php';
+
+
+                                $bdd = new bdd;
+                                $req=$bdd->getStart()->prepare("select nom from utilisateurs WHERE role='PAT'");
+                                $req->execute(array(
+                                ));
+
+                                $res=$req->fetchall();
+                                foreach ($res as $req)
+                                {
+                                    ?>
+                                    <option value="<?php echo ($req['nom']);?>">
+                                        <?php echo ($req['nom']);?>
+                                    </option>
+                                <?php } ?>
+
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Date de naissance</label>
+                            <input class="form-control form-control-lg" type="date" name="date_naissance" placeholder="Entrer votre date de naissance" required/>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Adresse postale</label>
+                            <input class="form-control form-control-lg" type="text" name="adresse_postale" placeholder="Entrer votre adresse postale" required/>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Mutuelle</label>
+                            <input class="form-control form-control-lg" type="int" name="mutuelle" placeholder="Entrer votre numéro de Mutuelle" required/>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Numéro de sécurité social</label>
+                            <input class="form-control form-control-lg" type="int" name="numero_secu" placeholder="Entrer votre numéro de sécurité social" required/>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Option</label>
+                            <select id="select-state"  placeholder="" name="option">
+                                <option value="television">Télévision</option>
+                                <option value="wifi">Wifi</option>
+
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Régime spécifique</label>
+                            <input class="form-control form-control-lg" type="text" name="regime_specifique" placeholder="Entrer si vous avez un Régime spécifique" required/>
+                        </div>
+                        <div class="mb-3">
+                            <input type="checkbox" name="role"
+                                   checked disabled>
+                            <label value="PAT" for="PAT">Patient</label>
+                        </div>
+                        <div class="col-lg-12 no-pdd">
+                            <button type="submit" class="btn btn-lg btn-primary" value="submit">Créer le compte</button>
+                        </div>
+
+                        <?php
+                        if (isset($_SESSION['erreur_inscr']))
+                        {
+                            echo "<div style='color:#ff0000'>
+                            ".$_SESSION['erreur_inscr'];
+                            unset($_SESSION['erreur_inscr']);
+                        }
+                        ?>
+                </div>
+                </form>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>
+
+<div class="collapse" id="urgence">
+    <div class="card card-body">
+
+
+        <div class="container-fluid p-0">
+            <div class="m-sm-4">
+                <form action="class/mvc/traitement_rdv.php" method="post">
+
+
+                    <div class="mb-3">
+                        <label class="form-label">Nom</label>
+                        <input class="form-control form-control-lg" type="text" name="nom" placeholder="Entrer votre nom" required/>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Prenom</label>
+                        <input class="form-control form-control-lg" type="text" name="prenom" placeholder="Entrer votre prenom" required/>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="doctorSpecilization">
+                            Spécialité du docteur
+                        </label>
+                        <select name="doctorspecilization" class="form-control"  required="required">
+                            <option value="">Selectionner la spécialité</option>
+
+
+
+                            <?php
+
+                            require_once '../adminkit-dev/bdd/bdd.php';
+
+
+                            $bdd = new bdd;
+                            $req=$bdd->getStart()->prepare("select * from doctorspecilization");
+                            $req->execute(array(
+                            ));
+
+                            $res=$req->fetchall();
+                            foreach ($res as $req)
+                            {
+                                ?>
+                                <option value="<?php echo ($req['specilization']);?>">
+                                    <?php echo ($req['specilization']);?>
+                                </option>
+                            <?php } ?>
+
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="doctor">
+                            Docteurs
+                        </label>
+                        <select name="doctor" class="form-control" id="doctor" required="required">
+                            <option value="">Choisir le docteur</option>
+
+                            <?php
+
+                            require_once '../adminkit-dev/bdd/bdd.php';
+
+
+                            $bdd = new bdd;
+                            $req=$bdd->getStart()->prepare('SELECT * FROM utilisateurs WHERE role="MED"');
+                            $req->execute(array(
+                            ));
+
+                            $res=$req->fetchall();
+                            foreach ($res as $req)
+                            {
+                                ?>
+                                <option value="<?php echo ($req['nom']);?>">
+                                    <?php echo ($req['nom']);?>
+                                </option>
+                            <?php } ?>
+
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Date du rendez-vous </label>
+                        <input class="form-control form-control-lg" type="date" name="RDVdate" placeholder="Entrer votre date de rendez-vous"/>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Heure du rendez-vous </label>
+                        <input class="form-control form-control-lg" type="time" name="RDVheure" placeholder="Entrer l'heure"/>
+                    </div>
+
+            </div>
+
+            <div class="col-lg-12 no-pdd">
+                <button type="submit" class="btn btn-lg btn-primary" value="submit">Valider</button>
+            </div>
+            <div class="mb-3">
+
+
+                <?php
+                if (isset($_SESSION['erreur_inscr']))
+                {
+                    echo "<div style='color:#ff0000'>
+                            ".$_SESSION['erreur_inscr'];
+                    unset($_SESSION['erreur_inscr']);
+                }
+                ?>
+            </div>
+
+            </form>
         </div>
     </div>
-    </div>
 
-    </div>
-    </div>
-    </div>
+</div>
 
-    </div>
-    <!-- start: MAIN JAVASCRIPTS -->
-    <script src="vendor/jquery/jquery.min.js"></script>
+</div>
 
+<script src="js/app.js"></script>
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/popper.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/jquery.mCustomScrollbar.js"></script>
+<script type="text/javascript" src="../lib/slick/slick.min.js"></script>
+<script type="text/javascript" src="../js/script.js"></script>
 
-    <script src="vendor/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+</body>
 
-    <!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
-    <!-- start: CLIP-TWO JAVASCRIPTS -->
-    <!-- start: JavaScript Event Handlers for this page -->
-    <script src="assets/js/form-elements.js"></script>
-    <script>
-        jQuery(document).ready(function() {
-            Main.init();
-            FormElements.init();
-        });
-
-        $('.datepicker').datepicker({
-            format: 'dd-mm-yyyy',
-            startDate: '-3d'
-        });
-    </script>
-    <script type="text/javascript">
-        $('#timepicker1').timepicker();
-    </script>
-    <!-- end: JavaScript Event Handlers for this page -->
-    <!-- end: CLIP-TWO JAVASCRIPTS -->
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-
-    </body>
 </html>
