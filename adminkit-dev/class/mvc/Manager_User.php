@@ -289,8 +289,3 @@ public function diagnostic(Diagnostic $diag)
 
 }
 ?>
-
-}
-?>
-}
-?>
