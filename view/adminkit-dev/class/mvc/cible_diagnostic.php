@@ -15,6 +15,6 @@ session_start();
   'enregistrement'=>$_POST['enregistrement'],
   'id_cabinet'=>$_POST['id_cabinet']]);
   $diag = new Manager_User;
-  $diag->diag($diagnostic);
+  $diag->Diagnostic($diagnostic);
 
 ?>

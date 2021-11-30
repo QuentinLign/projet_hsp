@@ -193,34 +193,34 @@ if(!isset($_SESSION['email']))
                 ?>
 
          <table id="employee_data" class="table table-striped table-bordered">
-                            <thead>
-                            <tr>
-                                <td>Nom</td>
-                                 <td>Date de naissance</td>
-                                  <td>Mutuelle</td>
-                                   <td>Numéro de sécurité social</td>
-                                    <td>Option</td>
-                                     <td>Régime spécifique</td>
+                    <thead>
+                    <tr>
+                        <td>Nom</td>
+                        <td>Date de naissance</td>
+                        <td>Mutuelle</td>
+                        <td>Numéro de sécurité social</td>
+                        <td>Option</td>
+                        <td>Régime spécifique</td>
 
-                                
-                            </tr>
-                            </thead>
-                            <?php
-                            foreach($res as $row )
-                            {
-                                echo '  
-                               <tr>
-                <td>'.$row["nom"].'</td>
-                 <td>'.$row["date_naissance"].'</td>
-                  <td>'.$row["mutuelle"].'</td>
-                   <td>'.$row["numero_secu"].'</td>
-                    <td>'.$row["option"].'</td>
-                     <td>'.$row["regime_specifique"].'</td>
-                   
-              
-                </tr>
-                ';
-                            }
+                        
+                    </tr>
+                    </thead>
+                    <?php
+                    foreach($res as $row )
+                    {
+                        echo '  
+                       <tr>
+          <td>'.$row["nom"].'</td>
+          <td>'.$row["date_naissance"].'</td>
+          <td>'.$row["mutuelle"].'</td>
+          <td>'.$row["numero_secu"].'</td>
+          <td>'.$row["option"].'</td>
+          <td>'.$row["regime_specifique"].'</td>
+           
+      
+        </tr>
+        ';
+                    }
                             ?>
                         </table>
                 <div class="m-sm-4">
@@ -228,30 +228,30 @@ if(!isset($_SESSION['email']))
                       <div class="mb-3">
                       <label class="form-label">Nom</label>
                       <select name="nom" class="form-control" required="required">
-                                                    <option value="">Selectionner le patient</option>
+                            <option value="">Selectionner le patient</option>
 
 
 
-                                                    <?php
+                            <?php
 
-                                                    require_once '../adminkit-dev/bdd/bdd.php';
+                            require_once '../adminkit-dev/bdd/bdd.php';
 
 
-                                                    $bdd = new bdd;
-                                                    $req=$bdd->getStart()->prepare("select nom from utilisateurs WHERE role='PAT'");
-                                                    $req->execute(array(
-                                                    ));
+                            $bdd = new bdd;
+                            $req=$bdd->getStart()->prepare("select nom from utilisateurs WHERE role='PAT'");
+                            $req->execute(array(
+                            ));
 
-                                                    $res=$req->fetchall();
-                                                    foreach ($res as $req)
-                                                    {
-                                                        ?>
-                                                        <option value="<?php echo ($req['nom']);?>">
-                                                            <?php echo ($req['nom']);?>
-                                                        </option>
-                                                    <?php } ?>
+                            $res=$req->fetchall();
+                            foreach ($res as $req)
+                            {
+                                ?>
+                                <option value="<?php echo ($req['nom']);?>">
+                                    <?php echo ($req['nom']);?>
+                                </option>
+                            <?php } ?>
 
-                                                </select>
+                        </select>
                     </div>
                     <div class="mb-3">
                       <label class="form-label">Date de naissance</label>
@@ -282,11 +282,7 @@ if(!isset($_SESSION['email']))
                       <label class="form-label">Régime spécifique</label>
                       <input class="form-control form-control-lg" type="text" name="regime_specifique" placeholder="Entrer si vous avez un Régime spécifique" required/>
                     </div>
-                    <div class="mb-3">
-                   <input type="checkbox" name="role"
-                           checked disabled>
-                    <label value="PAT" for="PAT">Patient</label>
-                  </div>
+                   
                     <div class="col-lg-12 no-pdd">
                             <button type="submit" class="btn btn-lg btn-primary" value="submit">Créer le compte</button>
                           </div>
@@ -330,14 +326,14 @@ if(!isset($_SESSION['email']))
          <table id="employee_data" class="table table-striped table-bordered">
                             <thead>
                             <tr>
-                                <td>Nom</td>
-                                 <td>Symptomes</td>
-                                  <td>Date</td>
-                                   <td>Niveau d'urgence</td>
-                                    <td>Date RDV</td>
-                                     <td>Heure RDV</td>
-                                     <td>Enregistrement</td>
-                                     <td>Hospitalisation</td>
+                            <td>Nom</td>
+                            <td>Symptomes</td>
+                            <td>Date</td>
+                            <td>Niveau d'urgence</td>
+                            <td>Date RDV</td>
+                            <td>Heure RDV</td>
+                            <td>Enregistrement</td>
+                            <td>Hospitalisation</td>
 
                                 
                             </tr>
@@ -346,51 +342,51 @@ if(!isset($_SESSION['email']))
                             foreach($res as $row )
                             {
                                 echo '  
-                               <tr>
-                <td>'.$row["nom"].'</td>
-                 <td>'.$row["symptomes"].'</td>
-                  <td>'.$row["date"].'</td>
-                   <td>'.$row["niveau_urgence"].'</td>
-                    <td>'.$row["date_rdv"].'</td>
-                     <td>'.$row["heure"].'</td>
-                     <td>'.$row["enregistrement"].'</td>
-                     <td>'.$row["id_cabinet"].'</td>
-                   
-              
-                </tr>
-                ';
+                                  <tr>
+                                    <td>'.$row["nom"].'</td>
+                                    <td>'.$row["symptomes"].'</td>
+                                    <td>'.$row["date"].'</td>
+                                    <td>'.$row["niveau_urgence"].'</td>
+                                    <td>'.$row["date_rdv"].'</td>
+                                    <td>'.$row["heure"].'</td>
+                                    <td>'.$row["enregistrement"].'</td>
+                                    <td>'.$row["id_cabinet"].'</td>
+                                     
+                                
+                                 </tr>
+                                ';
                             }
                             ?>
-                        </table>
-                   <div class="m-sm-4">
-                    <form action="class/mvc/cible_diagnostic.php" method="post">
-                      <div class="mb-3">
-                      <label class="form-label">Nom</label>
-                         <select name="nom" class="form-control" required="required">
-                                                    <option value="">Selectionner le patient</option>
+          </table>
+     <div class="m-sm-4">
+      <form action="class/mvc/cible_diagnostic.php" method="post">
+        <div class="mb-3">
+        <label class="form-label">Nom</label>
+           <select name="nom" class="form-control" required="required">
+                          <option value="">Selectionner le patient</option>
 
 
 
-                                                    <?php
+                          <?php
 
-                                                    require_once '../adminkit-dev/bdd/bdd.php';
+                          require_once '../adminkit-dev/bdd/bdd.php';
 
 
-                                                    $bdd = new bdd;
-                                                    $req=$bdd->getStart()->prepare("select nom from utilisateurs WHERE role='PAT'");
-                                                    $req->execute(array(
-                                                    ));
+                          $bdd = new bdd;
+                          $req=$bdd->getStart()->prepare("select nom from utilisateurs WHERE role='PAT'");
+                          $req->execute(array(
+                          ));
 
-                                                    $res=$req->fetchall();
-                                                    foreach ($res as $req)
-                                                    {
-                                                        ?>
-                                                        <option value="<?php echo ($req['nom']);?>">
-                                                            <?php echo ($req['nom']);?>
-                                                        </option>
-                                                    <?php } ?>
+                          $res=$req->fetchall();
+                          foreach ($res as $req)
+                          {
+                              ?>
+                              <option value="<?php echo ($req['nom']);?>">
+                                  <?php echo ($req['nom']);?>
+                              </option>
+                          <?php } ?>
 
-                                                </select>
+                      </select>
                     </div>
                     <div class="mb-3">
                       <label class="form-label">Symptomes</label>
@@ -431,40 +427,39 @@ if(!isset($_SESSION['email']))
   100% { opacity:1; }
 }
 </style>
-                <button class="btn btn-danger image-clignote" type="button" data-bs-toggle="collapse" data-bs-target="#Hospitaliser" aria-expanded="false" aria-controls="Hospitaliser">
+  <button class="btn btn-danger image-clignote" type="button" data-bs-toggle="collapse" data-bs-target="#Hospitaliser" aria-expanded="false" aria-controls="Hospitaliser">
     Hospitaliser le patient
   </button>
   <div class="collapse" id="Hospitaliser">
     <div class="mb-3">
                       <label class="form-label">Cabinet</label>
                          <select name="id_cabinet" class="form-control">
-                                                    <option value="">Selectionner un cabinet</option>
+                <option value="">Selectionner un cabinet</option>
 
 
 
-                                                    <?php
+                <?php
 
-                                                    require_once '../adminkit-dev/bdd/bdd.php';
+                require_once '../adminkit-dev/bdd/bdd.php';
 
 
-                                                    $bdd = new bdd;
-                                                    $req=$bdd->getStart()->prepare("select libelle from cabinets WHERE disponibilite='1'");
-                                                    $req->execute(array(
-                                                    ));
+                $bdd = new bdd;
+                $req=$bdd->getStart()->prepare("select libelle from cabinets WHERE disponibilite='1'");
+                $req->execute(array(
+                ));
 
-                                                    $res=$req->fetchall();
-                                                    foreach ($res as $req)
-                                                    {
-                                                        ?>
-                                                        <option value="<?php echo ($req['libelle']);?>">
-                                                            <?php echo ($req['libelle']);?>
-                                                        </option>
-                                                    <?php } ?>
+                $res=$req->fetchall();
+                foreach ($res as $req)
+                {
+                    ?>
+                    <option value="<?php echo ($req['libelle']);?>">
+                        <?php echo ($req['libelle']);?>
+                    </option>
+                <?php } ?>
 
-                                                </select>
-                    </div>
+        </select>
+    </div>
   </div>
-
 </div>
 
                     <div class="col-lg-12 no-pdd">
@@ -473,7 +468,7 @@ if(!isset($_SESSION['email']))
                            <div class="mb-3">
                       
                                       
-              <?php
+                         <?php
                           if (isset($_SESSION['erreur_inscr']))
                           {
                             echo "<div style='color:#ff0000'>
@@ -481,15 +476,16 @@ if(!isset($_SESSION['email']))
                             unset($_SESSION['erreur_inscr']);
                           }
                           ?>
-                </div>
+                    
+                  </div>
 
-                  </form>
-                </div>
-</div>
+             </form>
+          </div>
+      </div>
          
-        </div>
-
     </div>
+
+ </div>
 
     <script src="js/app.js"></script>
  <script type="text/javascript" src="../js/jquery.min.js"></script>

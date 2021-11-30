@@ -203,20 +203,20 @@ class Manager_User
   }
 
     //Ajout dossier_admission
-  public function dossier_admission(User $dossier)
+  public function dossier_admission(Dossier_admission $dossier)
   {
     $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp','root','');
     $req = $bdd->prepare('SELECT * FROM dossier_admission WHERE nom = :nom');
     $req->execute(array('nom'=>$dossier->getNom()));
-    $donnee = $req->fetch();
-    if($donnee)
+    $donnees = $req->fetch();
+    if($donnees)
     {
       $_SESSION['erreur_add_admin'] = "L'identifiant est déjà utilisé.";
       header('Location: ../view/ajout_admin.php');
     }
     else
     {
-      $req = $bdd->prepare('INSERT into dossier_admission (nom, date_naissance, adresse_postale, mutuelle, numero_secu, option, regime_specifique, patient, role) value(?,?,?,?,?,?,?,"PAT")');
+      $req = $bdd->prepare('INSERT into dossier_admission (nom, date_naissance, adresse_postale, mutuelle, numero_secu, option, regime_specifique) value(?,?,?,?,?,?,?)');
       $req -> execute(array($dossier->getNom(), $dossier->getDate_naissance(), $dossier->getAdresse_postale(), $dossier->getMutuelle(), $dossier->getNumero_secu(), $dossier->getOption(), $dossier->getRegime_specifique()));
 
     header('location: ../../datatableUrgentiste.php');
@@ -225,11 +225,11 @@ class Manager_User
   }
 
 
-public function diag(Diagnostic $diagnostic)
+public function diagnostic(Diagnostic $diag)
 {
     $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp','root','');
     $req = $bdd->prepare('SELECT * FROM diagnostic');
-    $req->execute(array('nom'=>$diagnostic->getNom()));
+    $req->execute(array('nom'=>$diag->getNom()));
     $donnees = $req->fetch();
     if($donnees)
     {

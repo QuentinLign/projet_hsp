@@ -6,7 +6,7 @@ session_start();
 //Vérification du mdp
 
 
-  $dossier_admission = new User([
+  $dossier_admission = new Dossier_admission([
   'nom'=>$_POST['nom'],
   'date_naissance'=>$_POST['date_naissance'],
   'adresse_postale'=>$_POST['adresse_postale'],
@@ -15,6 +15,6 @@ session_start();
   'option'=>$_POST['option'],
   'regime_specifique'=>$_POST['regime_specifique']]);
   $dossier = new Manager_User();
-  $dossier->dossier_admission($dossier_admission);
+  $dossier->Dossier_admission($dossier_admission);
 
 ?>
