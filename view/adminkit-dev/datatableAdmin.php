@@ -36,7 +36,73 @@ require_once 'bdd/bdd.php';
 <?php include 'src/nav/navadmin.php';?>
 <?php include 'src/nav/top_navadmin.php';?>
 
+ <div>
+     <?php if(isset($_SESSION['message_mdp']))
+                          {
+                            echo $_SESSION['message_mdp'];
+                            unset($_SESSION['message_mdp']);
+                          } 
+                          
 
+                          ?>
+                              <?php
+                require_once '../adminkit-dev/bdd/bdd.php';
+
+
+                $bdd = new bdd;
+                $req=$bdd->getStart()->prepare('SELECT * FROM utilisateurs  ORDER BY id DESC');
+                $req->execute(array(
+                ));
+
+                $res=$req->fetchall();
+                ?>
+                 <form action="class/mvc/activation-desactivation.php" method="post">
+                 <label class="form-label">Nom</label>
+                      <select name="nom" class="form-control" required="required">
+                            <option value="">Selectionner le patient</option>
+
+
+
+                            <?php
+
+                            require_once '../adminkit-dev/bdd/bdd.php';
+
+
+                            $bdd = new bdd;
+                            $req=$bdd->getStart()->prepare("select nom from utilisateurs WHERE role='PAT'");
+                            $req->execute(array(
+                            ));
+
+                            $res=$req->fetchall();
+                            foreach ($res as $req)
+                            {
+                                ?>
+                                <option value="<?php echo ($req['nom']);?>">
+                                    <?php echo ($req['nom']);?>
+                                </option>
+                            <?php } ?>
+
+                        </select>
+                        <label class="form-label">Etat du compte</label>
+                         <select name="verif">
+                                <option value="1">Activer</option>
+                                <option value="0">Désactiver</option>
+                        
+                        </select>
+                          
+                        <ul>
+                          <li><button type="submit">Sauvegarder</button></li>
+
+                          <?php if(isset($_SESSION['succes_modif']))
+                          {
+                            echo $_SESSION['succes_modif'];
+                            unset($_SESSION['succes_modif']);
+                          } ?>
+
+                        </ul>
+                      </div><!--save-stngs end-->
+
+                    </form>
 <div class="main">
 
 

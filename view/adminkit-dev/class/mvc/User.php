@@ -13,6 +13,7 @@ class User
   private $adresse_postale;
   private $salle;
   private $specilization;
+  private $activ;
 
 
 
@@ -39,6 +40,7 @@ class User
   {
     return $this->id;
   }
+
   public function getSpecilization()
     {
         return $this->specilization;

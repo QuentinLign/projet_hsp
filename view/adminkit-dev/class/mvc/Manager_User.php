@@ -71,6 +71,12 @@ class Manager_User
             $ref = $bdd->prepare('UPDATE utilisateurs SET date_connexion = NOW() WHERE email=?');
             $ref->execute(array($connexion->getEmail()));
             $donny = $ref->fetchall();
+            if ($donnee['verif'] == 0)
+              {
+                header('Location: ../view/recup_mdp.php');
+                exit();
+              }
+            header('Location: ../../aurevoir.php');
 
             if ($donnee['role'] == "MED") {
                 $_SESSION['role'] = $donnee['role'];
@@ -92,11 +98,6 @@ class Manager_User
                 header('Location: ../../datatableUrgentiste.php');
                 exit();
             }
-            if ($donnee['role'] == 0) {
-                header('Location: ../../index.php');
-                exit();
-            }
-            header('Location: ../../index.php');
 
       
            
@@ -176,6 +177,14 @@ class Manager_User
     $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp','root','');
     $req = $bdd->prepare('UPDATE utilisateurs SET mdp = ?, verif = 1 WHERE email = ?');
     $req->execute(array(SHA1($change->getMdp()), $email));
+    header('location: ../index.php');
+  }
+
+    public function activ(Etat $activ)
+  {
+    $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp','root','');
+    $req = $bdd->prepare('UPDATE utilisateurs SET verif = ? WHERE email = ?');
+    $req->execute(array('verif'=>$activation->getVerif()));
     header('location: ../index.php');
   }
 
