@@ -1,7 +1,7 @@
 <?php
 
 class User
-{
+{ 
   private $id;
   private $prenom;
   private $email;
@@ -10,14 +10,7 @@ class User
   private $id_utilisateur;
   private $id_urgentiste;
   private $derniere_connexion;
-  private $date_naissance;
   private $adresse_postale;
-  private $mutuelle;
-  private $numero_secu;
-  private $option;
-  private $id_medecins;
-  private $regime_specifique;
-  private $specialite;
   private $salle;
   private $specilization;
 
