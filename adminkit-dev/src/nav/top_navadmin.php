@@ -12,7 +12,7 @@
 							</a>
 						
 						</li>
-						<li class="nav-item dropdown">
+                        <li class="nav-item dropdown"></li>
 							  <?php
             if (isset($_SESSION['nom']))
             {
@@ -23,7 +23,7 @@
               <div class="user-account-settingss">
               <h5><a href="mon-compte.php">Mon Compte</a></h5>
               
-              <h5 class="tc"><a href="../../deconnexion.php" title="">Se déconnecter</a></h5>
+              <h5 class="tc"><a href="../adminkit-dev/class/mvc/deconnexion.php" title="">Se déconnecter</a></h5>
               </div></li><!--fin des paramètres du compte utilisateur-->';
             }
             else
