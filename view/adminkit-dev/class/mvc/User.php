@@ -6,6 +6,7 @@ class User
   private $prenom;
   private $email;
   private $mdp;
+  private $nom;
   private $derniere_connexion;
   private $specialite;
   private $doctorspecilization;
@@ -40,7 +41,10 @@ class User
   {
     return $this->mdp;
   }
-
+  public function getNom()
+  {
+    return $this->nom;
+  }
 
   public function getPrenom()
   {

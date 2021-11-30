@@ -125,6 +125,19 @@ class Manager_User
     $_SESSION['prenom'] = $donnee['prenom'];
   }
 
+  public function Etat(User $modif, $email)
+  {
+    $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp','root','');
+    $req = $bdd->prepare('UPDATE utilisateurs SET nom = ?, verif = ? WHERE email = ?');
+    $req->execute(array($modif->getNom(), $modif->getVerif(), $email));
+    $_SESSION['succes_modif'] = 'Modification enregistré';
+    header('location: ../../mon-compte.php');
+    //actualisation du nom de l'utilisateur dans les pages
+    $req = $bdd->prepare('SELECT * from utilisateurs where email = ?');
+    $req->execute(array($email));
+    $donnee = $req->fetch();
+    $_SESSION['verif'] = $donnee['verif'];
+  }
   //Update des données utilisateur dans la bdd
   public function modif_mdp(User $verif, $mdp, $email)
   {
