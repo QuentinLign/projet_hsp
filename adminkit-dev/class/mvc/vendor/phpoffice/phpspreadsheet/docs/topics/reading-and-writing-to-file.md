@@ -1,6 +1,6 @@
 # Reading and writing to file
 
-As you already know from the [architecture](architecture.md#readers-and-writers),
+As you already know from the [architecture](./architecture.md#readers-and-writers),
 reading and writing to a
 persisted storage is not possible using the base PhpSpreadsheet classes.
 For this purpose, PhpSpreadsheet provides readers and writers, which are

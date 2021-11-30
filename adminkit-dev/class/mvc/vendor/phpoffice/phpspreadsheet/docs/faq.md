@@ -39,7 +39,7 @@ Spreadsheet\_Excel\_writer, which is the base of our Xls writer.
 
 We are slowly building up a list of features, together with the
 different readers and writers that support them, in the [features cross
-reference](references/features-cross-reference.md).
+reference](./references/features-cross-reference.md).
 
 ## Formulas don't seem to be calculated in Excel2003 using compatibility pack?
 
@@ -53,5 +53,5 @@ Trying to set column width, I experience one problem. When I open the
 file in Excel, the actual width is 0.71 less than it should be.
 
 The short answer is that PhpSpreadsheet uses a measure where padding is
-included. See [how to set a column's width](topics/recipes.md#setting-a-columns-width)
+included. See [how to set a column's width](./topics/recipes.md#setting-a-columns-width)
 for more details.

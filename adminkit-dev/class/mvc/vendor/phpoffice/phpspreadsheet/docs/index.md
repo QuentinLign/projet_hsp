@@ -1,6 +1,6 @@
 # Welcome to PhpSpreadsheet's documentation
 
-![Logo](assets/logo.svg)
+![Logo](./assets/logo.svg)
 
 PhpSpreadsheet is a library written in pure PHP and providing a set of
 classes that allow you to read from and to write to different
@@ -86,11 +86,11 @@ php vendor/phpoffice/phpspreadsheet/samples/Basic/01_Simple.php
 ## Learn by documentation
 
 For more in-depth documentation, you may read about an [overview of the
-architecture](topics/architecture.md),
-[creating a spreadsheet](topics/creating-spreadsheet.md),
-[worksheets](topics/worksheets.md),
-[accessing cells](topics/accessing-cells.md) and
-[reading and writing to files](topics/reading-and-writing-to-file.md).
+architecture](./topics/architecture.md),
+[creating a spreadsheet](./topics/creating-spreadsheet.md),
+[worksheets](./topics/worksheets.md),
+[accessing cells](./topics/accessing-cells.md) and
+[reading and writing to files](./topics/reading-and-writing-to-file.md).
 
 Or browse the [API documentation](https://phpoffice.github.io/PhpSpreadsheet/master).
 

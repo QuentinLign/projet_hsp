@@ -310,11 +310,11 @@ and this project adheres to [Semantic Versioning](https://semver.org).
 
 ### BREAKING CHANGE
 
-- Extracted coordinate method to dedicate class [migration guide](docs/topics/migration-from-PHPExcel.md).
-- Column indexes are based on 1, see the [migration guide](docs/topics/migration-from-PHPExcel.md).
-- Standardization of array keys used for style, see the [migration guide](docs/topics/migration-from-PHPExcel.md).
-- Easier usage of PDF writers, and other custom readers and writers, see the [migration guide](docs/topics/migration-from-PHPExcel.md).
-- Easier usage of chart renderers, see the [migration guide](docs/topics/migration-from-PHPExcel.md).
+- Extracted coordinate method to dedicate class [migration guide](./docs/topics/migration-from-PHPExcel.md).
+- Column indexes are based on 1, see the [migration guide](./docs/topics/migration-from-PHPExcel.md).
+- Standardization of array keys used for style, see the [migration guide](./docs/topics/migration-from-PHPExcel.md).
+- Easier usage of PDF writers, and other custom readers and writers, see the [migration guide](./docs/topics/migration-from-PHPExcel.md).
+- Easier usage of chart renderers, see the [migration guide](./docs/topics/migration-from-PHPExcel.md).
 - Rename a few more classes to keep them in their related namespaces:
     - `CalcEngine` => `Calculation\Engine`
     - `PhpSpreadsheet\Calculation` => `PhpSpreadsheet\Calculation\Calculation`
@@ -357,7 +357,7 @@ and this project adheres to [Semantic Versioning](https://semver.org).
 - Introduction of namespaces for all classes, eg: `PHPExcel_Calculation_Functions` becomes `PhpOffice\PhpSpreadsheet\Calculation\Functions`
 - Some classes were renamed for clarity and/or consistency:
 
-For a comprehensive list of all class changes, and a semi-automated migration path, read the [migration guide](docs/topics/migration-from-PHPExcel.md).
+For a comprehensive list of all class changes, and a semi-automated migration path, read the [migration guide](./docs/topics/migration-from-PHPExcel.md).
 
 - Dropped `PHPExcel_Calculation_Functions::VERSION()`. Composer or git should be used to know the version.
 - Dropped `PHPExcel_Settings::setPdfRenderer()` and `PHPExcel_Settings::setPdfRenderer()`. Composer should be used to autoload PDF libs.
@@ -365,4 +365,4 @@ For a comprehensive list of all class changes, and a semi-automated migration pa
 
 ## Previous versions of PHPExcel
 
-The changelog for the project when it was called PHPExcel is [still available](CHANGELOG.PHPExcel.md).
+The changelog for the project when it was called PHPExcel is [still available](./CHANGELOG.PHPExcel.md).

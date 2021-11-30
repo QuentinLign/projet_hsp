@@ -2,7 +2,7 @@
 
 ## Schematical
 
-![01-schematic.png](images/01-schematic.png "Basic Architecture Schematic")
+![01-schematic.png](./images/01-schematic.png "Basic Architecture Schematic")
 
 ## AutoLoader
 
@@ -35,7 +35,7 @@ writers, as you are free to implement the
 `\PhpOffice\PhpSpreadsheet\Reader\IReader` and
 `\PhpOffice\PhpSpreadsheet\Writer\IWriter` interface in a custom class.
 
-![02-readers-writers.png](images/02-readers-writers.png "Readers/Writers")
+![02-readers-writers.png](./images/02-readers-writers.png "Readers/Writers")
 
 ## Fluent interfaces
 

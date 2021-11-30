@@ -269,7 +269,7 @@ to `\PhpOffice\PhpSpreadsheet::getCoordinates()` and
 `\PhpOffice\PhpSpreadsheet::getCellCacheController()` to
 `\PhpOffice\PhpSpreadsheet::getCellCollection()` for clarity.
 
-Refer to [the new documentation](memory_saving.md) to see how to migrate.
+Refer to [the new documentation](./memory_saving.md) to see how to migrate.
 
 ### Dropped conditionally returned cell
 

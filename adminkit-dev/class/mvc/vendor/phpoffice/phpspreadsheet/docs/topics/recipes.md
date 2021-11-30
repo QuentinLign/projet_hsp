@@ -159,7 +159,7 @@ $formula = $spreadsheet->getActiveSheet()->getCell('B8')->getValue();
 ```
 
 If you need the calculated value of a cell, use the following code. This
-is further explained in [the calculation engine](calculation-engine.md).
+is further explained in [the calculation engine](./calculation-engine.md).
 
 ``` php
 $value = $spreadsheet->getActiveSheet()->getCell('B8')->getCalculatedValue();
@@ -311,7 +311,7 @@ scaling options in the "Page Setup" dialog as shown in the illustration.
 Default values in PhpSpreadsheet correspond to default values in MS
 Office Excel as shown in illustration
 
-![08-page-setup-scaling-options.png](images/08-page-setup-scaling-options.png)
+![08-page-setup-scaling-options.png](./images/08-page-setup-scaling-options.png)
 
 method              | initial value | calling method will trigger | Note
 --------------------|:-------------:|-----------------------------|------
@@ -349,7 +349,7 @@ $spreadsheet->getActiveSheet()->getPageMargins()->setBottom(1);
 
 Note that the margin values are specified in inches.
 
-![08-page-setup-margins.png](images/08-page-setup-margins.png)
+![08-page-setup-margins.png](./images/08-page-setup-margins.png)
 
 ### Center a page horizontally/vertically
 
@@ -729,7 +729,7 @@ These are the shortcut borders available:
 
 An overview of all border shortcuts can be seen in the following image:
 
-![08-styling-border-options.png](images/08-styling-border-options.png)
+![08-styling-border-options.png](./images/08-styling-border-options.png)
 
 If you simultaneously set e.g. allBorders and vertical, then we have
 "overlapping" borders, and one of the components has to win over the
@@ -893,7 +893,7 @@ $spreadsheet->getActiveSheet()
     ->getText()->createTextRun('Total amount on the current invoice, excluding VAT.');
 ```
 
-![08-cell-comment.png](images/08-cell-comment.png)
+![08-cell-comment.png](./images/08-cell-comment.png)
 
 ## Apply autofilter to a range of cells
 
@@ -1037,7 +1037,7 @@ to the width of the widest column value.
 $spreadsheet->getActiveSheet()->getColumnDimension('B')->setAutoSize(true);
 ```
 
-![08-column-width.png](images/08-column-width.png)
+![08-column-width.png](./images/08-column-width.png)
 
 The measure for column width in PhpSpreadsheet does **not** correspond
 exactly to the measure you may be used to in Microsoft Office Excel.

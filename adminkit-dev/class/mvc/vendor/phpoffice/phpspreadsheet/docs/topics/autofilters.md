@@ -9,7 +9,7 @@ more than one column: filters are additive, which means that each
 additional filter is based on the current filter and further reduces the
 subset of data.
 
-![01-01-autofilter.png](images/01-01-autofilter.png)
+![01-01-autofilter.png](./images/01-01-autofilter.png)
 
 When an AutoFilter is applied to a range of cells, the first row in an
 autofilter range will be the heading row, which displays the autoFilter
@@ -22,21 +22,21 @@ such errors.
 
 To determine if a filter is applied, note the icon in the column
 heading. A drop-down arrow
-(![01-03-filter-icon-1.png](images/01-03-filter-icon-1.png)) means
+(![01-03-filter-icon-1.png](./images/01-03-filter-icon-1.png)) means
 that filtering is enabled but not applied. In MS Excel, when you hover
 over the heading of a column with filtering enabled but not applied, a
 screen tip displays the cell text for the first row in that column, and
 the message "(Showing All)".
 
-![01-02-autofilter.png](images/01-02-autofilter.png)
+![01-02-autofilter.png](./images/01-02-autofilter.png)
 
 A Filter button
-(![01-03-filter-icon-2.png](images/01-03-filter-icon-2.png)) means
+(![01-03-filter-icon-2.png](./images/01-03-filter-icon-2.png)) means
 that a filter is applied. When you hover over the heading of a filtered
 column, a screen tip displays the filter that has been applied to that
 column, such as "Equals a red cell color" or "Larger than 150".
 
-![01-04-autofilter.png](images/01-04-autofilter.png)
+![01-04-autofilter.png](./images/01-04-autofilter.png)
 
 ## Setting an AutoFilter area on a worksheet
 
@@ -108,7 +108,7 @@ alongside each option. When the filter is applied, rows containing the
 checked entries will be displayed, rows that don't contain those values
 will be hidden.
 
-![04-01-simple-autofilter.png](images/04-01-simple-autofilter.png)
+![04-01-simple-autofilter.png](./images/04-01-simple-autofilter.png)
 
 To create a filter expression, we need to start by identifying the
 filter type. In this case, we're just going to specify that this filter
@@ -166,7 +166,7 @@ In MS Excel, DateGroup filters provide a series of dropdown filter
 selectors for date values, so you can specify entire years, or months
 within a year, or individual days within each month.
 
-![04-02-dategroup-autofilter.png](images/04-02-dategroup-autofilter.png)
+![04-02-dategroup-autofilter.png](./images/04-02-dategroup-autofilter.png)
 
 DateGroup filters are still applied as a Standard Filter type.
 
@@ -220,9 +220,9 @@ using an operator as well as a value. Typical examples might be values
 that fall within a range (e.g. between -20 and +20), or text values with
 wildcards (e.g. beginning with the letter U). To handle this, they
 
-![04-03-custom-autofilter-1.png](images/04-03-custom-autofilter-1.png)
+![04-03-custom-autofilter-1.png](./images/04-03-custom-autofilter-1.png)
 
-![04-03-custom-autofilter-2.png](images/04-03-custom-autofilter-2.png)
+![04-03-custom-autofilter-2.png](./images/04-03-custom-autofilter-2.png)
 
 Custom filters are limited to 2 rules, and these can be joined using
 either an AND or an OR.
@@ -316,7 +316,7 @@ value we're comparing against the cell values is variable, such as
 (e.g. 'aboveAverage'). Only a single dynamic filter can be applied to a
 column at a time.
 
-![04-04-dynamic-autofilter.png](images/04-04-dynamic-autofilter.png)
+![04-04-dynamic-autofilter.png](./images/04-04-dynamic-autofilter.png)
 
 Again, we start by specifying a Filter type, this time a DYNAMICFILTER.
 
@@ -406,9 +406,9 @@ a summarisation of the actual data values in the cells. However, unlike
 Dynamic Filters where you can only select a single option, Top Ten
 Filters allow you to select based on a number of criteria:
 
-![04-05-custom-topten-1.png](images/04-05-topten-autofilter-1.png)
+![04-05-custom-topten-1.png](./images/04-05-topten-autofilter-1.png)
 
-![04-05-custom-topten-2.png](images/04-05-topten-autofilter-2.png)
+![04-05-custom-topten-2.png](./images/04-05-topten-autofilter-2.png)
 
 You can identify whether you want the top (highest) or bottom (lowest)
 values.You can identify how many values you wish to select in the

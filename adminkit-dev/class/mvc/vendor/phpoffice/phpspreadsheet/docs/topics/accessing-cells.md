@@ -247,7 +247,7 @@ $spreadsheet->getActiveSheet()->getStyle('A10')
     );
 ```
 
-![07-simple-example-1.png](images/07-simple-example-1.png)
+![07-simple-example-1.png](./images/07-simple-example-1.png)
 
 **Note:** that not all complex format masks such as this one will work
 when retrieving a formatted value to display "on screen", or for certain
@@ -276,7 +276,7 @@ $spreadsheet->getActiveSheet()
     );
 ```
 
-![07-simple-example-2.png](images/07-simple-example-2.png)
+![07-simple-example-2.png](./images/07-simple-example-2.png)
 
 If you pass a 2-d array, then this will be treated as a series of rows
 and columns. A 1-d array will be treated as a single row, which is
@@ -293,7 +293,7 @@ $spreadsheet->getActiveSheet()
     );
 ```
 
-![07-simple-example-3.png](images/07-simple-example-3.png)
+![07-simple-example-3.png](./images/07-simple-example-3.png)
 
 If you have a simple 1-d array, and want to write it as a column, then
 the following will convert it into an appropriately structured 2-d array
@@ -311,7 +311,7 @@ $spreadsheet->getActiveSheet()
     );
 ```
 
-![07-simple-example-4.png](images/07-simple-example-4.png)
+![07-simple-example-4.png](./images/07-simple-example-4.png)
 
 ## Retrieving a cell value by coordinate
 
@@ -329,7 +329,7 @@ This will retrieve the raw, unformatted value contained in the cell.
 If a cell contains a formula, and you need to retrieve the calculated
 value rather than the formula itself, then use the cell's
 `getCalculatedValue()` method. This is further explained in
-[the calculation engine](calculation-engine.md).
+[the calculation engine](./calculation-engine.md).
 
 ``` php
 // Get the value from cell A4
@@ -369,7 +369,7 @@ $cellValue = $spreadsheet->getActiveSheet()->getCellByColumnAndRow(2, 5)->getVal
 ```
 
 If you need the calculated value of a cell, use the following code. This
-is further explained in [the calculation engine](calculation-engine.md).
+is further explained in [the calculation engine](./calculation-engine.md).
 
 ``` php
 // Get the value from cell A4

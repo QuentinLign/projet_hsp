@@ -20,13 +20,13 @@ $spreadsheet->getActiveSheet()->getCell('E11')->getCalculatedValue();
 If you write the following line of code in the invoice demo included
 with PhpSpreadsheet, it evaluates to the value "64":
 
-![09-command-line-calculation.png](images/09-command-line-calculation.png)
+![09-command-line-calculation.png](./images/09-command-line-calculation.png)
 
 Another nice feature of PhpSpreadsheet's formula parser, is that it can
 automatically adjust a formula when inserting/removing rows/columns.
 Here's an example:
 
-![09-formula-in-cell-1.png](images/09-formula-in-cell-1.png)
+![09-formula-in-cell-1.png](./images/09-formula-in-cell-1.png)
 
 You see that the formula contained in cell E11 is "SUM(E4:E9)". Now,
 when I write the following line of code, two new product lines are
@@ -36,7 +36,7 @@ added:
 $spreadsheet->getActiveSheet()->insertNewRowBefore(7, 2);
 ```
 
-![09-formula-in-cell-2.png](images/09-formula-in-cell-2.png)
+![09-formula-in-cell-2.png](./images/09-formula-in-cell-2.png)
 
 Did you notice? The formula in the former cell E11 (now E13, as I
 inserted 2 new rows), changed to "SUM(E4:E11)". Also, the inserted cells

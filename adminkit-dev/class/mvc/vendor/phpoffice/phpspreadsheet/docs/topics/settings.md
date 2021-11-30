@@ -9,7 +9,7 @@ affect the subsequent behaviour of the script.
 
 By default, PhpSpreadsheet holds all cell objects in memory, but
 you can specify alternatives to reduce memory consumption at the cost of speed.
-Read more about [memory saving](memory_saving.md).
+Read more about [memory saving](./memory_saving.md).
 
 To enable cell caching, you must provide your own implementation of cache like so:
 
@@ -42,4 +42,4 @@ then the `setLocale()` method will return an error, and American English
 More details of the features available once a locale has been set,
 including a list of the languages and locales currently supported, can
 be found in [Locale Settings for
-Formulae](recipes.md#locale-settings-for-formulae).
+Formulae](./recipes.md#locale-settings-for-formulae).
