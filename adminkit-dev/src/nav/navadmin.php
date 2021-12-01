@@ -19,7 +19,7 @@
                 </li>
 
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="pages-sign-in.html">
+                    <a class="sidebar-link" href="inscription.php">
                         <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Ajouter un Utilisateur</span>
                     </a>
                 </li>
@@ -47,29 +47,11 @@
                 </li>
                  <li class="sidebar-item">
                     <?php
-                    include'class/mvc/Manager_User.php';
                     if ($_SESSION['role'] == "ADM") {
 
                         echo '<li class="sidebar-item">
                                 <a class="sidebar-link" href="../adminkit-dev/datatableAdmin.php">
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Administrateur</span>
-                                </a>
-                             </li>';
-                    }
-                    else {
-                    echo "";
-                    }
-
-                    ?>
-             </li>
-
-               <li class="sidebar-item">
-                    <?php
-                    if ($_SESSION['role'] == "PAT") {
-
-                        echo '<li class="sidebar-item">
-                                <a class="sidebar-link" href="../adminkit-dev/datatableRDV.php">
-                                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Patient</span>
                                 </a>
                              </li>';
                     }

@@ -1,7 +1,7 @@
 <?php
 //Traitement des données entrées dans le form d'inscription
-require 'model_dossier_admission.php';
-require 'Manager_User.php';
+require_once '../../Model/model_dossier_admission.php';
+require_once 'Manager_User.php';
 session_start();
 //Vérification du mdp
 

@@ -1,6 +1,10 @@
 <?php
 //Manager
-require_once(__DIR__ . '/User.php');
+require_once '../../Model/User.php';
+require_once '../../Model/model_rdv.php';
+require_once '../../bdd/bdd.php';
+
+
 require 'vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -39,7 +43,7 @@ class Manager_User
             $mail->Password = "Admwb2000";
             $mail->SetFrom($inscrit->getEmail());
             $mail->Subject = "Ouverture de compte réussie";
-            $mail->Body = "<center><b>Hôpital Sud Paris</b><br><p>Bonjour ! Votre compte a été ouvert.</p></center></html>";
+            $mail->Body = "<div style=\"text-align: center;\"><b>Hôpital Sud Paris</b><br><p>Bonjour ! Votre compte a été ouvert.</p></div></html>";
             $mail->AddAddress($inscrit->getEmail());
             if (!$mail->Send()) {
                 echo "Mailer Error: " . $mail->ErrorInfo;
@@ -287,5 +291,25 @@ public function diagnostic(Diagnostic $diag)
     return $donnee;
   }
 
-}
+    public function rendezvous(RDV $rdv)
+    {
+        $bdd = new bdd();
+        $req = $bdd->getStart()->prepare('INSERT into rendezvous(nom,prenom,doctorSpecilization,doctor,RDVdate,RDVheure) values(:nom,:prenom,:doctorSpecilization,:doctor,:RDVdate,:RDVheure)');
+            $a =$req->execute(array(
+                'nom'=>$rdv->getNom(),
+                'prenom'=>$rdv->getPrenom(),
+                'doctorSpecilization'=>$rdv->getDoctorSpecilization(),
+                'doctor'=>$rdv->getDoctor(),
+                'RDVdate'=>$rdv->getRDVdate(),
+                'RDVheure'=>$rdv->getRDVheure()
+            ));
+
+            if ($a == true ) {
+                echo "c'est bon";
+            } else {
+                echo "c'est pas bon";
+            }
+        }
+
+    }
 ?>

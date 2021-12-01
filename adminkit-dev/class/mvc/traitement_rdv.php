@@ -1,6 +1,6 @@
 <?php
 //Traitement des données entrées dans le form d'inscription
-require 'User.php';
+require '../../Model/model_rdv.php';
 require 'Manager_User.php';
 session_start();
 
@@ -15,14 +15,17 @@ if($_POST['nom'] != $_POST['nom'])
 }
 //ajout dans la bdd
 else {
-    $rendezvous = new User(['nom' => $_POST['nom'],
+    $rendezvous = new RDV([
+        'nom' => $_POST['nom'],
         'prenom' => $_POST['prenom'],
         'doctorspecilization' => $_POST['doctorspecilization'],
+        'doctor' => $_POST['doctor'],
         'RDVdate' => $_POST['RDVdate'],
-        'RDVheure' => $_POST['RDVheure']]);
+        'RDVheure' => $_POST['RDVheure']
+    ]);
     $rdv = new Manager_User();
-    var_dump($rendezvous);
-    $rdv->inscription($rendezvous);
+    $rdv->rendezvous($rendezvous);
+
 }
 
 
