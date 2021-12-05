@@ -18,8 +18,8 @@ else
   $inscrip_patient = new User(['nom'=>$_POST['nom'],
   'prenom'=>$_POST['prenom'],
   'email'=>$_POST['email'],
-  'role'=>$_POST['role'],
-  'mdp'=>$_POST['mdp']]);
+  'mdp'=>$_POST['mdp'],
+  ]);
   $inscription = new Manager_User;
   $inscription->inscrip_patient($inscrip_patient);
 }

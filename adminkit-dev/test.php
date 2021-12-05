@@ -3,57 +3,59 @@
 <div class="wrapper">
     <nav id="sidebar" class="sidebar js-sidebar">
         <div class="sidebar-content js-simplebar">
-            <a class="sidebar-brand" href="../../index.php">
+            <a class="sidebar-brand" href="index.html">
                 <span class="align-middle">Hôpital</span>
             </a>
 
-            <ul class="sidebar-nav">
-                <li class="sidebar-header">
-                    Option
-                </li>
+            <ul
+
+            <li class="sidebar-header">
+                Utilisateur
+            </li>
+            <li class="sidebar-item">
                 <?php
                 if ($_SESSION['role'] == "ADMIN") {
 
                     echo '<li class="sidebar-item">
-                                <a class="sidebar-link" href="../datatable/datatableAdmin.php">
+                                <a class="sidebar-link" href="../adminkit-dev/datatable/datatableAdmin.php">
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Administrateur</span>
                                 </a>
                              </li>
                              
                              <li class="sidebar-item">
-                                <a class="sidebar-link" href="../datatable/datatableUser.php">
+                                <a class="sidebar-link" href="../adminkit-dev/datatable/datatableUser.php">
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Patient</span>
                                 </a>
                              </li>
                              
                              <li class="sidebar-item">
-                                <a class="sidebar-link" href="../../adminkit-dev/datatable/datatableMedecin.php">
+                                <a class="sidebar-link" href="../adminkit-dev/datatable/datatableMedecin.php">
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Medecin</span>
                                 </a>
                              </li>
                              
                              <li class="sidebar-item">
-                                <a class="sidebar-link" href="../../adminkit-dev/datatable/datatableUrgentiste.php">
+                                <a class="sidebar-link" href="../adminkit-dev/datatable/datatableUrgentiste.php">
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Urgentiste</span>
                                 </a>
                              </li>
                              
                              <li class="sidebar-item">
-                                <a class="sidebar-link" href="../../adminkit-dev/datatable/datatableRDV.php">
+                                <a class="sidebar-link" href="../adminkit-dev/datatable/datatableRDV.php">
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Rendez-vous</span>
                                 </a>
                              </li>
                              
                              
                              <li class="sidebar-item">
-                                <a class="sidebar-link" href="../../adminkit-dev/datatable/datatableDossieradm.php">
+                                <a class="sidebar-link" href="../adminkit-dev/datatable/datatableDossieradm.php">
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Dossier Admission</span>
                                 </a>
                              </li>
                              
                              
                              <li class="sidebar-item">
-                                <a class="sidebar-link" href="../../adminkit-dev/datatable/ajouter.php">
+                                <a class="sidebar-link" href="view_medecin/prise_rdv.php">
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Ajouter un utilsateur</span>
                                 </a>
                              </li>
@@ -66,71 +68,69 @@
                 }
 
                 ?>
-                </li>
+            </li>
 
-                <li class="sidebar-item">
-                    <?php
-                    if ($_SESSION['role'] == "MED") {
+            <li class="sidebar-item">
+                <?php
+                if ($_SESSION['role'] == "MED") {
 
-                        echo '<li class="sidebar-item">
-                                <a class="sidebar-link" href="../view_medecin/medecin.php">
-                                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Mon espace médecin</span>
+                    echo '<li class="sidebar-item">
+                                <a class="sidebar-link" href="view_medecin/medecin.php">
+                                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Médecin</span>
                                 </a>
                              </li>';
 
-                        echo '<li class="sidebar-item">
-                                <a class="sidebar-link" href="../view_medecin/prise_rdv.php">
-                                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Afficher mes rendez-vous</span>
+                    echo '<li class="sidebar-item">
+                                <a class="sidebar-link" href="view_medecin/prise_rdv.php">
+                                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Rendez-vous</span>
                                 </a>
                              </li>';
-                    }
-                    else {
-                        echo "";
-                    }
+                }
+                else {
+                    echo "";
+                }
 
-                    ?>
-                </li>
+                ?>
+            </li>
 
-                <li class="sidebar-item">
-                    <?php
-                    if ($_SESSION['role'] == "URG") {
+            <li class="sidebar-item">
+                <?php
+                if ($_SESSION['role'] == "URG") {
 
-                        echo '<li class="sidebar-item">
+                    echo '<li class="sidebar-item">
                                 <a class="sidebar-link" href="../../datatable/datatableUrgentiste.php">
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Urgentiste</span>
                                 </a>
                              </li>';
-                    }
-                    else {
-                        echo "";
-                    }
+                }
+                else {
+                    echo "";
+                }
 
-                    ?>
-                </li>
+                ?>
+            </li>
 
-                <li class="sidebar-item">
-                    <?php
-                    if ($_SESSION['role'] == "PAT") {
+            <li class="sidebar-item">
+                <?php
+                if ($_SESSION['role'] == "PAT") {
 
-                        echo '<li class="sidebar-item">
-                                <a class="sidebar-link" href="datatable/datatableRDV.php">
+                    echo '<li class="sidebar-item">
+                                <a class="sidebar-link" href="../../datatable/datatableRDV.php">
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Mes rendez-vous</span>
                                 </a>
                              </li>
                                 <li class="sidebar-item">
-                                <a class="sidebar-link" href="../prise_rdv.php">
+                                <a class="sidebar-link" href="view_medecin/prise_rdv.php">
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Prise de RDV</span>
                                 </a>
                              </li>
                              ';
-                    }
-                    else {
-                        echo "";
-                    }
+                }
+                else {
+                    echo "";
+                }
 
-                    ?>
-                    </ul>
-                </li>
-             </li>
+                ?>
+            </li>
         </div>
     </nav>

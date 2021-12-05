@@ -83,22 +83,22 @@ class Manager_User
 
             if ($donnee['role'] == "MED") {
                 $_SESSION['role'] = $donnee['role'];
-                header('Location: ../../datatableMedecin.php');
+                header('Location: ../../view_medecin/medecin.php');
                 exit();
             }
              if ($donnee['role'] == "PAT") {
                 $_SESSION['role'] = $donnee['role'];
-                header('Location: ../../datatableRDV.php');
+                header('Location: ../../prise_rdv.php');
                 exit();
             }
              if ($donnee['role'] == "ADMIN") {
                 $_SESSION['role'] = $donnee['role'];
-                header('Location: ../../datatableAdmin.php');
+                header('Location: ../../datatable/datatableAdmin.php');
                 exit();
             }
              if ($donnee['role'] == "URG") {
                 $_SESSION['role'] = $donnee['role'];
-                header('Location: ../../datatableUrgentiste.php');
+                header('Location: ../../datatable/datatableUrgentiste.php');
                 exit();
             }
 
@@ -193,7 +193,7 @@ class Manager_User
     $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp','root','');
     $req = $bdd->prepare('UPDATE utilisateurs SET mdp = ?, verif = 1 WHERE email = ?');
     $req->execute(array(SHA1($change->getMdp()), $email));
-    header('location: ../index.php');
+    header('location: ../index.html');
   }
 
  public function modif_etat(Etat $activation)
@@ -215,24 +215,99 @@ class Manager_User
   //inscription d'un compte admin
   public function inscrip_patient(User $inscription)
   {
-    $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp','root','');
-    $req = $bdd->prepare('SELECT * FROM utilisateurs WHERE email = :email');
-    $req->execute(array('email'=>$inscription->getEmail()));
-    $donnee = $req->fetch();
-    if($donnee)
-    {
-      $_SESSION['erreur_add_admin'] = "L'identifiant est déjà utilisé.";
-      header('Location: ../view/ajout_admin.php');
-    }
-    else
-    {
-      $req = $bdd->prepare('INSERT into utilisateurs (nom, prenom, email, mdp, role) value(?,?,?,?, "PAT")');
-      $req -> execute(array($inscription->getNom(), $inscription->getPrenom(), $inscription->getEmail(), SHA1($inscription->getMdp())));
+      $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp', 'root', '');
+      $req = $bdd->prepare('SELECT * FROM utilisateurs WHERE email = :email');
+      $req->execute(array('email' => $inscription->getEmail()));
+      $donnee = $req->fetch();
+      if ($donnee) {
+          $_SESSION['erreur_add_admin'] = "L'identifiant est déjà utilisé.";
+          header('Location: ../../ajout_admin.php');
+      } else {
+          $req = $bdd->prepare('INSERT into utilisateurs (nom, prenom, email, mdp, role) value(?,?,?,?, "PAT")');
+          $req->execute(array($inscription->getNom(), $inscription->getPrenom(), $inscription->getEmail(), SHA1($inscription->getMdp(),$inscription->getRole())));
 
-    header('location: ../../datatableUrgentiste.php');
-          $_SESSION['message_mdp'] = 'Modification enregistré';
-    }
+          $a=$req;
+
+          if ($a == true) {
+              echo "Patient ajoutée";
+      }else{
+              echo "erreur";
+          }
+      }
   }
+
+    public function inscrip_med(User $inscription)
+    {
+        $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp', 'root', '');
+        $req = $bdd->prepare('SELECT * FROM utilisateurs WHERE email = :email');
+        $req->execute(array('email' => $inscription->getEmail()));
+        $donnee = $req->fetch();
+        if ($donnee) {
+            $_SESSION['erreur_add_admin'] = "L'identifiant est déjà utilisé.";
+            header('Location: ../view/ajout_admin.php');
+        } else {
+            $req = $bdd->prepare('INSERT into utilisateurs (nom, prenom, email, mdp, role) value(?,?,?,?, "MED")');
+            $req->execute(array($inscription->getNom(), $inscription->getPrenom(), $inscription->getEmail(), SHA1($inscription->getMdp(),$inscription->getRole())));
+
+            $a = $req;
+            if ($a == true) {
+                echo "Medecin ajoutée";
+            }else{
+                echo "erreur";
+
+            }
+
+            }
+        }
+
+    public function adm(User $admin)
+    {
+        $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp', 'root', '');
+        $req = $bdd->prepare('SELECT * FROM utilisateurs WHERE email = :email');
+        $req->execute(array('email' => $admin->getEmail()));
+        $donnee = $req->fetch();
+        if ($donnee) {
+            $_SESSION['erreur_add_admin'] = "L'identifiant est déjà utilisé.";
+            header('Location: ../view/ajout_admin.php');
+        } else {
+            $req = $bdd->prepare('INSERT into utilisateurs (nom, prenom, email, mdp, role) value(?,?,?,?, "ADMIN")');
+            $req->execute(array($admin->getNom(), $admin->getPrenom(), $admin->getEmail(), SHA1($admin->getMdp(),$admin->getRole())));
+
+            $a = $req;
+            if ($a == true) {
+                echo "Administrateur ajoutée";
+            }else{
+                echo "erreur";
+
+            }
+
+        }
+    }
+
+    public function ins_urg(User $inscription)
+    {
+        $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp', 'root', '');
+        $req = $bdd->prepare('SELECT * FROM utilisateurs WHERE email = :email');
+        $req->execute(array('email' => $inscription->getEmail()));
+        $donnee = $req->fetch();
+        if ($donnee) {
+            $_SESSION['erreur_add_admin'] = "L'identifiant est déjà utilisé.";
+            header('Location: ../view/ajout_admin.php');
+        } else {
+            $req = $bdd->prepare('INSERT into utilisateurs (nom, prenom, email, mdp, role) value(?,?,?,?, "URG")');
+            $req->execute(array($inscription->getNom(), $inscription->getPrenom(), $inscription->getEmail(), SHA1($inscription->getMdp(),$inscription->getRole())));
+
+            $a = $req;
+            if ($a == true) {
+                echo "Urgentste ajoutée";
+            }else{
+                echo "c'est gherçgeràçomerjd";
+
+            }
+
+        }
+    }
+
 
     //Ajout dossier_admission
   public function dossier_admission(Dossier_admission $dossier)
@@ -255,6 +330,8 @@ class Manager_User
           $_SESSION['message_mdp'] = 'Modification enregistré';
     }
   }
+
+
 
 
 public function diagnostic(Diagnostic $diag)
@@ -305,7 +382,7 @@ public function diagnostic(Diagnostic $diag)
             ));
 
             if ($a == true ) {
-                echo "c'est bon";
+                header('Location: ../../confirm_rdvmed.html');
             } else {
                 echo "c'est pas bon";
             }

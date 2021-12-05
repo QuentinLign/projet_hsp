@@ -3,7 +3,7 @@ session_start();
 
 if(!isset($_SESSION['email']))
 {
-    header('location: connexion.php');
+    header('location: ../connexion.php');
 }
 ?>
 <!DOCTYPE html>
@@ -18,44 +18,46 @@ if(!isset($_SESSION['email']))
     <meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
+    <link rel="shortcut icon" href="../img/icons/icon-48x48.png" />
 
     <link rel="canonical" href="https://demo-basic.adminkit.io/ui-buttons.html" />
 
+
+
     <title>Buttons | AdminKit Demo</title>
 
-    <link href="css/app.css" rel="stylesheet">
+    <link href="../css/app.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
-<?php include 'src/nav/navadmin.php';?>
-<?php include 'src/nav/top_navadmin.php';?>
-
+<?php include '../src/nav/navadmin.php';?>
+<?php include '../src/nav/top_navadmin.php';?>
 
     <div class="main">
         
+
         <main class="content">
             <div class="container-fluid p-0">
 
                 <div class="mb-3">
-                    <h1 class="h3 d-inline align-middle">Medecin</h1>
+                    <h1 class="h3 d-inline align-middle">Utilisateur</h1>
                     </a>
                 </div>
 
 
                 <?php
-                require_once '../adminkit-dev/bdd/bdd.php';
+                require_once '../bdd/bdd.php';
+
 
                 $bdd = new bdd;
-                $req=$bdd->getStart()->prepare('SELECT * FROM medecin ORDER BY id DESC');
+                $req=$bdd->getStart()->prepare('SELECT * FROM utilisateurs ORDER BY id DESC');
                 $req->execute(array(
                 ));
 
                 $res=$req->fetchall();
-
                 ?>
-                    <title>DATA TABLE medecin</title>
+
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
                     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
                     <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
@@ -64,7 +66,7 @@ if(!isset($_SESSION['email']))
                 <body>
                 <br /><br />
                 <div class="container">
-                    <h3 align="center">Données des medecin</h3>
+                    <h3 align="center">Données des utilisateurs</h3>
                     <br />
                     <div class="table-responsive">
                         <table id="employee_data" class="table table-striped table-bordered">
@@ -73,9 +75,7 @@ if(!isset($_SESSION['email']))
                                 <td>Nom</td>
                                 <td>Prenom</td>
                                 <td>E-mail</td>
-                                <td>specialité</td>
-                                <td>Etat compte</td>
-                                <td>Derniere connexion</td>
+                                <td>Verification</td>
                             </tr>
                             </thead>
                             <?php
@@ -85,12 +85,8 @@ if(!isset($_SESSION['email']))
                                <tr>
 								<td>'.$row["nom"].'</td>
 								<td>'.$row["prenom"].'</td>
-								<td>'.$row["mail"].'</td>
-								<td>'.$row["specialite"].'</td>
-								<td>'.$row["etat_compte"].'</td>
-								<td>'.$row["derniere_connexion"].'</td>
-
-
+								<td>'.$row["email"].'</td>
+								<td>'.$row["verif"].'</td>
 								</tr>
 								';
                             }
@@ -139,7 +135,7 @@ if(!isset($_SESSION['email']))
     </div>
 </div>
 
-<script src="js/app.js"></script>
+<script src="../js/app.js"></script>
 
 </body>
 

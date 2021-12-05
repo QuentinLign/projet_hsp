@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `dossier_admission` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `medecin`
+-- Structure de la table `view_medecin`
 --
 
 DROP TABLE IF EXISTS `medecin`;
@@ -106,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `medecin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Déchargement des données de la table `medecin`
+-- Déchargement des données de la table `view_medecin`
 --
 
 INSERT INTO `medecin` (`id`, `nom`, `prenom`, `mail`, `mdp`, `specialite`, `etat_compte`, `derniere_connexion`) VALUES

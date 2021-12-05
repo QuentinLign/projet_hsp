@@ -18,7 +18,7 @@ else {
     $rendezvous = new RDV([
         'nom' => $_POST['nom'],
         'prenom' => $_POST['prenom'],
-        'doctorspecilization' => $_POST['doctorspecilization'],
+        'doctorSpecilization' => $_POST['doctorSpecilization'],
         'doctor' => $_POST['doctor'],
         'RDVdate' => $_POST['RDVdate'],
         'RDVheure' => $_POST['RDVheure']

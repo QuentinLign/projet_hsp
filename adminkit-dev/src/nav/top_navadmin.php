@@ -21,9 +21,9 @@
               </div>
               <li>
               <div class="user-account-settingss">
-              <h5><a href="mon-compte.php">Mon Compte</a></h5>
+              <h5><a href="../mon_compte/mon-compte.php">Mon Compte</a></h5>
               
-              <h5 class="tc"><a href="../adminkit-dev/class/mvc/deconnexion.php" title="">Se déconnecter</a></h5>
+              <h5 class="tc"><a href="../class/mvc/deconnexion.php" title="">Se déconnecter</a></h5>
               </div></li><!--fin des paramètres du compte utilisateur-->';
             }
             else

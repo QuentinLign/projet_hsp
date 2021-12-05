@@ -5,6 +5,7 @@ class User
     private $id;
     private $prenom;
     private $email;
+    private $role;
     private $mdp;
     private $nom;
     private $derniere_connexion;
@@ -72,6 +73,14 @@ class User
 
     public function setNom($nom){
         $this->nom = $nom;
+    }
+
+    public function getRole(){
+        return $this->role;
+    }
+
+    public function setRole($role){
+        $this->role = $role;
     }
 
     public function getDerniere_connexion(){

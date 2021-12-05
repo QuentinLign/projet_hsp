@@ -39,7 +39,7 @@ if(!isset($_SESSION['email']))
         <div class="container-fluid p-0">
 
             <div class="mb-3">
-                <h1 class="h3 d-inline align-middle">Medecin rendez-vous</h1>
+                <h1 class="h3 d-inline align-middle">Medecin</h1>
                 </a>
             </div>
 
@@ -64,7 +64,7 @@ if(!isset($_SESSION['email']))
             <body>
             <br /><br />
             <div class="container">
-                <h3 align="center">Rendez vous</h3>
+                <h3 align="center">Données des medecin</h3>
                 <br />
                 <div class="table-responsive">
                     <table id="employee_data" class="table table-striped table-bordered">
