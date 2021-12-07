@@ -94,7 +94,7 @@ session_start();
               <ul class="us-links">
               <li><a href="index2.php" title="">Paramètre du compte</a></li>
               </ul>
-              <h3 class="tc"><a href="deconnexion.php" title="">Se déconnecter</a></h3>
+              <h3 class="tc"><a href="class/mvc/deconnexion.php" title="">Se déconnecter</a></h3>
               </div><!--fin des paramètres du compte utilisateur-->';
             }
             else
