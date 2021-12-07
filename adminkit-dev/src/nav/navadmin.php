@@ -15,45 +15,45 @@
                 if ($_SESSION['role'] == "ADMIN") {
 
                     echo '<li class="sidebar-item">
-                                <a class="sidebar-link" href="../datatable/datatableAdmin.php">
+                                <a class="sidebar-link" href="../../datatableAdmin.php">
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Administrateur</span>
                                 </a>
                              </li>
 
                              <li class="sidebar-item">
-                                <a class="sidebar-link" href="../datatable/datatableUser.php">
+                                <a class="sidebar-link" href="../adminkit-dev/datatableUser.php">
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Patient</span>
                                 </a>
                              </li>
 
                              <li class="sidebar-item">
-                                <a class="sidebar-link" href="../../adminkit-dev/datatable/datatableMedecin.php">
+                                <a class="sidebar-link" href="../adminkit-dev/datatableMedecin.php">
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Medecin</span>
                                 </a>
                              </li>
 
                              <li class="sidebar-item">
-                                <a class="sidebar-link" href="/datatable/datatableUrgentiste.php">
+                                <a class="sidebar-link" href="../adminkit-dev/datatableUrgentiste.php">
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Urgentiste</span>
                                 </a>
                              </li>
 
                              <li class="sidebar-item">
-                                <a class="sidebar-link" href="../../adminkit-dev/datatable/datatableRDV.php">
+                                <a class="sidebar-link" href="../adminkit-dev/datatableRDV.php">
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Rendez-vous</span>
                                 </a>
                              </li>
 
 
                              <li class="sidebar-item">
-                                <a class="sidebar-link" href="../../adminkit-dev/datatable/datatableDossieradm.php">
+                                <a class="sidebar-link" href="../adminkit-dev/datatableDossieradm.php">
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Dossier Admission</span>
                                 </a>
                              </li>
 
 
                              <li class="sidebar-item">
-                                <a class="sidebar-link" href="../../adminkit-dev/datatable/ajouter.php">
+                                <a class="sidebar-link" href="../adminkit-dev/ajouter.php">
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Ajouter un utilsateur</span>
                                 </a>
                              </li>
