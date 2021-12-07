@@ -326,7 +326,7 @@ class Manager_User
       $req = $bdd->prepare('INSERT into dossier_admission (nom, date_naissance, adresse_postale, mutuelle, numero_secu, option, regime_specifique) value(?,?,?,?,?,?,?)');
       $req -> execute(array($dossier->getNom(), $dossier->getDate_naissance(), $dossier->getAdresse_postale(), $dossier->getMutuelle(), $dossier->getNumero_secu(), $dossier->getOption(), $dossier->getRegime_specifique()));
 
-    header('location: ../../datatableUrgentiste.php');
+    header('location: ../../Urgentiste.php');
           $_SESSION['message_mdp'] = 'Modification enregistré';
     }
   }

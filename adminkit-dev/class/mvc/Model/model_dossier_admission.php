@@ -2,9 +2,9 @@
 class Dossier_admission
 {
 
-   private $id;
-  private $nom;
-   private $date_naissance;
+      private $id;
+      private $nom;
+      private $date_naissance;
       private $adresse_postale;
       private $mutuelle;
       private $numero_secu;
