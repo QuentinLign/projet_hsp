@@ -388,13 +388,17 @@ public function diagnostic(Diagnostic $diag)
             }
         }
 
-    public function supprimer($db, $id)
+    public function supprimer()
     {
         $bdd = new bdd();
-        $req = $bdd->getStart()->prepare("DELETE FROM utilsateurs WHERE id = ?");
-        $res = $db->execute($req);
+        $suppr_id = ($_GET['id']);
 
-        if (!$res) {
+        $req = $bdd->prepare('DELETE FROM utilisateurs WHERE id = ?');
+        $req->execute(array($suppr_id));
+
+        if ($req) {
+            echo 'L utilisateur à été supprimer.';
+        }else{
             echo "probleme";
         }
     }
