@@ -3,7 +3,7 @@ session_start();
 
 if(!isset($_SESSION['email']))
 {
-    header('location: ../connexion.php');
+    header('location: connexion.php');
 }
 ?>
 <!DOCTYPE html>
@@ -24,13 +24,13 @@ if(!isset($_SESSION['email']))
 
     <title>Buttons | AdminKit Demo</title>
 
-    <link href="../css/app.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
-<?php include '../src/nav/navadmin.php';?>
-<?php include '../src/nav/top_navadmin.php';?>
+<?php include 'src/nav/navadmin.php';?>
+<?php include 'src/nav/top_navadmin.php';?>
 
 
 <div class="main">
@@ -45,7 +45,7 @@ if(!isset($_SESSION['email']))
 
 
             <?php
-            require_once '../bdd/bdd.php';
+            require_once 'bdd/bdd.php';
 
             $bdd = new bdd;
             $req=$bdd->getStart()->prepare('SELECT * FROM rendezvous WHERE '.$_SESSION['email'].' ORDER BY id DESC');

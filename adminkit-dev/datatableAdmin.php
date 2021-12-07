@@ -3,14 +3,14 @@ session_start();
 
 if(!isset($_SESSION['email']))
 {
-    header('location: ../connexion.php');
+    header('location: connexion.php');
 }
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 
 <?php
-require_once '../bdd/bdd.php';
+require_once 'bdd/bdd.php';
 ?>
 
 <head>
@@ -22,19 +22,19 @@ require_once '../bdd/bdd.php';
     <meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="shortcut icon" href="../img/icons/icon-48x48.png" />
+    <link rel="shortcut icon" href="img/icons/icon-48x48.png" />
 
     <link rel="canonical" href="https://demo-basic.adminkit.io/ui-buttons.html" />
 
     <title>Buttons | AdminKit Demo</title>
 
-    <link href="../css/app.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
-<?php include '../src/nav/navadmin.php';?>
-<?php include '../src/nav/top_navadmin.php';?>
+<?php include 'src/nav/navadmin.php';?>
+<?php include 'src/nav/top_navadmin.php';?>
 
  <div>
      <?php if(isset($_SESSION['message_mdp']))
@@ -46,7 +46,7 @@ require_once '../bdd/bdd.php';
 
                           ?>
                               <?php
-                require_once '../bdd/bdd.php';
+                require_once 'bdd/bdd.php';
 
 
                 $bdd = new bdd;
@@ -56,7 +56,7 @@ require_once '../bdd/bdd.php';
 
                 $res=$req->fetchall();
                 ?>
-                 <form action="../class/mvc/action-compte.php" method="post">
+                 <form action="class/mvc/action-compte.php" method="post">
                  <label class="form-label">Nom</label>
                       <select name="nom" class="form-control" required="required">
                             <option value="">Selectionner le patient</option>
@@ -65,7 +65,7 @@ require_once '../bdd/bdd.php';
 
                             <?php
 
-                            require_once '../bdd/bdd.php';
+                            require_once 'bdd/bdd.php';
 
 
                             $bdd = new bdd;
@@ -117,7 +117,7 @@ require_once '../bdd/bdd.php';
 
 
             <?php
-            require_once '../bdd/bdd.php';
+            require_once 'bdd/bdd.php';
 
 
             $bdd = new bdd;
