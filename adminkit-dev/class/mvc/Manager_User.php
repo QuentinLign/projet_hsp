@@ -83,12 +83,12 @@ class Manager_User
 
             if ($donnee['role'] == "MED") {
                 $_SESSION['role'] = $donnee['role'];
-                header('Location: ../../view_medecin/medecin.php');
+                header('Location: ../../medecin.php');
                 exit();
             }
              if ($donnee['role'] == "PAT") {
                 $_SESSION['role'] = $donnee['role'];
-                header('Location: ../../view_patient/rdv.php');
+                header('Location: ../../rdv.php');
                 exit();
             }
              if ($donnee['role'] == "ADMIN") {
