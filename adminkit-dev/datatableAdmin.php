@@ -121,7 +121,7 @@ require_once '../bdd/bdd.php';
 
 
             $bdd = new bdd;
-            $req=$bdd->getStart()->prepare('SELECT * FROM utilisateurs ORDER BY id DESC');
+            $req=$bdd->getStart()->prepare('SELECT * FROM utilisateurs WHERE role = "ADMIN"');
             $req->execute(array(
             ));
 
@@ -146,6 +146,8 @@ require_once '../bdd/bdd.php';
                             <td>Prenom</td>
                             <td>E-mail</td>
                             <td>Derniere connexion</td>
+                            <td>role</td>
+
                         </tr>
                         </thead>
                         <?php
@@ -157,6 +159,7 @@ require_once '../bdd/bdd.php';
 								<td>'.$row["prenom"].'</td>
 								<td>'.$row["email"].'</td>
 								<td>'.$row["date_connexion"].'</td>
+								<td>'.$row["role"].'</td>
 					            <td><a href="../class/mvc/manager_sup.php?id='.$row["id"].'">Supprimer</td>
 
 

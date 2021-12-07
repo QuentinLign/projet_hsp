@@ -79,7 +79,7 @@
                              </li>';
 
                         echo '<li class="sidebar-item">
-                                <a class="sidebar-link" href="../view_medecin/prise_rdv.php">
+                                <a class="sidebar-link" href="../view_medecin/prise_rdv_med.php">
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Afficher mes rendez-vous</span>
                                 </a>
                              </li>';

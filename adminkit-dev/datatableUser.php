@@ -51,7 +51,7 @@ if(!isset($_SESSION['email']))
 
 
                 $bdd = new bdd;
-                $req=$bdd->getStart()->prepare('SELECT * FROM utilisateurs ORDER BY id DESC');
+                $req=$bdd->getStart()->prepare('SELECT * FROM utilisateurs WHERE role = "PAT"');
                 $req->execute(array(
                 ));
 
