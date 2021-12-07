@@ -88,7 +88,7 @@ class Manager_User
             }
              if ($donnee['role'] == "PAT") {
                 $_SESSION['role'] = $donnee['role'];
-                header('Location: ../../prise_rdv.php');
+                header('Location: ../../view_patient/rdv.php');
                 exit();
             }
              if ($donnee['role'] == "ADMIN") {
@@ -193,7 +193,7 @@ class Manager_User
     $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp','root','');
     $req = $bdd->prepare('UPDATE utilisateurs SET mdp = ?, verif = 1 WHERE email = ?');
     $req->execute(array(SHA1($change->getMdp()), $email));
-    header('location: ../index.html');
+    header('location: ../index.php');
   }
 
  public function modif_etat(Etat $activation)
@@ -387,6 +387,17 @@ public function diagnostic(Diagnostic $diag)
                 echo "c'est pas bon";
             }
         }
+
+    public function supprimer($db, $id)
+    {
+        $bdd = new bdd();
+        $req = $bdd->getStart()->prepare("DELETE FROM utilsateurs WHERE id = ?");
+        $res = $db->execute($req);
+
+        if (!$res) {
+            echo "probleme";
+        }
+    }
 
     }
 ?>

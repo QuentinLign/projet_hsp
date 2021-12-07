@@ -1,136 +1,70 @@
+<?php
+global $wpdb;
+$result = $wpdb->get_results ( "SELECT * FROM lca_library" );
+$dataset = "[";
+foreach ( $result as $print )   {
+    $dataset .= "[";
+    $dataset .= '"'.$print->id.'",';
+    $dataset .= '"'.$print->category.'",';
+    $dataset .= '"'.$print->subject.'",';
+    $dataset .= '"'.$print->link.'",';
+    $dataset .= '"'.$print->document.'",';
+    $dataset .= '"'.$print->content.'",';
+    $dataset .= "],";
+}
+$dataset = rtrim($dataset, ',');
+$dataset .= "]";
+?>
 
+<script>
+    jQuery(document).ready(function() {
+        jQuery('#library').DataTable( {
+            data: <?php echo $dataset; ?>,
+            responsive: true,
+            autoWidth: true,
+            searching: true,
+            columns: [
+                { title: "Entry" },
+                { title: "Category" },
+                { title: "Subject" },
+                { title: "Link" },
+                { title: "Document" },
+                { title: "Content" },
+                { title: "", "defaultContent": "<button onclick='edititem();'>Edit</button>" },
+                { title: "", "defaultContent": "<button onclick='deleteitem();'>Delete</button>" }
+            ],
+            "fnRowCallback": function(nRow, aData, iDisplayIndex) {
+                nRow.setAttribute('id',aData[0]);
+            },
+            // dom: 'id',
+            dom: 'Bfrtip',
+            buttons: [
+                'pdf',
+                'excel',
+                'print',
+                'csv'
+            ]
+        } );
+    } );
 
-<div class="wrapper">
-    <nav id="sidebar" class="sidebar js-sidebar">
-        <div class="sidebar-content js-simplebar">
-            <a class="sidebar-brand" href="index.html">
-                <span class="align-middle">Hôpital</span>
-            </a>
+    function edititem() {
+        jQuery('#library tr').click(function(e) {
+            e.stopPropagation();
+            var $this = jQuery(this);
+            var trid = $this.closest('tr').attr('id');
+            var x = 0, y = 0; // default values
+            x = window.screenX +5;
+            y = window.screenY +275;
+            window.open('../DataTables/editlibrary.php?id='+trid,'editlibrary','toolbar=0,scrollbars=1,height=600,width=800,resizable=1,left='+x+',screenX='+x+',top='+y+',screenY='+y);
+        });
+    }
 
-            <ul
+    function deleteitem() {
+        alert('delete');
+    }
 
-            <li class="sidebar-header">
-                Utilisateur
-            </li>
-            <li class="sidebar-item">
-                <?php
-                if ($_SESSION['role'] == "ADMIN") {
+</script>
 
-                    echo '<li class="sidebar-item">
-                                <a class="sidebar-link" href="../adminkit-dev/datatable/datatableAdmin.php">
-                                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Administrateur</span>
-                                </a>
-                             </li>
-                             
-                             <li class="sidebar-item">
-                                <a class="sidebar-link" href="../adminkit-dev/datatable/datatableUser.php">
-                                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Patient</span>
-                                </a>
-                             </li>
-                             
-                             <li class="sidebar-item">
-                                <a class="sidebar-link" href="../adminkit-dev/datatable/datatableMedecin.php">
-                                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Medecin</span>
-                                </a>
-                             </li>
-                             
-                             <li class="sidebar-item">
-                                <a class="sidebar-link" href="../adminkit-dev/datatable/datatableUrgentiste.php">
-                                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Urgentiste</span>
-                                </a>
-                             </li>
-                             
-                             <li class="sidebar-item">
-                                <a class="sidebar-link" href="../adminkit-dev/datatable/datatableRDV.php">
-                                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Rendez-vous</span>
-                                </a>
-                             </li>
-                             
-                             
-                             <li class="sidebar-item">
-                                <a class="sidebar-link" href="../adminkit-dev/datatable/datatableDossieradm.php">
-                                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Dossier Admission</span>
-                                </a>
-                             </li>
-                             
-                             
-                             <li class="sidebar-item">
-                                <a class="sidebar-link" href="view_medecin/prise_rdv.php">
-                                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Ajouter un utilsateur</span>
-                                </a>
-                             </li>
-                            ';
-
-
-                }
-                else {
-                    echo "";
-                }
-
-                ?>
-            </li>
-
-            <li class="sidebar-item">
-                <?php
-                if ($_SESSION['role'] == "MED") {
-
-                    echo '<li class="sidebar-item">
-                                <a class="sidebar-link" href="view_medecin/medecin.php">
-                                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Médecin</span>
-                                </a>
-                             </li>';
-
-                    echo '<li class="sidebar-item">
-                                <a class="sidebar-link" href="view_medecin/prise_rdv.php">
-                                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Rendez-vous</span>
-                                </a>
-                             </li>';
-                }
-                else {
-                    echo "";
-                }
-
-                ?>
-            </li>
-
-            <li class="sidebar-item">
-                <?php
-                if ($_SESSION['role'] == "URG") {
-
-                    echo '<li class="sidebar-item">
-                                <a class="sidebar-link" href="../../datatable/datatableUrgentiste.php">
-                                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Urgentiste</span>
-                                </a>
-                             </li>';
-                }
-                else {
-                    echo "";
-                }
-
-                ?>
-            </li>
-
-            <li class="sidebar-item">
-                <?php
-                if ($_SESSION['role'] == "PAT") {
-
-                    echo '<li class="sidebar-item">
-                                <a class="sidebar-link" href="../../datatable/datatableRDV.php">
-                                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Mes rendez-vous</span>
-                                </a>
-                             </li>
-                                <li class="sidebar-item">
-                                <a class="sidebar-link" href="view_medecin/prise_rdv.php">
-                                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Prise de RDV</span>
-                                </a>
-                             </li>
-                             ';
-                }
-                else {
-                    echo "";
-                }
-
-                ?>
-            </li>
-        </div>
-    </nav>
+<div style="margin-left: 10px; margin-right: 20px;">
+    <table id="library"></table>
+</div>
