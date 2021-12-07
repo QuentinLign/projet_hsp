@@ -1,6 +1,6 @@
 <?php
 //Traitement des données entrées dans le form d'inscription
-require_once '../../Model/model_diagnostic.php';
+require_once 'Model/model_diagnostic.php';
 require_once 'Manager_User.php';
 session_start();
 //Vérification du mdp

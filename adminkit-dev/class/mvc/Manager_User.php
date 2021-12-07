@@ -1,7 +1,7 @@
 <?php
 //Manager
-require_once '../../Model/User.php';
-require_once '../../Model/model_rdv.php';
+require_once 'Model/User.php';
+require_once 'Model/model_rdv.php';
 require_once '../../bdd/bdd.php';
 
 

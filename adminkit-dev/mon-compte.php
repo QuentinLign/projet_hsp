@@ -18,21 +18,21 @@ if(!isset($_SESSION['email']))
 	<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
 	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link rel="shortcut icon" href="../img/icons/icon-48x48.png" />
+	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
 
 	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
 	<title>AdminKit Demo - Bootstrap 5 Admin Template</title>
 
-	<link href="../css/app.css" rel="stylesheet">
-	  <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<link href="css/app.css" rel="stylesheet">
+	  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
-<?php include '../src/nav/navadmin.php';?>
-<?php include '../src/nav/top_navadmin.php';?>
+<?php include 'src/nav/navadmin.php';?>
+<?php include 'src/nav/top_navadmin.php';?>
 
 			<main class="content">
          <div>
@@ -70,9 +70,9 @@ if(!isset($_SESSION['email']))
 
     </div>
     <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
- <div class="acc-setting">
+    <div class="acc-setting">
                     <h3>Mon Compte</h3>
-                    <form method="post" action="../class/mvc/traitement_modif.php">
+                    <form method="post" action="class/mvc/traitement_modif.php">
                       <div class="cp-field">
                         <h5>Nom</h5>
                         <div class="cpp-fiel">
@@ -110,7 +110,7 @@ if(!isset($_SESSION['email']))
     <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
       <div class="acc-setting">
                     <h3>Changement de mot de passe</h3>
-                    <form method="post" action="../class/mvc/traitement_modif_mdp.php">
+                    <form method="post" action="class/mvc/traitement_modif_mdp.php">
                       <div class="cp-field">
                         <h5>Ancien mot de passe</h5>
                         <div class="cpp-fiel">
@@ -180,13 +180,13 @@ if(!isset($_SESSION['email']))
 		</div>
 	</div>
 
-	<script src="../js/app.js"></script>
- <script type="text/javascript" src="../js/jquery.min.js"></script>
-  <script type="text/javascript" src="../js/popper.js"></script>
-  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="../js/jquery.mCustomScrollbar.js"></script>
-  <script type="text/javascript" src="../lib/slick/slick.min.js"></script>
-  <script type="text/javascript" src="../js/script.js"></script>
+	<script src="js/app.js"></script>
+ <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/popper.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/jquery.mCustomScrollbar.js"></script>
+  <script type="text/javascript" src="lib/slick/slick.min.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
 </body>
 
 </html>
