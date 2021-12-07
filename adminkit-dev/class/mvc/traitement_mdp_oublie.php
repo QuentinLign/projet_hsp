@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+require_once 'Model/User.php';
 require 'vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -60,7 +60,7 @@ function Genere_Password($size)
           $req = $bdd->prepare('UPDATE utilisateurs SET mdp = ? , verif = 0 WHERE email = ?');
           $req->execute(array($smdp, $email));
 
-          header('location:../../reinit_mdp.php');
+          header('location: connexion.php');
           }
 
 

@@ -95,7 +95,7 @@ class Manager_User
             $donny = $ref->fetchall();
             if ($donnee['verif'] == 0)
               {
-                header('Location: ../view/recup_mdp.php');
+                header('Location: ../../recup_mdp.php');
                 exit();
               }
             header('Location: ../../aurevoir.php');
