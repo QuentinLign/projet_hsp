@@ -59,7 +59,7 @@ class Manager_User
             $mail->Port = 465; // or 587
             $mail->IsHTML(true);
             $mail->Username = "lignani.quentin.schuman@gmail.com";
-            $mail->Password = "Admwb2000";
+            $mail->Password = "Admwb2000/";
             $mail->SetFrom($inscrit->getEmail());
             $mail->Subject = "Ouverture de compte réussie";
             $mail->Body = "<div style=\"text-align: center;\"><b>Hôpital Sud Paris</b><br><p>Bonjour ! Votre compte a été ouvert.</p></div></html>";
