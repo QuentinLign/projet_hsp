@@ -25,15 +25,15 @@ if(!isset($_SESSION['email']))
 
     <title>AdminKit Demo - Bootstrap 5 Admin Template</title>
 
-    <link href="../css/app.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link href="css/app.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
-<?php include '../src/nav/navadmin.php';?>
-<?php include '../src/nav/top_navadmin.php';?>
+<?php include 'src/nav/navadmin.php';?>
+<?php include 'src/nav/top_navadmin.php';?>
 <?php if(isset($_SESSION['message_mdp']))
 {
     echo $_SESSION['message_mdp'];
@@ -66,7 +66,7 @@ if(!isset($_SESSION['email']))
         <div class="card">
             <div class="card-body">
                 <div class="m-sm-4">
-                    <form action="../class/mvc/cible_adm.php" method="post">
+                    <form action="class/mvc/cible_adm.php" method="post">
                         <div class="mb-3">
                             <label class="form-label">Nom</label>
                             <input class="form-control form-control-lg" type="text" name="nom" placeholder="Entrer votre nom" required/>
@@ -120,7 +120,7 @@ if(!isset($_SESSION['email']))
         <div class="card">
             <div class="card-body">
                 <div class="m-sm-4">
-                    <form action="../class/mvc/cible_patient.php" method="post">
+                    <form action="class/mvc/cible_patient.php" method="post">
                         <div class="mb-3">
                             <label class="form-label">Nom</label>
                             <input class="form-control form-control-lg" type="text" name="nom" placeholder="Entrer votre nom" required/>
@@ -174,7 +174,7 @@ if(!isset($_SESSION['email']))
         <div class="card">
             <div class="card-body">
                 <div class="m-sm-4">
-                    <form action="../class/mvc/cible_inscrimed.php" method="post">
+                    <form action="class/mvc/cible_inscrimed.php" method="post">
                         <div class="mb-3">
                             <label class="form-label">Nom</label>
                             <input class="form-control form-control-lg" type="text" name="nom" placeholder="Entrer votre nom" required/>
@@ -228,7 +228,7 @@ if(!isset($_SESSION['email']))
         <div class="card">
             <div class="card-body">
                 <div class="m-sm-4">
-                    <form action="../class/mvc/cible_ins_urg.php" method="post">
+                    <form action="class/mvc/cible_ins_urg.php" method="post">
                         <div class="mb-3">
                             <label class="form-label">Nom</label>
                             <input class="form-control form-control-lg" type="text" name="nom" placeholder="Entrer votre nom" required/>
