@@ -93,7 +93,7 @@ class Manager_User
             }
              if ($donnee['role'] == "ADMIN") {
                 $_SESSION['role'] = $donnee['role'];
-                header('Location: ../../datatable/datatableAdmin.php');
+                header('Location: ../../datatableAdmin.php');
                 exit();
             }
              if ($donnee['role'] == "URG") {
