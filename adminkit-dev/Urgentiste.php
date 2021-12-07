@@ -25,7 +25,7 @@ if(!isset($_SESSION['email']))
     <title>AdminKit Demo - Bootstrap 5 Admin Template</title>
 
     <link href="css/app.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>

@@ -60,7 +60,7 @@ if(!isset($_SESSION['email']))
 
         <div class="container-fluid p-0">
             <?php
-            require_once '../bdd/bdd.php';
+            require_once 'bdd/bdd.php';
 
 
             $bdd = new bdd;
