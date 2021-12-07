@@ -98,7 +98,7 @@ class Manager_User
             }
              if ($donnee['role'] == "URG") {
                 $_SESSION['role'] = $donnee['role'];
-                header('Location: ../../datatable/datatableUrgentiste.php');
+                header('Location: ../../Urgentiste.php');
                 exit();
             }
 
