@@ -3,7 +3,7 @@
 <div class="wrapper">
     <nav id="sidebar" class="sidebar js-sidebar">
         <div class="sidebar-content js-simplebar">
-            <a class="sidebar-brand" href="../../index.php">
+            <a class="sidebar-brand" href="../../adminkit-dev/index.php">
                 <span class="align-middle">Hôpital</span>
             </a>
 
@@ -113,13 +113,13 @@
                     if ($_SESSION['role'] == "PAT") {
 
                         echo '<li class="sidebar-item">
-                                <a class="sidebar-link" href="datatable/datatableRDV.php">
+                                <a class="sidebar-link" href="../datatable/datatableRDV.php">
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Mes rendez-vous</span>
                                 </a>
                              </li>
                                 <li class="sidebar-item">
-                                <a class="sidebar-link" href="../prise_rdv.php">
-                                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Prise de RDV</span>
+                                <a class="sidebar-link" href="../view_patient/rdv.php">
+                                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Prendre un RDV</span>
                                 </a>
                              </li>
                              ';

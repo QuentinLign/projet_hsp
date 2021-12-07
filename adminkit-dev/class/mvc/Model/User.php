@@ -47,6 +47,10 @@ class User
         return $this->prenom;
     }
 
+    public function getId(){
+        return $this->id;
+    }
+
     public function setPrenom($prenom){
         $this->prenom = $prenom;
     }

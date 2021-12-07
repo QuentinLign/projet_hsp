@@ -48,9 +48,11 @@ if(!isset($_SESSION['email']))
             require_once '../bdd/bdd.php';
 
             $bdd = new bdd;
-            $req=$bdd->getStart()->prepare('SELECT * FROM rendezvous ORDER BY id DESC');
+            $req=$bdd->getStart()->prepare('SELECT * FROM rendezvous WHERE '.$_SESSION['email'].' ORDER BY id DESC');
             $req->execute(array(
             ));
+
+            var_dump($req);
 
             $res=$req->fetchall();
 
