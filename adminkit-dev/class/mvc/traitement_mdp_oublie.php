@@ -41,7 +41,7 @@ function Genere_Password($size)
       $mail->Port = 465; // or 587
       $mail->IsHTML(true);
       $mail->Username = "lignani.quentin.schuman@gmail.com";
-      $mail->Password = "Admwb2000";
+      $mail->Password = "Admwb2000/";
       $mail->SetFrom($email);
       $mail->Subject = "[HSP] : Mot de passe oublié";
       $mail->Body = "<center><b></b><br><p>Bonjour ! Voilà votre mot de passe de provisoire : ".$mdp.". Il sera demandé de le modifier à la prochaine Connexion.</p></center></html>";
