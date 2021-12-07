@@ -95,6 +95,8 @@ if(!isset($_SESSION['email']))
                                     <td>'.$row["heure"].'</td>
                                     <td>'.$row["enregistrement"].'</td>
                                     <td>'.$row["id_cabinet"].'</td>
+                                    <td><a href="../class/mvc/manager_sup.php?id='.$row["id"].'">Supprimer</td>
+
 								</tr>
 								';
                         }

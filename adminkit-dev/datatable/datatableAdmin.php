@@ -157,6 +157,8 @@ require_once '../bdd/bdd.php';
 								<td>'.$row["prenom"].'</td>
 								<td>'.$row["email"].'</td>
 								<td>'.$row["date_connexion"].'</td>
+					            <td><a href="../class/mvc/manager_sup.php?id='.$row["id"].'">Supprimer</td>
+
 
 
 								</tr>

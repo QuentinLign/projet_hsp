@@ -87,6 +87,7 @@ if(!isset($_SESSION['email']))
 								<td>'.$row["prenom"].'</td>
 								<td>'.$row["email"].'</td>
 								<td>'.$row["verif"].'</td>
+								<td><a href="../class/mvc/manager_sup.php?id='.$row["id"].'">Supprimer</td>
 								</tr>
 								';
                             }
