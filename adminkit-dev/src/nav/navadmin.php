@@ -33,7 +33,7 @@
                              </li>
                              
                              <li class="sidebar-item">
-                                <a class="sidebar-link" href="../../adminkit-dev/datatable/datatableUrgentiste.php">
+                                <a class="sidebar-link" href="/datatable/datatableUrgentiste.php">
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Urgentiste</span>
                                 </a>
                              </li>
