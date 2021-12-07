@@ -354,7 +354,7 @@ session_start();
 
 
         <div class="section-title">
-          <h2>Departments</h2>
+          <h2>Departements</h2>
           <p></p>
         </div>
 
@@ -453,7 +453,7 @@ session_start();
 
         <div class="section-title">
           <h2>Médecins</h2>
-          <p>Voici certains nos nombreux médecins qui ont différentes spécilités.</p>
+          <p>Voici certains de nos nombreux médecins qui ont différentes spécialités.</p>
         </div>
 
         <div class="row">
@@ -463,7 +463,7 @@ session_start();
               <div class="pic"><img src="../view/assets/img/doctors/doctors-1.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Walter White</h4>
-                <span>Ched de service Medical</span>
+                <span>Chef de service Medical</span>
                 <p></p>
 
               </div>
@@ -475,7 +475,7 @@ session_start();
               <div class="pic"><img src="../view/assets/img/doctors/doctors-2.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Sarah Jhonson</h4>
-                <span>Anesthesiste</span>
+                <span>Anesthésiste</span>
                 <p></p>
 
               </div>
