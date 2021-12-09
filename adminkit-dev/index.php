@@ -15,8 +15,8 @@ session_start();
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="../view/assets/img/favicon.png" rel="icon">
-  <link href="../view/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -388,7 +388,7 @@ session_start();
                     <p></p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="../view/assets/img/departments-1.jpg" alt="" class="img-fluid">
+                    <img src="assets/img/departments-1.jpg" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>
@@ -400,7 +400,7 @@ session_start();
                     <p></p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="../view/assets/img/departments-2.jpg" alt="" class="img-fluid">
+                    <img src="assets/img/departments-2.jpg" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>
@@ -412,7 +412,7 @@ session_start();
                     <p></p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="../view/assets/img/departments-3.jpg" alt="" class="img-fluid">
+                    <img src="assets/img/departments-3.jpg" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>
@@ -424,7 +424,7 @@ session_start();
                     <p></p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="../view/assets/img/departments-4.jpg" alt="" class="img-fluid">
+                    <img src="assets/img/departments-4.jpg" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>
@@ -436,7 +436,7 @@ session_start();
                     <p></p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
-                    <img src="../view/assets/img/departments-5.jpg" alt="" class="img-fluid">
+                    <img src="assets/img/departments-5.jpg" alt="" class="img-fluid">
                   </div>
                 </div>
               </div>
@@ -460,7 +460,7 @@ session_start();
 
           <div class="col-lg-6">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="../view/assets/img/doctors/doctors-1.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets/img/doctors/doctors-1.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Walter White</h4>
                 <span>Chef de service Medical</span>
@@ -472,7 +472,7 @@ session_start();
 
           <div class="col-lg-6 mt-4 mt-lg-0">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="../view/assets/img/doctors/doctors-2.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets/img/doctors/doctors-2.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Sarah Jhonson</h4>
                 <span>Anesthésiste</span>
@@ -484,7 +484,7 @@ session_start();
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="../view/assets/img/doctors/doctors-3.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets/img/doctors/doctors-3.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>William Anderson</h4>
                 <span>Cardiologue</span>
@@ -496,7 +496,7 @@ session_start();
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
-              <div class="pic"><img src="../view/assets/img/doctors/doctors-4.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets/img/doctors/doctors-4.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Amanda Jepson</h4>
                 <span>Neurologiste</span>
@@ -521,7 +521,7 @@ session_start();
 
           <div class="testimonial-wrap">
             <div class="testimonial-item">
-              <img src="../view/assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+              <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
               <h3>Saul Goodman</h3>
               <h4></h4>
               <p>
@@ -534,7 +534,7 @@ session_start();
 
           <div class="testimonial-wrap">
             <div class="testimonial-item">
-              <img src="../view/assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+              <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
               <h3>Sara Wilsson</h3>
               <h4></h4>
               <p>
@@ -546,7 +546,7 @@ session_start();
 
           <div class="testimonial-wrap">
             <div class="testimonial-item">
-              <img src="../view/assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+              <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
               <h3>Jena Karlis</h3>
               <h4></h4>
               <p>
@@ -559,7 +559,7 @@ session_start();
 
           <div class="testimonial-wrap">
             <div class="testimonial-item">
-              <img src="../view/assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+              <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
               <h3>Matt Brandon</h3>
               <h4></h4>
               <p>
@@ -572,7 +572,7 @@ session_start();
 
           <div class="testimonial-wrap">
             <div class="testimonial-item">
-              <img src="../view/assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+              <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
               <h3>John Larson</h3>
               <h4></h4>
               <p>
@@ -603,64 +603,64 @@ session_start();
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="../view/assets/img/gallery/gallery-1.jpg" class="venobox" data-gall="gallery-item">
-                <img src="../view/assets/img/gallery/gallery-1.jpg" alt="" class="img-fluid">
+              <a href="assets/img/gallery/gallery-1.jpg" class="venobox" data-gall="gallery-item">
+                <img src="assets/img/gallery/gallery-1.jpg" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="../view/assets/img/gallery/gallery-2.jpg" class="venobox" data-gall="gallery-item">
-                <img src="../view/assets/img/gallery/gallery-2.jpg" alt="" class="img-fluid">
+              <a href="assets/img/gallery/gallery-2.jpg" class="venobox" data-gall="gallery-item">
+                <img src="assets/img/gallery/gallery-2.jpg" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="../view/assets/img/gallery/gallery-3.jpg" class="venobox" data-gall="gallery-item">
-                <img src="../view/assets/img/gallery/gallery-3.jpg" alt="" class="img-fluid">
+              <a href="assets/img/gallery/gallery-3.jpg" class="venobox" data-gall="gallery-item">
+                <img src="assets/img/gallery/gallery-3.jpg" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="../view/assets/img/gallery/gallery-4.jpg" class="venobox" data-gall="gallery-item">
-                <img src="../view/assets/img/gallery/gallery-4.jpg" alt="" class="img-fluid">
+              <a href="assets/img/gallery/gallery-4.jpg" class="venobox" data-gall="gallery-item">
+                <img src="assets/img/gallery/gallery-4.jpg" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="../view/assets/img/gallery/gallery-5.jpg" class="venobox" data-gall="gallery-item">
-                <img src="../view/assets/img/gallery/gallery-5.jpg" alt="" class="img-fluid">
+              <a href="assets/img/gallery/gallery-5.jpg" class="venobox" data-gall="gallery-item">
+                <img src="assets/img/gallery/gallery-5.jpg" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="../view/assets/img/gallery/gallery-6.jpg" class="venobox" data-gall="gallery-item">
-                <img src="../view/assets/img/gallery/gallery-6.jpg" alt="" class="img-fluid">
+              <a href="assets/img/gallery/gallery-6.jpg" class="venobox" data-gall="gallery-item">
+                <img src="assets/img/gallery/gallery-6.jpg" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="../view/assets/img/gallery/gallery-7.jpg" class="venobox" data-gall="gallery-item">
-                <img src="../view/assets/img/gallery/gallery-7.jpg" alt="" class="img-fluid">
+              <a href="assets/img/gallery/gallery-7.jpg" class="venobox" data-gall="gallery-item">
+                <img src="assets/img/gallery/gallery-7.jpg" alt="" class="img-fluid">
               </a>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4">
             <div class="gallery-item">
-              <a href="../view/assets/img/gallery/gallery-8.jpg" class="venobox" data-gall="gallery-item">
-                <img src="../view/assets/img/gallery/gallery-8.jpg" alt="" class="img-fluid">
+              <a href="assets/img/gallery/gallery-8.jpg" class="venobox" data-gall="gallery-item">
+                <img src="assets/img/gallery/gallery-8.jpg" alt="" class="img-fluid">
               </a>
             </div>
           </div>
