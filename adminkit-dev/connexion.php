@@ -42,7 +42,6 @@ session_start();
 							<div class="card-body">
 								<div class="m-sm-4">
 									<div class="text-center">
-										<img src="img/avatars/avatar.jpg" alt="Charles Hall" class="img-fluid rounded-circle" width="132" height="132" />
 									</div>
 									<form action="class/mvc/cible_connexion.php" method="POST">
 										<div class="mb-3">

@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/adminkit-dev.iml" filepath="$PROJECT_DIR$/.idea/adminkit-dev.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../calendrier2/.idea/calendrier2.iml" filepath="$PROJECT_DIR$/../../calendrier2/.idea/calendrier2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../PCINE/dazzle/.idea/dazzle.iml" filepath="$PROJECT_DIR$/../../PCINE/dazzle/.idea/dazzle.iml" />
     </modules>
   </component>
 </project>

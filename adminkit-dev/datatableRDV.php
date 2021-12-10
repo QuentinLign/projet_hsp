@@ -18,6 +18,7 @@ if(!isset($_SESSION['email']))
     <meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
+
     <link rel="shortcut icon" href="../assets/img/icons/icon-48x48.png" />
 
     <link rel="canonical" href="https://demo-basic.adminkit.io/ui-buttons.html" />
@@ -48,11 +49,9 @@ if(!isset($_SESSION['email']))
             require_once 'bdd/bdd.php';
 
             $bdd = new bdd;
-            $req=$bdd->getStart()->prepare('SELECT * FROM rendezvous WHERE '.$_SESSION['email'].' ORDER BY id DESC');
+            $req=$bdd->getStart()->prepare('SELECT * FROM rendezvous WHERE '.$_SESSION['email'].' ');
             $req->execute(array(
             ));
-
-            var_dump($req);
 
             $res=$req->fetchall();
 
@@ -87,7 +86,7 @@ if(!isset($_SESSION['email']))
 								<td>'.$row["prenom"].'</td>
 								<td>'.$row["RDVdate"].'</td>
 								<td>'.$row["RDVheure"].'</td>
-							    <td><a href="../class/mvc/manager_sup.php?id='.$row["id"].'">Supprimer</td>
+							    <td><a href="../adminkit-dev/class/mvc/manager_sup.php?id='.$row["id"].'">Supprimer</td>
 
 
 

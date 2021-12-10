@@ -69,18 +69,24 @@
                 </li>
 
                 <li class="sidebar-item">
-                    <?php
+                  <?php
                     if ($_SESSION['role'] == "MED") {
 
                         echo '<li class="sidebar-item">
-                                <a class="sidebar-link" href="../view_medecin/medecin.php">
+                                <a class="sidebar-link" href="../adminkit-dev/medecin.php">
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Mon espace médecin</span>
                                 </a>
                              </li>';
 
-                        echo '<li class="sidebar-item">
-                                <a class="sidebar-link" href="../view_medecin/prise_rdv.php">
+                        echo '<li class=  "sidebar-item">
+                                <a class="sidebar-link" href="../adminkit-dev/datatableRDV.php">
                                     <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Afficher mes rendez-vous</span>
+                                </a>
+                             </li>';
+
+                        echo '<li class=  "sidebar-item">
+                                <a class="sidebar-link" href="../adminkit-dev/agenda/index.php">
+                                    <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Agenda</span>
                                 </a>
                              </li>';
                     }

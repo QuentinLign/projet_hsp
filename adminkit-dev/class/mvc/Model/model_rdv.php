@@ -2,14 +2,14 @@
 
 class RDV
 {
-
-
     private $nom;
     private $prenom;
     private $doctorSpecilization;
     private $doctor;
     private $RDVdate;
     private $RDVheure;
+    private $date_debut;
+    private $date_fin;
 
 
     public function __construct(array $donnees)
@@ -61,6 +61,22 @@ class RDV
 
     public function setDoctor($doctor){
         $this->doctor = $doctor;
+    }
+
+    public function getDate_de_debut(){
+        return $this->date_de_debut;
+    }
+
+    public function setDate_de_debut($date_de_debut){
+        $this->date_de_debut = $date_de_debut;
+    }
+
+    public function getDate_de_fin(){
+        return $this->date_de_fin;
+    }
+
+    public function setDate_de_fin($date_de_fin){
+        $this->date_de_fin = $date_de_fin;
     }
 
     public function getRDVdate(){

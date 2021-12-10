@@ -160,7 +160,7 @@ require_once 'bdd/bdd.php';
 								<td>'.$row["email"].'</td>
 								<td>'.$row["date_connexion"].'</td>
 								<td>'.$row["role"].'</td>
-					            <td><a href="../class/mvc/manager_sup.php?id='.$row["id"].'">Supprimer</td>
+					            <td><a href="../adminkit-dev/class/mvc/manager_sup.php?id='.$row["id"].'">Supprimer</td>
 
 
 

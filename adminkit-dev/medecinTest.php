@@ -47,19 +47,15 @@ if(!isset($_SESSION['email']))
         Les patients
     </button>
     <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#d" aria-expanded="false" aria-controls="d">
-        Crée un patient
+        Dossiers admissions
     </button>
     <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#r" aria-expanded="false" aria-controls="urgence">
-        Prendre RDV
-    </button>
-
-    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#c" aria-expanded="false" aria-controls="urgence">
-        Prendre congés
+        Urgence
     </button>
 </p>
 <div class="collapse" id="collapseExample">
     <div class="card card-body">
-        <h3>Patient</h3>
+        <h3>Ajouter un patient</h3>
         <div class="container-fluid p-0">
             <?php
             require_once 'bdd/bdd.php';
@@ -121,62 +117,7 @@ if(!isset($_SESSION['email']))
 <div class="collapse" id="d">
     <div class="card card-body">
         <h3>Ajouter un patient</h3>
-        <div class="card">
-            <div class="card-body">
-                <div class="m-sm-4">
-                    <form action="class/mvc/cible_patient.php" method="post">
-                        <div class="mb-3">
-                            <label class="form-label">Nom</label>
-                            <input class="form-control form-control-lg" type="text" name="nom" placeholder="Entrer votre nom" required/>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Prenom</label>
-                            <input class="form-control form-control-lg" type="text" name="prenom" placeholder="Entrer votre prenom" required/>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Email</label>
-                            <input class="form-control form-control-lg" type="email" name="email" placeholder="Entrer votre email" required/>
-                        </div>
-
-                        <div class="mb-3">
-                            <label class="form-label">Mot de passe</label>
-                            <input class="form-control form-control-lg" type="password" name="mdp" placeholder="Entrer votre mot de passe" required />
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Valider mot de passe</label>
-                            <input class="form-control form-control-lg" type="password" name="confirmmdp" placeholder="valider votre mot de passe" required/>
-                        </div>
-                        <div class="mb-3">
-                            <input type="checkbox" name="role"
-                                   checked disabled>
-                            <label for="PAT">Patient</label>
-                        </div>
-                        <div class="col-lg-12 no-pdd">
-                            <button type="submit" class="btn btn-lg btn-primary" value="submit">Créer le compte</button>
-                        </div>
-
-                        <?php
-                        if (isset($_SESSION['erreur_inscr']))
-                        {
-                            echo "<div style='color:#ff0000'>
-                            ".$_SESSION['erreur_inscr'];
-                            unset($_SESSION['erreur_inscr']);
-                        }
-                        ?>
-                </div>
-                </form>
-            </div>
-        </div>
-
-    </div>
-
-</div>
-
-
-<div class="collapse" id="r">
-    <div class="card card-body">
-        <h3>Ajouter un patient</h3>
-        <form action="class/mvc/traitement_rdv.php" method="post">
+        <form action="class/mvc/cible_patient.php" method="post">
             <div class="mb-3">
                 <label class="form-label">Nom</label>
                 <input class="form-control form-control-lg" type="text" name="nom" placeholder="Entrer votre nom" required/>
@@ -185,10 +126,65 @@ if(!isset($_SESSION['email']))
                 <label class="form-label">Prenom</label>
                 <input class="form-control form-control-lg" type="text" name="prenom" placeholder="Entrer votre prenom" required/>
             </div>
-
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input class="form-control form-control-lg" type="email" name="email" placeholder="Entrer votre email" required/>
+            </div>
 
             <div class="mb-3">
                 <label class="form-label">Mot de passe</label>
+                <input class="form-control form-control-lg" type="password" name="mdp" placeholder="Entrer votre mot de passe" required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Mot de passe</label>
+                <input class="form-control form-control-lg" type="password" name="confirmmdp" placeholder="Entrer votre mot de passe" required/>
+            </div>
+            <div class="mb-3">
+                <input type="checkbox" name="role"
+                       checked disabled>
+                <label for="PAT">Patient</label>
+            </div>
+            <div class="col-lg-12 no-pdd">
+                <button type="submit" class="btn btn-lg btn-primary" value="submit">Créer le compte</button>
+            </div>
+
+            <?php
+            if (isset($_SESSION['erreur_inscr']))
+            {
+                echo "<div style='color:#ff0000'>
+                            ".$_SESSION['erreur_inscr'];
+                unset($_SESSION['erreur_inscr']);
+            }
+            ?>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<div class="collapse" id="r">
+    <form class="card card-body">
+
+        <h3>Ajouter un patient</h3>
+        <form action="class/mvc/traitement_rdv.php" method="post">
+
+
+            <div class="mb-3">
+                <label class="form-label">Nom</label>
+                <input class="form-control form-control-lg" type="text" name="nom" placeholder="Entrer votre nom" required/>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Prenom</label>
+                <input class="form-control form-control-lg" type="text" name="prenom" placeholder="Entrer votre prenom" required/>
+            </div>
+
+            <div class="mb-3">
+                <label for="doctorSpecilization">
+                    Spécialité du docteur
+                </label>
                 <select name="doctorSpecilization" class="form-control"  required="required">
                     <option value="">Selectionner la spécialité</option>
 
@@ -215,8 +211,11 @@ if(!isset($_SESSION['email']))
 
                 </select>
             </div>
+
             <div class="mb-3">
-                <label class="form-label">Docteur</label>
+                <label for="doctor">
+                    Docteurs
+                </label>
                 <select name="doctor" class="form-control" id="doctor" required="required">
                     <option value="">Choisir le docteur</option>
 
@@ -241,7 +240,6 @@ if(!isset($_SESSION['email']))
 
                 </select>
             </div>
-
 
             <div class="mb-3">
                 <label class="form-label">Date du rendez-vous </label>
@@ -252,9 +250,8 @@ if(!isset($_SESSION['email']))
                 <label class="form-label">Heure du rendez-vous </label>
                 <input class="form-control form-control-lg" type="time" name="RDVheure" placeholder="Entrer l'heure"/>
             </div>
-
             <div class="col-lg-12 no-pdd">
-                <button type="submit" class="btn btn-lg btn-primary" value="submit">Prendre rendez-vous</button>
+                <button type="submit" class="btn btn-lg btn-primary" value="submit">Créer le compte</button>
             </div>
 
             <?php
@@ -268,75 +265,9 @@ if(!isset($_SESSION['email']))
 
         </form>
 
-    </div>
-
 </div>
 
-
-<div class="collapse" id="c">
-    <div class="card card-body">
-        <h3>Prendre congés</h3>
-        <h5>Vous pouvez prendre 10 jours de congés seulement !</h5>
-
-        <form action="class/mvc/cible_conges.php" method="post">
-
-            <div class="mb-3">
-                <label class="form-label">Docteur</label>
-                <select name="doctor" class="form-control" id="doctor" required="required">
-                    <option value="">Choisir le docteur</option>
-
-                    <?php
-
-                    require_once 'bdd/bdd.php';
-
-
-                    $bdd = new bdd;
-                    $req=$bdd->getStart()->prepare('SELECT * FROM utilisateurs WHERE role="MED"');
-                    $req->execute(array(
-                    ));
-
-                    $res=$req->fetchall();
-                    foreach ($res as $req)
-                    {
-                        ?>
-                        <option value="<?php echo ($req['nom']);?>">
-                            <?php echo ($req['nom']);?>
-                        </option>
-                    <?php } ?>
-
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label">Debut des congés </label>
-                <input class="form-control form-control-lg" type="date" name="Date_de_debut" placeholder="date du debut"/>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Fin des congés </label>
-                <input class="form-control form-control-lg" type="date" name="Date_de_fin" placeholder="date de fin"/>
-            </div>
-
-
-            <div class="col-lg-12 no-pdd">
-                <button type="submit" class="btn btn-lg btn-primary" value="submit">Prendre congé</button>
-            </div>
-
-            <?php
-            if (isset($_SESSION['erreur_inscr']))
-            {
-                echo "<div style='color:#ff0000'>
-                            ".$_SESSION['erreur_inscr'];
-                unset($_SESSION['erreur_inscr']);
-            }
-            ?>
-
-        </form>
-
-    </div>
-
 </div>
-
-
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 

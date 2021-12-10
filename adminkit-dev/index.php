@@ -22,17 +22,17 @@ session_start();
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="../view/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../view/assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-  <link href="../view/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="../view/assets/vendor/venobox/venobox.css" rel="stylesheet">
-  <link href="../view/assets/vendor/animate.css/animate.min.css" rel="stylesheet">
-  <link href="../view/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="../view/assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="../view/assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
+  <link href="../adminkit-dev/assets/css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../adminkit-dev/assets/css/icofont/icofont.min.css" rel="stylesheet">
+  <link href="../adminkit-dev/assets/css/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../adminkit-dev/assets/css/venobox/venobox.css" rel="stylesheet">
+  <link href="../adminkit-dev/assets/css/animate.css/animate.min.css" rel="stylesheet">
+  <link href="../adminkit-dev/assets/css/remixicon/remixicon.css" rel="stylesheet">
+  <link href="../adminkit-dev/assets/css/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="../adminkit-dev/assets/css/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="../view/assets/css/style.css" rel="stylesheet">
+  <link href="../adminkit-dev/assets/css/style.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Medilab - v2.1.1

@@ -13,29 +13,6 @@ use PHPMailer\PHPMailer\Exception;
 class Manager_User
 {
 
-    private $_nom;
-    private $_prenom;
-    private $_mdp;
-    private $_role;
-    private $_email;
-    private $_date_naissance;
-    private $_adresse_postale;
-    private $_mutuelle;
-    private $_numero_secu;
-    private $_option;
-    private $_regime_specifique;
-    private $_symptomes;
-    private $_date;
-    private $_niveau_urgence;
-    private $_date_rdv;
-    private $_heure;
-    private $_enregistrement;
-    private $_id_cabinet;
-    private $_doctorSpecilization;
-    private $_doctor;
-    private $_RDVdate;
-    private $_RDVheure;
-
         //Inscription dans la bdd
     public function inscription(User $inscrit)
     {
@@ -387,6 +364,23 @@ public function diagnostic(Diagnostic $diag)
                 echo "c'est pas bon";
             }
         }
+
+    public function conges(RDV $cong)
+    {
+        $bdd = new bdd();
+        $req = $bdd->getStart()->prepare('INSERT into conges(doctor,Date_de_debut,Date_de_fin) values(:doctor,:Date_de_debut,:Date_de_fin)');
+        $a =$req->execute(array(
+            'doctor'=>$cong->getDoctor(),
+            'Date_de_debut'=>$cong->getDate_de_debut(),
+            'Date_de_fin'=>$cong->getDate_de_fin()
+        ));
+
+        if ($a == true ) {
+            header('Location: ../../confirm_rdvmed.html');
+        } else {
+            echo "c'est pas bon";
+        }
+    }
 
     public function supprimer()
     {
