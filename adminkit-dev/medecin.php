@@ -52,10 +52,6 @@ if(!isset($_SESSION['email']))
     <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#r" aria-expanded="false" aria-controls="urgence">
         Prendre RDV
     </button>
-
-    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#c" aria-expanded="false" aria-controls="urgence">
-        Prendre congés
-    </button>
 </p>
 <div class="collapse" id="collapseExample">
     <div class="card card-body">
@@ -271,71 +267,6 @@ if(!isset($_SESSION['email']))
     </div>
 
 </div>
-
-
-<div class="collapse" id="c">
-    <div class="card card-body">
-        <h3>Prendre congés</h3>
-        <h5>Vous pouvez prendre 10 jours de congés seulement !</h5>
-
-        <form action="class/mvc/cible_conges.php" method="post">
-
-            <div class="mb-3">
-                <label class="form-label">Docteur</label>
-                <select name="doctor" class="form-control" id="doctor" required="required">
-                    <option value="">Choisir le docteur</option>
-
-                    <?php
-
-                    require_once 'bdd/bdd.php';
-
-
-                    $bdd = new bdd;
-                    $req=$bdd->getStart()->prepare('SELECT * FROM utilisateurs WHERE role="MED"');
-                    $req->execute(array(
-                    ));
-
-                    $res=$req->fetchall();
-                    foreach ($res as $req)
-                    {
-                        ?>
-                        <option value="<?php echo ($req['nom']);?>">
-                            <?php echo ($req['nom']);?>
-                        </option>
-                    <?php } ?>
-
-                </select>
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label">Debut des congés </label>
-                <input class="form-control form-control-lg" type="date" name="Date_de_debut" placeholder="date du debut"/>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Fin des congés </label>
-                <input class="form-control form-control-lg" type="date" name="Date_de_fin" placeholder="date de fin"/>
-            </div>
-
-
-            <div class="col-lg-12 no-pdd">
-                <button type="submit" class="btn btn-lg btn-primary" value="submit">Prendre congé</button>
-            </div>
-
-            <?php
-            if (isset($_SESSION['erreur_inscr']))
-            {
-                echo "<div style='color:#ff0000'>
-                            ".$_SESSION['erreur_inscr'];
-                unset($_SESSION['erreur_inscr']);
-            }
-            ?>
-
-        </form>
-
-    </div>
-
-</div>
-
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>

@@ -43,118 +43,102 @@ if(!isset($_SESSION['email']))
 
 ?>
 
-
     <div class="card card-body">
+        <h3>Ajouter un patient</h3>
+        <form action="class/mvc/traitement_rdv.php" method="post">
+            <div class="mb-3">
+                <label class="form-label">Nom</label>
+                <input class="form-control form-control-lg" type="text" name="nom" placeholder="Entrer votre nom" required/>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Prenom</label>
+                <input class="form-control form-control-lg" type="text" name="prenom" placeholder="Entrer votre prenom" required/>
+            </div>
 
 
-        <div class="container-fluid p-0">
-            <div class="m-sm-4">
-                <form action="class/mvc/traitement_rdv.php" method="post">
-
-
-                    <div class="mb-3">
-                        <label class="form-label">Nom</label>
-                        <input class="form-control form-control-lg" type="text" name="nom" placeholder="Entrer votre nom" required/>
-                    </div>
-
-                    <div class="mb-3">
-                        <label class="form-label">Prenom</label>
-                        <input class="form-control form-control-lg" type="text" name="prenom" placeholder="Entrer votre prenom" required/>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="doctorSpecilization">
-                            Spécialité du docteur
-                        </label>
-                        <select name="doctorSpecilization" class="form-control"  required="required">
-                            <option value="">Selectionner la spécialité</option>
+            <div class="mb-3">
+                <label class="form-label">Mot de passe</label>
+                <select name="doctorSpecilization" class="form-control"  required="required">
+                    <option value="">Selectionner la spécialité</option>
 
 
 
-                            <?php
+                    <?php
 
-                            require_once 'bdd/bdd.php';
-
-
-                            $bdd = new bdd;
-                            $req=$bdd->getStart()->prepare("select * from doctorspecilization");
-                            $req->execute(array(
-                            ));
-
-                            $res=$req->fetchall();
-                            foreach ($res as $req)
-                            {
-                                ?>
-                                <option value="<?php echo ($req['specilization']);?>">
-                                    <?php echo ($req['specilization']);?>
-                                </option>
-                            <?php } ?>
-
-                        </select>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="doctor">
-                            Docteurs
-                        </label>
-                        <select name="doctor" class="form-control" id="doctor" required="required">
-                            <option value="">Choisir le docteur</option>
-
-                            <?php
-
-                            require_once '../bdd/bdd.php';
+                    require_once 'bdd/bdd.php';
 
 
-                            $bdd = new bdd;
-                            $req=$bdd->getStart()->prepare('SELECT * FROM utilisateurs WHERE role="MED"');
-                            $req->execute(array(
-                            ));
+                    $bdd = new bdd;
+                    $req=$bdd->getStart()->prepare("select * from doctorspecilization");
+                    $req->execute(array(
+                    ));
 
-                            $res=$req->fetchall();
-                            foreach ($res as $req)
-                            {
-                                ?>
-                                <option value="<?php echo ($req['nom']);?>">
-                                    <?php echo ($req['nom']);?>
-                                </option>
-                            <?php } ?>
+                    $res=$req->fetchall();
+                    foreach ($res as $req)
+                    {
+                        ?>
+                        <option value="<?php echo ($req['specilization']);?>">
+                            <?php echo ($req['specilization']);?>
+                        </option>
+                    <?php } ?>
 
-                        </select>
-                    </div>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Docteur</label>
+                <select name="doctor" class="form-control" id="doctor" required="required">
+                    <option value="">Choisir le docteur</option>
 
-                    <div class="mb-3">
-                        <label class="form-label">Date du rendez-vous </label>
-                        <input class="form-control form-control-lg" type="date" name="RDVdate" placeholder="Entrer votre date de rendez-vous" required/>
-                    </div>
+                    <?php
 
-                    <div class="mb-3">
-                        <label class="form-label">Heure du rendez-vous </label>
-                        <input class="form-control form-control-lg" type="time" name="RDVheure" placeholder="Entrer l'heure" required/>
-                    </div>
+                    require_once 'bdd/bdd.php';
 
+
+                    $bdd = new bdd;
+                    $req=$bdd->getStart()->prepare('SELECT * FROM utilisateurs WHERE role="MED"');
+                    $req->execute(array(
+                    ));
+
+                    $res=$req->fetchall();
+                    foreach ($res as $req)
+                    {
+                        ?>
+                        <option value="<?php echo ($req['nom']);?>">
+                            <?php echo ($req['nom']);?>
+                        </option>
+                    <?php } ?>
+
+                </select>
+            </div>
+
+
+            <div class="mb-3">
+                <label class="form-label">Date du rendez-vous </label>
+                <input class="form-control form-control-lg" type="date" name="RDVdate" placeholder="Entrer votre date de rendez-vous"/>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Heure du rendez-vous </label>
+                <input class="form-control form-control-lg" type="time" name="RDVheure" placeholder="Entrer l'heure"/>
             </div>
 
             <div class="col-lg-12 no-pdd">
-                <button type="submit" class="btn btn-lg btn-primary" value="submit">Valider</button>
+                <button type="submit" class="btn btn-lg btn-primary" value="submit">Prendre rendez-vous</button>
             </div>
-            <div class="mb-3">
 
-
-                <?php
-                if (isset($_SESSION['erreur_inscr']))
-                {
-                    echo "<div style='color:#ff0000'>
+            <?php
+            if (isset($_SESSION['erreur_inscr']))
+            {
+                echo "<div style='color:#ff0000'>
                             ".$_SESSION['erreur_inscr'];
-                    unset($_SESSION['erreur_inscr']);
-                }
-                ?>
-            </div>
+                unset($_SESSION['erreur_inscr']);
+            }
+            ?>
 
-            </form>
-        </div>
+        </form>
+
     </div>
 
-</div>
 
 
 <script src="../js/app.js"></script>

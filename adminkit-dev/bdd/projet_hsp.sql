@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 07 déc. 2021 à 08:08
+-- Généré le :  jeu. 16 déc. 2021 à 17:54
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -21,6 +21,22 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `projet_hsp`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `conges`
+--
+
+DROP TABLE IF EXISTS `conges`;
+CREATE TABLE IF NOT EXISTS `conges` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `doctor` varchar(255) NOT NULL,
+  `start_event` datetime NOT NULL,
+  `end_event` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -96,6 +112,30 @@ CREATE TABLE IF NOT EXISTS `dossier_admission` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `events`
+--
+
+DROP TABLE IF EXISTS `events`;
+CREATE TABLE IF NOT EXISTS `events` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `doctor` varchar(255) NOT NULL,
+  `start_event` datetime NOT NULL,
+  `end_event` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `events`
+--
+
+INSERT INTO `events` (`id`, `title`, `doctor`, `start_event`, `end_event`) VALUES
+(9, 'ob', 'rty', '2021-12-13 00:00:00', '2021-12-15 00:00:00'),
+(10, 'jh', 'jhg', '2021-12-19 00:00:00', '2021-12-23 00:00:00');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `rendezvous`
 --
 
@@ -109,7 +149,7 @@ CREATE TABLE IF NOT EXISTS `rendezvous` (
   `RDVdate` varchar(255) COLLATE utf8_bin NOT NULL,
   `RDVheure` varchar(255) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Déchargement des données de la table `rendezvous`
@@ -124,7 +164,14 @@ INSERT INTO `rendezvous` (`id`, `nom`, `prenom`, `doctorSpecilization`, `doctor`
 (6, 'za', 'tan', 'Ayurveda', 'az', '2021-12-05', '13:14'),
 (7, 'thanos', 'op', 'Ayurveda', 'az', '', ''),
 (8, 'thanos', 'er', 'Dermatologist', 'az', '2021-12-05', '13:36'),
-(9, 'tr', 'er', 'Dermatologist', 'az', '2021-12-05', '16:53');
+(9, 'tr', 'er', 'Dermatologist', 'az', '2021-12-05', '16:53'),
+(10, 'défdezfz', 'fezsfezf', 'Dermatologist', 'ze', '0048-08-04', '03:21'),
+(11, 'dzezces', 'efcezsd', 'Demo test', 'ze', '2021-12-07', '15:11'),
+(12, 'ferfer', 'defefef', 'Ayurveda', 'ze', '0099-08-04', '23:01'),
+(13, 'thanos', 'tr', 'Homeopath', 'ze', '2021-12-09', '11:39'),
+(14, 'aezdfd', 'zasdef', 'Gynecologist/Obstetrician', 'ze', '2021-12-09', '14:52'),
+(15, 'za', 'az', 'Homeopath', 'ze', '2021-12-15', '11:02'),
+(16, 'jam', 'za', 'Homeopath', 'ze', '2021-12-16', '18:56');
 
 -- --------------------------------------------------------
 
@@ -144,15 +191,21 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `role` varchar(10) COLLATE utf8_bin DEFAULT NULL,
   `verif` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Déchargement des données de la table `utilisateurs`
 --
 
 INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `email`, `mdp`, `specialite`, `date_connexion`, `role`, `verif`) VALUES
-(35, 'ty', 'ty', 'ty@gmail.com', '32ad247f77b8a066ef05467ce49a5a63e193c3a3', NULL, '2021-12-06', 'ADMIN', 1),
-(53, 'az', 'az', 'q.lignani@lprs.fr', '90283840d90de49b8e7984bd99b47fee0d4bd50d', NULL, '2021-12-05', 'PAT', 1);
+(35, 'ty', 'ty', 'ty@gmail.com', '32ad247f77b8a066ef05467ce49a5a63e193c3a3', NULL, '2021-12-16', 'ADMIN', 1),
+(53, 'az', 'az', 'q.lignani@lprs.fr', '90283840d90de49b8e7984bd99b47fee0d4bd50d', NULL, '2021-12-16', 'PAT', 1),
+(57, 'ze', 'ze', 'ze@gmail.com', '2a30b5bdc3f31b44f61058b96e9994e1e4f7fbfe', NULL, '2021-12-16', 'MED', 1),
+(58, 'ae', 'az', 'ibrayoman02@gmail.com', '90283840d90de49b8e7984bd99b47fee0d4bd50d', NULL, NULL, 'PAT', 1),
+(59, 'ae', 'az', 'tr@gmail.com', 'eb4ac3033e8ab3591e0fcefa8c26ce3fd36d5a0f', NULL, NULL, 'PAT', 1),
+(65, 'azedfg', 'azsdfv', 'sf@gmail.com', '90283840d90de49b8e7984bd99b47fee0d4bd50d', NULL, NULL, 'PAT', 1),
+(66, 'az', 'az', 'az@az.gmail.com', '90283840d90de49b8e7984bd99b47fee0d4bd50d', NULL, '2021-12-09', 'PAT', 1),
+(67, 'az', 'az', 'az@az2.gmail.com', '90283840d90de49b8e7984bd99b47fee0d4bd50d', NULL, NULL, 'PAT', 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
