@@ -22,17 +22,17 @@ session_start();
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="../adminkit-dev/assets/css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../adminkit-dev/assets/css/icofont/icofont.min.css" rel="stylesheet">
-  <link href="../adminkit-dev/assets/css/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="../adminkit-dev/assets/css/venobox/venobox.css" rel="stylesheet">
-  <link href="../adminkit-dev/assets/css/animate.css/animate.min.css" rel="stylesheet">
-  <link href="../adminkit-dev/assets/css/remixicon/remixicon.css" rel="stylesheet">
-  <link href="../adminkit-dev/assets/css/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
-  <link href="../adminkit-dev/assets/css/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="../adminkit-dev/assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Medilab - v2.1.1
@@ -66,13 +66,13 @@ session_start();
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo mr-auto"><a href="index.php">Robert Schuman</a></h1>
+      <h1 class="logo mr-auto"><a href="index.html">Robert Schuman</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.php" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="index.php">Home</a></li>
+          <li class="active"><a href="index.html">Home</a></li>
           <li><a href="#about">Explications</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#departments">Departements</a></li>
@@ -86,16 +86,15 @@ session_start();
             {
               echo '<div class="user-info">
 
-              <a href="index2.php" title="">' .$_SESSION['nom']. '</a>
+              <a href="adminkit-dev/index.php" title="">'.$_SESSION['nom'].'</a>
               <i class="la la-sort-down"></i>
               </div>
               <div class="user-account-settingss">
               <h3>Mon Compte</h3>
               <ul class="us-links">
-              <li><a href="index2.php" title="">Paramètre du compte</a></li>
+              <li><a href="adminkit-dev/index.php" title="">Paramètre du compte</a></li>
               </ul>
-              <h3 class="tc"><a href="class/mvc/deconnexion.php" title="">Se déconnecter</a></h3>
-              </div><!--fin des paramètres du compte utilisateur-->';
+             ';
             }
             else
             {
@@ -103,8 +102,8 @@ session_start();
               <i class="la la-sort-down"></i>
               </div>
               <div class="user-account-settingss">
-              <h3><a href="connexion.php" title="">Connexion</a></h3>
-              <h3><a href="inscription.php" title="">Inscription</a></h3>
+              <h3><a href="../adminkit-dev/connexion.php" title="">Connexion</a></h3>
+              <h3><a href="../adminkit-dev/inscription.php" title="">Inscription</a></h3>
               </div><!--fin des paramètres du compte utilisateur-->';
             }
             ?>
@@ -354,7 +353,7 @@ session_start();
 
 
         <div class="section-title">
-          <h2>Departements</h2>
+          <h2>Departments</h2>
           <p></p>
         </div>
 
@@ -453,7 +452,7 @@ session_start();
 
         <div class="section-title">
           <h2>Médecins</h2>
-          <p>Voici certains de nos nombreux médecins qui ont différentes spécialités.</p>
+          <p>Voici certains nos nombreux médecins qui ont différentes spécilités.</p>
         </div>
 
         <div class="row">
@@ -463,7 +462,7 @@ session_start();
               <div class="pic"><img src="assets/img/doctors/doctors-1.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Walter White</h4>
-                <span>Chef de service Medical</span>
+                <span>Ched de service Medical</span>
                 <p></p>
 
               </div>
@@ -475,7 +474,7 @@ session_start();
               <div class="pic"><img src="assets/img/doctors/doctors-2.jpg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Sarah Jhonson</h4>
-                <span>Anesthésiste</span>
+                <span>Anesthesiste</span>
                 <p></p>
 
               </div>
@@ -715,7 +714,7 @@ session_start();
 
           <div class="col-lg-8 mt-5 mt-lg-0">
 
-            <form action="../view/forms/contact.php" method="post" role="form" class="php-email-form">
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
               <div class="form-row">
                 <div class="col-md-6 form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Nom" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
@@ -831,18 +830,18 @@ session_start();
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="../view/assets/vendor/jquery/jquery.min.js"></script>
-  <script src="../view/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../view/assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="../view/assets/vendor/php-email-form/validate.js"></script>
-  <script src="../view/assets/vendor/venobox/venobox.min.js"></script>
-  <script src="../view/assets/vendor/waypoints/jquery.waypoints.min.js"></script>
-  <script src="../view/assets/vendor/counterup/counterup.min.js"></script>
-  <script src="../view/assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-  <script src="../view/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/venobox/venobox.min.js"></script>
+  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
+  <script src="assets/vendor/counterup/counterup.min.js"></script>
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
+  <script src="assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="../view/assets/js/main.js"></script>
+  <script src="assets/js/main.js"></script>
 
 </body>
 

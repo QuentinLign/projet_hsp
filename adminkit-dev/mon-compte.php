@@ -18,14 +18,14 @@ if(!isset($_SESSION['email']))
 	<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
 
 	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link rel="shortcut icon" href="assets/img/icons/icon-48x48.png" />
+	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
 
 	<link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
 	<title>AdminKit Demo - Bootstrap 5 Admin Template</title>
 
 	<link href="assets/css/app.css" rel="stylesheet">
-	  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
@@ -70,7 +70,7 @@ if(!isset($_SESSION['email']))
 
     </div>
     <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
-    <div class="acc-setting">
+ <div class="acc-setting">
                     <h3>Mon Compte</h3>
                     <form method="post" action="class/mvc/traitement_modif.php">
                       <div class="cp-field">
@@ -181,12 +181,12 @@ if(!isset($_SESSION['email']))
 	</div>
 
 	<script src="js/app.js"></script>
- <script type="text/javascript" src="js/jquery.min.js"></script>
-  <script type="text/javascript" src="js/popper.js"></script>
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="js/jquery.mCustomScrollbar.js"></script>
-  <script type="text/javascript" src="lib/slick/slick.min.js"></script>
-  <script type="text/javascript" src="js/script.js"></script>
+ <script type="text/javascript" src="../js/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/popper.js"></script>
+  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../js/jquery.mCustomScrollbar.js"></script>
+  <script type="text/javascript" src="../lib/slick/slick.min.js"></script>
+  <script type="text/javascript" src="../js/script.js"></script>
 </body>
 
 </html>
