@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 17 déc. 2021 à 19:23
+-- Généré le :  ven. 17 déc. 2021 à 20:49
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -21,6 +21,126 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `projet_hsp`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `diagnostic`
+--
+
+DROP TABLE IF EXISTS `diagnostic`;
+CREATE TABLE IF NOT EXISTS `diagnostic` (
+  `id` int(10) NOT NULL,
+  `id_utilisateurs` int(10) NOT NULL,
+  `symptomes` longtext COLLATE utf8_bin NOT NULL,
+  `date` date NOT NULL,
+  `niveau_urgence` varchar(10) COLLATE utf8_bin NOT NULL,
+  `id_medec` varchar(10) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_ut_diagnostic` (`id_utilisateurs`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `doctorspecilization`
+--
+
+DROP TABLE IF EXISTS `doctorspecilization`;
+CREATE TABLE IF NOT EXISTS `doctorspecilization` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `specilization` varchar(255) DEFAULT NULL,
+  `creationDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updationDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `doctorspecilization`
+--
+
+INSERT INTO `doctorspecilization` (`id`, `specilization`, `creationDate`, `updationDate`) VALUES
+(1, 'Gynecologist/Obstetrician', '2016-12-28 06:37:25', '0000-00-00 00:00:00'),
+(2, 'General Physician', '2016-12-28 06:38:12', '0000-00-00 00:00:00'),
+(3, 'Dermatologist', '2016-12-28 06:38:48', '0000-00-00 00:00:00'),
+(4, 'Homeopath', '2016-12-28 06:39:26', '0000-00-00 00:00:00'),
+(5, 'Ayurveda', '2016-12-28 06:39:51', '0000-00-00 00:00:00'),
+(6, 'Dentist', '2016-12-28 06:40:08', '0000-00-00 00:00:00'),
+(7, 'Ear-Nose-Throat (Ent) Specialist', '2016-12-28 06:41:18', '0000-00-00 00:00:00'),
+(9, 'Demo test', '2016-12-28 07:37:39', '0000-00-00 00:00:00'),
+(10, 'Bones Specialist demo', '2017-01-07 08:07:53', '0000-00-00 00:00:00'),
+(11, 'Test', '2019-06-23 17:51:06', '2019-06-23 17:55:06'),
+(12, 'Dermatologist', '2019-11-10 18:36:36', '2019-11-10 18:36:50');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `dossier_admission`
+--
+
+DROP TABLE IF EXISTS `dossier_admission`;
+CREATE TABLE IF NOT EXISTS `dossier_admission` (
+  `id` int(10) NOT NULL,
+  `id_utilisateurs` int(10) NOT NULL,
+  `date_naissance` date NOT NULL,
+  `adresse_postale` varchar(40) COLLATE utf8_bin NOT NULL,
+  `mutuelle` varchar(40) COLLATE utf8_bin NOT NULL,
+  `numero_secu` int(40) NOT NULL,
+  `option` varchar(40) COLLATE utf8_bin NOT NULL,
+  `regime_specifique` varchar(40) COLLATE utf8_bin NOT NULL,
+  `id_medecins` varchar(10) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_utilisateurs` (`id_utilisateurs`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `events`
+--
+
+DROP TABLE IF EXISTS `events`;
+CREATE TABLE IF NOT EXISTS `events` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `doctor` varchar(255) NOT NULL,
+  `start_event` datetime NOT NULL,
+  `end_event` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `events`
+--
+
+INSERT INTO `events` (`id`, `title`, `doctor`, `start_event`, `end_event`) VALUES
+(9, 'ob', 'rty', '2021-12-13 00:00:00', '2021-12-15 00:00:00'),
+(10, 'jh', 'jhg', '2021-12-19 00:00:00', '2021-12-23 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `rendezvous`
+--
+
+DROP TABLE IF EXISTS `rendezvous`;
+CREATE TABLE IF NOT EXISTS `rendezvous` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` text COLLATE utf8_bin NOT NULL,
+  `prenom` text COLLATE utf8_bin NOT NULL,
+  `doctorSpecilization` varchar(255) COLLATE utf8_bin NOT NULL,
+  `doctor` varchar(255) COLLATE utf8_bin NOT NULL,
+  `RDVdate` varchar(255) COLLATE utf8_bin NOT NULL,
+  `RDVheure` varchar(255) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Déchargement des données de la table `rendezvous`
+--
+
+INSERT INTO `rendezvous` (`id`, `nom`, `prenom`, `doctorSpecilization`, `doctor`, `RDVdate`, `RDVheure`) VALUES
+(21, 'thanos', 'jam', 'General Physician', 'medecin', '2021-12-17', '20:23');
 
 -- --------------------------------------------------------
 
