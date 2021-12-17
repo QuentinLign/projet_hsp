@@ -49,7 +49,7 @@ if(!isset($_SESSION['email']))
             require_once 'bdd/bdd.php';
 
             $bdd = new bdd;
-            $req=$bdd->getStart()->prepare('SELECT * FROM rendezvous WHERE '.$_SESSION['email'].' ');
+            $req=$bdd->getStart()->prepare('SELECT * FROM rendezvous ');
             $req->execute(array(
             ));
 
@@ -86,7 +86,7 @@ if(!isset($_SESSION['email']))
 								<td>'.$row["prenom"].'</td>
 								<td>'.$row["RDVdate"].'</td>
 								<td>'.$row["RDVheure"].'</td>
-							    <td><a href="../adminkit-dev/class/mvc/manager_sup.php?id='.$row["id"].'">Supprimer</td>
+							    <td><a href="../adminkit-dev/class/mvc/manager_sup_rdv.php?id='.$row["id"].'">Supprimer</td>
 
 
 

@@ -45,7 +45,7 @@ if(!isset($_SESSION['email']))
 
     <div class="card card-body">
         <h3>Ajouter un patient</h3>
-        <form action="class/mvc/traitement_rdv.php" method="post">
+        <form action="class/mvc/traitement_rdv_med.php" method="post">
             <div class="mb-3">
                 <label class="form-label">Nom</label>
                 <input class="form-control form-control-lg" type="text" name="nom" placeholder="Entrer votre nom" required/>

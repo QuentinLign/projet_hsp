@@ -190,28 +190,51 @@ class Manager_User
 
 
   //inscription d'un compte admin
-  public function inscrip_patient(User $inscription)
-  {
-      $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp', 'root', '');
-      $req = $bdd->prepare('SELECT * FROM utilisateurs WHERE email = :email');
-      $req->execute(array('email' => $inscription->getEmail()));
-      $donnee = $req->fetch();
-      if ($donnee) {
-          $_SESSION['erreur_add_admin'] = "L'identifiant est déjà utilisé.";
-          header('Location: ../../ajout_admin.php');
-      } else {
-          $req = $bdd->prepare('INSERT into utilisateurs (nom, prenom, email, mdp, role) value(?,?,?,?, "PAT")');
-          $req->execute(array($inscription->getNom(), $inscription->getPrenom(), $inscription->getEmail(), SHA1($inscription->getMdp(),$inscription->getRole())));
+    public function inscrip_patient_admin(User $inscription)
+    {
+        $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp', 'root', '');
+        $req = $bdd->prepare('SELECT * FROM utilisateurs WHERE email = :email');
+        $req->execute(array('email' => $inscription->getEmail()));
+        $donnee = $req->fetch();
+        if ($donnee) {
+            $_SESSION['erreur_add_admin'] = "L'identifiant est déjà utilisé.";
+            header('Location: ../../ajout_admin.php');
+        } else {
+            $req = $bdd->prepare('INSERT into utilisateurs (nom, prenom, email, mdp, role) value(?,?,?,?, "PAT")');
+            $req->execute(array($inscription->getNom(), $inscription->getPrenom(), $inscription->getEmail(), SHA1($inscription->getMdp(),$inscription->getRole())));
 
-          $a=$req;
-
+            $a=$req;
           if ($a == true) {
-              echo "Patient ajoutée";
-      }else{
+              header('Location: ../../confirmation_admin/conf_ajoutePatient.html');
+          }else{
               echo "erreur";
+
           }
       }
-  }
+    }
+
+    public function inscrip_patient(User $inscription)
+    {
+        $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp', 'root', '');
+        $req = $bdd->prepare('SELECT * FROM utilisateurs WHERE email = :email');
+        $req->execute(array('email' => $inscription->getEmail()));
+        $donnee = $req->fetch();
+        if ($donnee) {
+            $_SESSION['erreur_add_admin'] = "L'identifiant est déjà utilisé.";
+            header('Location: ../../ajout_admin.php');
+        } else {
+            $req = $bdd->prepare('INSERT into utilisateurs (nom, prenom, email, mdp, role) value(?,?,?,?, "PAT")');
+            $req->execute(array($inscription->getNom(), $inscription->getPrenom(), $inscription->getEmail(), SHA1($inscription->getMdp(),$inscription->getRole())));
+
+            $a=$req;
+            if ($a == true) {
+                header('Location: ../../confirmation/conf_ajoutePatient.html');
+            }else{
+                echo "erreur";
+
+            }
+        }
+    }
 
     public function inscrip_med(User $inscription)
     {
@@ -228,7 +251,7 @@ class Manager_User
 
             $a = $req;
             if ($a == true) {
-                echo "Medecin ajoutée";
+                header('Location: ../../confirmation_admin/conf_ajouteMedecin.html');
             }else{
                 echo "erreur";
 
@@ -252,7 +275,7 @@ class Manager_User
 
             $a = $req;
             if ($a == true) {
-                echo "Administrateur ajoutée";
+                header('Location: ../../confirmation_admin/conf_admin.html');
             }else{
                 echo "erreur";
 
@@ -276,9 +299,9 @@ class Manager_User
 
             $a = $req;
             if ($a == true) {
-                echo "Urgentste ajoutée";
+                header('Location: ../../confirmation_admin/conf_ajouteUrg.html');
             }else{
-                echo "c'est gherçgeràçomerjd";
+                echo "Erreur";
 
             }
 
@@ -303,7 +326,7 @@ class Manager_User
       $req = $bdd->prepare('INSERT into dossier_admission (nom, date_naissance, adresse_postale, mutuelle, numero_secu, option, regime_specifique) value(?,?,?,?,?,?,?)');
       $req -> execute(array($dossier->getNom(), $dossier->getDate_naissance(), $dossier->getAdresse_postale(), $dossier->getMutuelle(), $dossier->getNumero_secu(), $dossier->getOption(), $dossier->getRegime_specifique()));
 
-    header('location: ../../Urgentiste.php');
+    header('location: ../confirmation/conf_Urg.php');
           $_SESSION['message_mdp'] = 'Modification enregistré';
     }
   }
@@ -345,7 +368,7 @@ public function diagnostic(Diagnostic $diag)
     return $donnee;
   }
 
-    public function rendezvous(RDV $rdv)
+    public function rendezvousPat(RDV $rdv)
     {
         $bdd = new bdd();
         $req = $bdd->getStart()->prepare('INSERT into rendezvous(nom,prenom,doctorSpecilization,doctor,RDVdate,RDVheure) values(:nom,:prenom,:doctorSpecilization,:doctor,:RDVdate,:RDVheure)');
@@ -359,11 +382,31 @@ public function diagnostic(Diagnostic $diag)
             ));
 
             if ($a == true ) {
-                header('Location: ../../confirm_rdvmed.html');
+                header('Location: ../../confirmation/conf_rdvPatient.html');
             } else {
                 echo "c'est pas bon";
             }
         }
+
+    public function rendezvous(RDV $rdv)
+    {
+        $bdd = new bdd();
+        $req = $bdd->getStart()->prepare('INSERT into rendezvous(nom,prenom,doctorSpecilization,doctor,RDVdate,RDVheure) values(:nom,:prenom,:doctorSpecilization,:doctor,:RDVdate,:RDVheure)');
+        $a =$req->execute(array(
+            'nom'=>$rdv->getNom(),
+            'prenom'=>$rdv->getPrenom(),
+            'doctorSpecilization'=>$rdv->getDoctorSpecilization(),
+            'doctor'=>$rdv->getDoctor(),
+            'RDVdate'=>$rdv->getRDVdate(),
+            'RDVheure'=>$rdv->getRDVheure()
+        ));
+
+        if ($a == true ) {
+            header('Location: ../../confirmation/conf_rdvMedecin.html');
+        } else {
+            echo "c'est pas bon";
+        }
+    }
 
     public function conges(RDV $cong)
     {
@@ -376,7 +419,7 @@ public function diagnostic(Diagnostic $diag)
         ));
 
         if ($a == true ) {
-            header('Location: ../../confirm_rdvmed.html');
+            header('Location: ../../confirmation/conf_rdvMedecin.html');
         } else {
             echo "c'est pas bon";
         }

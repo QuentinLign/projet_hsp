@@ -45,19 +45,6 @@ if(!isset($_SESSION['email']))
                 </a>
             </div>
 
-
-            <?php
-            require_once 'bdd/bdd.php';
-
-
-            $bdd = new bdd;
-            $req=$bdd->getStart()->prepare('SELECT * FROM utilisateurs WHERE role = "MED"');
-            $req->execute(array(
-            ));
-
-            $res=$req->fetchall();
-            ?>
-
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
             <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
@@ -80,7 +67,11 @@ if(!isset($_SESSION['email']))
                         </thead>
                         <?php
                         $bdd = new PDO('mysql:host=localhost;dbname=projet_hsp', 'root', '');
+                        $req=$bdd->prepare('SELECT * FROM utilisateurs WHERE role = "MED"');
+                        $req->execute(array(
+                        ));
 
+                        $res=$req->fetchall();
                         foreach($res as $row )
                         {
                             echo '  
@@ -89,7 +80,7 @@ if(!isset($_SESSION['email']))
 								<td>'.$row["prenom"].'</td>
 								<td>'.$row["email"].'</td>
 								<td>'.$row["role"].'</td>
-								<td><a href="../class/mvc/manager_sup.php?id='.$row["id"].'">Supprimer</td>
+								<td><a href="../adminkit-dev/class/mvc/manager_sup.php?id='.$row["id"].'">Supprimer</td>
 								</tr>
 								';
                         }

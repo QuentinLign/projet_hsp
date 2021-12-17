@@ -3,7 +3,7 @@
 <div class="wrapper">
     <nav id="sidebar" class="sidebar js-sidebar">
         <div class="sidebar-content js-simplebar">
-            <a class="sidebar-brand" href="../../adminkit-dev/index.php">
+            <a class="sidebar-brand" href="../../../projet_hsp/view/index.php">
                 <span class="align-middle">Hôpital</span>
             </a>
 

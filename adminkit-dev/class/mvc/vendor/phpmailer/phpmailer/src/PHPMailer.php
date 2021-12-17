@@ -230,7 +230,7 @@ class PHPMailer
     public $UseSendmailOptions = true;
 
     /**
-     * The email address that a reading confirmation should be sent to, also known as read receipt.
+     * The email address that a reading confirmation_admin should be sent to, also known as read receipt.
      *
      * @var string
      */

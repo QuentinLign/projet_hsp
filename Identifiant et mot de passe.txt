@@ -1,0 +1,9 @@
+idetifiant et MDP pour chaque profil: 
+
+admin@gmail.com/admin
+
+patient@gmail.com/patient
+
+medecin@gmail.com/medecin
+
+urgentiste@gmail.com/urgentiste

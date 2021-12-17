@@ -142,11 +142,6 @@ if(!isset($_SESSION['email']))
                             <label class="form-label">Valider mot de passe</label>
                             <input class="form-control form-control-lg" type="password" name="confirmmdp" placeholder="valider votre mot de passe" required/>
                         </div>
-                        <div class="mb-3">
-                            <input type="checkbox" name="role"
-                                   checked disabled>
-                            <label for="PAT">Patient</label>
-                        </div>
                         <div class="col-lg-12 no-pdd">
                             <button type="submit" class="btn btn-lg btn-primary" value="submit">Créer le compte</button>
                         </div>
@@ -171,7 +166,7 @@ if(!isset($_SESSION['email']))
 
 <div class="collapse" id="r">
     <div class="card card-body">
-        <h3>Ajouter un patient</h3>
+        <h3>Prendre rendez-vous pour le patient</h3>
         <form action="class/mvc/traitement_rdv.php" method="post">
             <div class="mb-3">
                 <label class="form-label">Nom</label>
@@ -184,7 +179,7 @@ if(!isset($_SESSION['email']))
 
 
             <div class="mb-3">
-                <label class="form-label">Mot de passe</label>
+                <label class="form-label">Spécialité</label>
                 <select name="doctorSpecilization" class="form-control"  required="required">
                     <option value="">Selectionner la spécialité</option>
 

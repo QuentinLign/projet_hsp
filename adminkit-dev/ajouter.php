@@ -88,11 +88,6 @@ if(!isset($_SESSION['email']))
                             <label class="form-label">Valider mot de passe</label>
                             <input class="form-control form-control-lg" type="password" name="confirmmdp" placeholder="valider votre mot de passe" required/>
                         </div>
-                        <div class="mb-3">
-                            <input type="checkbox" name="role"
-                                   checked disabled>
-                            <label for="PAT">Patient</label>
-                        </div>
                         <div class="col-lg-12 no-pdd">
                             <button type="submit" class="btn btn-lg btn-primary" value="submit">Créer le compte</button>
                         </div>
@@ -120,7 +115,7 @@ if(!isset($_SESSION['email']))
         <div class="card">
             <div class="card-body">
                 <div class="m-sm-4">
-                    <form action="class/mvc/cible_patient.php" method="post">
+                    <form action="class/mvc/cible_patient_admin.php" method="post">
                         <div class="mb-3">
                             <label class="form-label">Nom</label>
                             <input class="form-control form-control-lg" type="text" name="nom" placeholder="Entrer votre nom" required/>
@@ -141,11 +136,6 @@ if(!isset($_SESSION['email']))
                         <div class="mb-3">
                             <label class="form-label">Valider mot de passe</label>
                             <input class="form-control form-control-lg" type="password" name="confirmmdp" placeholder="valider votre mot de passe" required/>
-                        </div>
-                        <div class="mb-3">
-                            <input type="checkbox" name="role"
-                                   checked disabled>
-                            <label for="PAT">Patient</label>
                         </div>
                         <div class="col-lg-12 no-pdd">
                             <button type="submit" class="btn btn-lg btn-primary" value="submit">Créer le compte</button>
@@ -196,11 +186,6 @@ if(!isset($_SESSION['email']))
                             <label class="form-label">Valider mot de passe</label>
                             <input class="form-control form-control-lg" type="password" name="confirmmdp" placeholder="valider votre mot de passe" required/>
                         </div>
-                        <div class="mb-3">
-                            <input type="checkbox" name="role"
-                                   checked disabled>
-                            <label for="PAT">Patient</label>
-                        </div>
                         <div class="col-lg-12 no-pdd">
                             <button type="submit" class="btn btn-lg btn-primary" value="submit">Créer le compte</button>
                         </div>
@@ -249,11 +234,6 @@ if(!isset($_SESSION['email']))
                         <div class="mb-3">
                             <label class="form-label">Valider mot de passe</label>
                             <input class="form-control form-control-lg" type="password" name="confirmmdp" placeholder="valider votre mot de passe" required/>
-                        </div>
-                        <div class="mb-3">
-                            <input type="checkbox" name="role"
-                                   checked disabled>
-                            <label for="PAT">Patient</label>
                         </div>
                         <div class="col-lg-12 no-pdd">
                             <button type="submit" class="btn btn-lg btn-primary" value="submit">Créer le compte</button>
