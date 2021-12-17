@@ -25,7 +25,6 @@ if(!isset($_SESSION['email']))
     <title>AdminKit Demo - Bootstrap 5 Admin Template</title>
 
     <link href="assets/css/app.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
@@ -402,11 +401,11 @@ if(!isset($_SESSION['email']))
                             <label class="form-label">Niveau</label>
 
                             <input class="form-check-input" type="radio" name="niveau_urgence" id="inlineRadio1" value="vert">
-                            <img for="inlineRadio1" src="img/icons/green.png">
+                            <img for="inlineRadio1" src="assets/img/green.png">
                             <input class="form-check-input" type="radio" name="niveau_urgence" id="inlineRadio2" value="orange">
-                            <img for="inlineRadio2" src="img/icons/orange.png">
+                            <img for="inlineRadio2" src="assets/img/orange.png">
                             <input class="form-check-input" type="radio" name="niveau_urgence" id="inlineRadio3" value="rouge">
-                            <img for="inlineRadio3" src="img/icons/red.png">
+                            <img for="inlineRadio3" src="assets/img/red.png">
                         </div>
 
                         <div class="mb-3">
@@ -486,8 +485,14 @@ if(!isset($_SESSION['email']))
     </div>
 
 </div>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+    <script src="assets/js/app.js"></script>
+ <script type="text/javascript" src="../js/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/popper.js"></script>
+  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../js/jquery.mCustomScrollbar.js"></script>
+  <script type="text/javascript" src="../lib/slick/slick.min.js"></script>
+  <script type="text/javascript" src="../js/script.js"></script>
 
 
 </body>

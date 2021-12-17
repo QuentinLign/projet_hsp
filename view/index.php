@@ -86,7 +86,7 @@ session_start();
             {
               echo '<div class="user-info">
 
-              <a href="adminkit-dev/index.php" title="">'.$_SESSION['nom'].'</a>
+              <a href="#" title="">Bonjour '.$_SESSION['nom'].'</a>
               <i class="la la-sort-down"></i>
               </div>
               <div class="user-account-settingss">
