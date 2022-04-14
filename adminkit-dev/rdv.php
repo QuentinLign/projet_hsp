@@ -44,7 +44,7 @@ if(!isset($_SESSION['email']))
 ?>
 
     <div class="card card-body">
-        <h3>Ajouter un patient</h3>
+        <h3>Rendez-vous</h3>
         <form action="class/mvc/traitement_rdv_med.php" method="post">
             <div class="mb-3">
                 <label class="form-label">Nom</label>
@@ -57,7 +57,7 @@ if(!isset($_SESSION['email']))
 
 
             <div class="mb-3">
-                <label class="form-label">Mot de passe</label>
+                <label class="form-label">spécialité du Médecin</label>
                 <select name="doctorSpecilization" class="form-control"  required="required">
                     <option value="">Selectionner la spécialité</option>
 
