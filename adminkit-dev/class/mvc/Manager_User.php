@@ -98,8 +98,8 @@ class Manager_User
                 exit();
             }
 
-      
-           
+
+
         }
 
         else {
@@ -162,7 +162,7 @@ class Manager_User
 
       }
   }
-  
+
 
   //Update des données utilisateur dans la bdd
   public function recup_mdp(User $change, $email)
@@ -185,7 +185,7 @@ class Manager_User
     $req->execute(array($verif));
     $donnee = $req->fetch();
     $_SESSION['verif'] = $donnee['verif'];
-  
+
   }
 
 
@@ -357,7 +357,7 @@ public function diagnostic(Diagnostic $diag)
     }
   }
 
- 
+
 
   //récupération des données utilisateur pour un affichage
   public function recup_user()
@@ -387,6 +387,26 @@ public function diagnostic(Diagnostic $diag)
                 echo "c'est pas bon";
             }
         }
+
+        public function offre(RDV $rdv)
+        {
+            $bdd = new bdd();
+            $req = $bdd->getStart()->prepare('INSERT into rendezvous(nom,prenom,doctorSpecilization,doctor,RDVdate,RDVheure) values(:nom,:prenom,:doctorSpecilization,:doctor,:RDVdate,:RDVheure)');
+                $a =$req->execute(array(
+                    'nom'=>$rdv->getNom(),
+                    'prenom'=>$rdv->getPrenom(),
+                    'doctorSpecilization'=>$rdv->getDoctorSpecilization(),
+                    'doctor'=>$rdv->getDoctor(),
+                    'RDVdate'=>$rdv->getRDVdate(),
+                    'RDVheure'=>$rdv->getRDVheure()
+                ));
+
+                if ($a == true ) {
+                    header('Location: ../../confirmation/conf_rdvPatient.html');
+                } else {
+                    echo "c'est pas bon";
+                }
+            }
 
     public function rendezvous(RDV $rdv)
     {
